@@ -5,6 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+body {
+  background-color: gray;
+  font-family: 'Oswald', 'Futura', sans-serif;
+ }
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -12,23 +18,100 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  margin: 0;
+
+.upTable{
+ position: fixed;
+top:0px;
+height: 100px;
+width:1890px;
+background-color: #3c763d;
 }
+
+.downTable{
+  position: absolute;
+  background-color: #3c763d;
+  top: 950px;
+  height:100px;
+  width: 1890px;
+}
+#header{
+  margin: auto;
+  width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+input[type='submit'], a.add {
+  background-color: #cb6868;
+  color: #f3dad1;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+table{
+  background-color: #3c763d;
+  height: 110px;
+  width: 1903px;
+}
+.selectbox {
+  display: inline;
+}
+
+#page {
+  background-color: #403c3b;
+  margin: 0 auto 0 auto;
+}
+
+#packageHint, #termsHint {
+  color: #fff;
+  text-shadow: -1px 1px 2px #000;}
 
 article,
 aside,
 footer,
-header,
+header{
+  margin: auto;
+  width: 800px;
+}
 nav,
 section {
   display: block;
 }
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+ h1 {
+  background-position: center;
+  text-align: center;
+  text-indent: -100%;
+  height: 5px;
+  line-height: 5px;
+  width: 80px;
+  margin: 0 auto 0 auto;
+  padding: 30px 20px 40px 10px;
+ }
+h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  margin: 0 0 23px 0;
+ }
+ h2 span {
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  top: -5px;
+  height: 22px;
+  width: 26px;
+  padding: 4px 0 0 0;}
 
 figcaption,
 figure,
@@ -41,12 +124,19 @@ figure {
 }
 
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
 
+  height: inherit;
+  width: inherit;
+  overflow: inherit;
+  border-top: 100px double #0000;
+
+}
+hr.style2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 100px;
+  border-top: 3px solid rgba(10, 10,  10, 10);
+}
 pre {
   font-family: monospace, monospace;
   font-size: 1em;
@@ -264,6 +354,18 @@ template {
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
   }
+  content {
+    background-color: #fff;
+    border: 3px double #31373f;
+    color: #31373f;
+    display: inline-block;
+    padding: 30px 50px;
+    margin: 20px auto 50px auto;
+    max-width: 580px;
+    min-height: 4em;
+    overflow: auto;
+    text-align: center;}
+
   a,
   a:visited {
     text-decoration: underline;
@@ -336,14 +438,6 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.5;
-  color: #292b2c;
-  background-color: #fff;
-}
 
 [tabindex="-1"]:focus {
   outline: none !important;
@@ -357,7 +451,13 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #000000;
+  font-size: larger;
+    text-transform: uppercase;
+
 }
+
+
 
 abbr[title],
 abbr[data-original-title] {
@@ -470,8 +570,10 @@ th {
 }
 
 label {
-  display: inline-block;
-  margin-bottom: .5rem;
+    color: #000;
+  display: block;
+  margin: 10px 0 10px 0;
+  font-size: 24px;
 }
 
 button:focus {
@@ -592,12 +694,12 @@ h6, .h6 {
   line-height: 1.1;
 }
 
-hr {
+/*hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
+}*/
 
 small,
 .small {

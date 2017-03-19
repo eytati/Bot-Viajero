@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Bot-Viajero</title>
+    <meta name="viewport" type="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="css/bootstrap.css">
 </head>
-<body>
 
+<body>
+    <h1></h1>
+        <h2>Bot Viajero</h2>
+    <hr class="style2">
+    <p>Elegir ruta</p>
+
+        <label for="packageOrigen" class="selectbox"> Origen: </label>
+        <select id="packageOrigen">
+          <option value="laFortuna">La Fortuna</option>
+          <option value="monthly">1 month ($5)</option>
+        </select>
+
+         <label for="packageDestino" class="selectbox"> Destino: </label>
+        <select id="packageDestino">
+          <option value="annual">1 year ($50)</option>
+          <option value="monthly">1 month ($5)</option>
+        </select>
+
+        <input type="submit" value="Siguiente" />
+    <hr class="style2">
+  <div id="content">
+    <div id="greeting" class="message">Avión</div>
+    <table>
+      <tr>
+        <td>Distancia: </td>
+        <td id="userSign"></td>
+      </tr>
+         <tr>
+        <td>Tiempo Estimado: </td>
+        <td id="shipping">$</td>
+      </tr>
+      <tr>
+        <td>Precio por kilómetro: </td>
+        <td id="tiles"></td>
+      </tr>
+      <tr>
+        <td>Total: </td>
+        <td id="subTotal">$</td>
+      </tr>
+    </table>
+    <a href="#" class="action">Elegir</a>
+  </div>
 </body>
 </html>
