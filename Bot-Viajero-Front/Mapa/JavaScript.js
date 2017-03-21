@@ -3,8 +3,8 @@
     //map option
     var options = {
         center: {
-            latitud: 9.6229339,
-            longitud: -86.4994862
+            latitud: 9.748916999999999,
+            longitud: -83.75342799999999
         },
         zoom: 10,
         disableDefaultUI: true,

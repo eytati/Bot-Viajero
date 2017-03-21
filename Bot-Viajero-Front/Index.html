@@ -8,8 +8,7 @@
 </head>
 
 <body>
-    <h1></h1>
-        <h2>Bot Viajero</h2>
+<h2><img src="image/location-icon(3).png" width="100" height="100"/>Bot-Viajero</h2>
     <hr class="style2">
     <p>Elegir ruta</p>
 
@@ -25,29 +24,33 @@
           <option value="monthly">1 month ($5)</option>
         </select>
 
-        <input type="submit" value="Siguiente" />
+        <input type="submit" value="Calcular ruta" />
     <hr class="style2">
-  <div id="content">
-    <div id="greeting" class="message">Avión</div>
+<div id="content">
+                <td>Avión</td>
+    <div id="greeting" class="message">Hello!</div>
     <table>
       <tr>
-        <td>Distancia: </td>
+        <td>Custom sign: </td>
         <td id="userSign"></td>
       </tr>
-         <tr>
-        <td>Tiempo Estimado: </td>
-        <td id="shipping">$</td>
-      </tr>
       <tr>
-        <td>Precio por kilómetro: </td>
+        <td>Total tiles: </td>
         <td id="tiles"></td>
       </tr>
       <tr>
-        <td>Total: </td>
+        <td>Subtotal: </td>
         <td id="subTotal">$</td>
       </tr>
+      <tr>
+        <td>Shipping: </td>
+        <td id="shipping">$</td>
+      </tr>
+      <tr>
+        <td>Grand total: </td>
+        <td id="grandTotal">$</td></tr>
     </table>
-    <a href="#" class="action">Elegir</a>
+    <a href="#" class="action">Pay Now</a>
   </div>
 </body>
 </html>
