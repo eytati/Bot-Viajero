@@ -60,7 +60,7 @@ table{
 }
 
 #page {
-  background-color: #403c3b;
+  background-color: #2471A3;
   margin: 0 auto 0 auto;
 }
 
@@ -80,16 +80,18 @@ section {
   display: block;
 }
 
- h1 {
-  background-position: center;
+h1 {
+  background-image: url(../image/location-icon4.png);
+  background-repeat: no-repeat;
+  background-position: center center;
   text-align: center;
-  text-indent: -90%;
-  height: 20px;
-  line-height: 20px;
-  width: 90px;
+  text-indent: -1000%;
+  height: 75px;
+  line-height: 75px;
+  width: 117px;
   margin: 0 auto 0 auto;
-  padding: 50px 40px 40px 50px;
- }
+  padding: 30px 10px 20px 10px;}
+
 h2 {
   color: #fff;
   font-size: 24px;
