@@ -7,7 +7,7 @@
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
 body {
-  background-color: gray;
+  background-color: #2471A3;
   font-family: 'Oswald', 'Futura', sans-serif;
  }
 
@@ -112,6 +112,25 @@ h2 {
   height: 22px;
   width: 26px;
   padding: 4px 0 0 0;}
+
+.one-third{
+  background-color: white;
+  border: 10px solid black;
+  float: left;
+  padding: 10px;
+  margin: 10px;
+  color: #2471A3;
+  overflow: hidden;}
+
+.one-third {width: 250px;}
+.one-third fieldset {border: none; margin: 0.1em;}
+
+.container .one-third, .container .two-thirds {height: 35em;}
+.login .one-third, .login .two-thirds { height: 20em;}
+
+label {width: 100%; display: block;}
+label[for="parentsConsent"], label[for="showPwd"], label[for="search"], label[for="print"], label[for="other"], label[for="parents-consent"] {display: inline;}
+label[for="equipmentType"], label[for="model"] {display: inline-block; width: 4em;}
 
 figcaption,
 figure,
@@ -365,6 +384,9 @@ template {
     min-height: 4em;
     overflow: auto;
     text-align: center;}
+
+.container .one-third, .container .two-thirds {height: 35em;}
+.login .one-third, .login .two-thirds { height: 20em;}
 
   a,
   a:visited {
@@ -2324,7 +2346,7 @@ pre code {
 .table-inverse th,
 .table-inverse td,
 .table-inverse thead th {
-  border-color: #fff;
+  border-color: black;
 }
 
 .table-inverse.table-bordered {

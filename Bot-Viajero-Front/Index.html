@@ -8,49 +8,148 @@
 </head>
 
 <body>
-<h2><img src="image/location-icon(3).png" width="100" height="100"/>Bot-Viajero</h2>
+<h2><img src="image/location-icon(4).png" width="100" height="100"/>Bot-Viajero</h2>
     <hr class="style2">
     <p>Elegir ruta</p>
 
         <label for="packageOrigen" class="selectbox"> Origen: </label>
         <select id="packageOrigen">
           <option value="laFortuna">La Fortuna</option>
-          <option value="monthly">1 month ($5)</option>
+          <option value="Quepos">Quepos</option>
+          <option value="MonteVerde">Monte Verde</option>
+          <option value="Tortuguero">Tortuguero</option>
+          <option value="PuertoJimenez">Puerto Jiménez</option>
+          <option value="Liberia">Liberia</option>
+          <option value="CantodeAlajuela">Cantón de Alajuela</option>
+          <option value="VolcanMiravalles">Volcán Miravalles</option>
+          <option value="Sarapiqui">Sarapiquí</option>
+          <option value="Cahuita">Cahuita</option>
+          <option value="Bagaces">Bagaces/option>
+          <option value="Irazu">Irazú</option>
+          <option value="PerezZeledon">Pérez Zeledón</option>
+          <option value="Uvita">Uvita</option>
+          <option value="Cartago">Cartago</option>
+          <option value="VolcanTenorio">Volcán Tenorio</option>
+          <option value="Turrialba">Turrialba</option>
+          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
+          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
+          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="LosChiles">Los Chiles</option>
+          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya">Nicoya</option>
         </select>
 
          <label for="packageDestino" class="selectbox"> Destino: </label>
         <select id="packageDestino">
-          <option value="annual">1 year ($50)</option>
-          <option value="monthly">1 month ($5)</option>
+                   <option value="laFortuna">La Fortuna</option>
+          <option value="Quepos">Quepos</option>
+          <option value="MonteVerde">Monte Verde</option>
+          <option value="Tortuguero">Tortuguero</option>
+          <option value="PuertoJimenez">Puerto Jiménez</option>
+          <option value="Liberia">Liberia</option>
+          <option value="CantodeAlajuela">Cantón de Alajuela</option>
+          <option value="VolcanMiravalles">Volcán Miravalles</option>
+          <option value="Sarapiqui">Sarapiquí</option>
+          <option value="Cahuita">Cahuita</option>
+          <option value="Bagaces">Bagaces</option>
+          <option value="Irazu">Irazú</option>
+          <option value="PerezZeledon">Pérez Zeledón</option>
+          <option value="Uvita">Uvita</option>
+          <option value="Cartago">Cartago</option>
+          <option value="VolcanTenorio">Volcán Tenorio</option>
+          <option value="Turrialba">Turrialba</option>
+          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
+          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
+          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="LosChiles">Los Chiles</option>
+          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya">Nicoya</option>
         </select>
 
         <input type="submit" value="Calcular ruta" />
     <hr class="style2">
-<div id="content">
-                <td>Avión</td>
-    <div id="greeting" class="message">Hello!</div>
-    <table>
-      <tr>
-        <td>Custom sign: </td>
-        <td id="userSign"></td>
-      </tr>
-      <tr>
-        <td>Total tiles: </td>
-        <td id="tiles"></td>
-      </tr>
-      <tr>
-        <td>Subtotal: </td>
-        <td id="subTotal">$</td>
-      </tr>
-      <tr>
-        <td>Shipping: </td>
-        <td id="shipping">$</td>
-      </tr>
-      <tr>
-        <td>Grand total: </td>
-        <td id="grandTotal">$</td></tr>
-    </table>
-    <a href="#" class="action">Pay Now</a>
-  </div>
+<div align="right" class="one-third column">
+          <fieldset>
+             <div align="center "><img src="image/plane-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonAvion" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+          <fieldset>
+            <div align="center "><img src="image/bus-icon.png"></div>
+              <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonBus" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+
+          <fieldset>
+            <div align="center "><img src="image/train-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonTren" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+
+          <fieldset>
+            <div align="center "><img src="image/taxi-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonTaxi" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
 </body>
 </html>
