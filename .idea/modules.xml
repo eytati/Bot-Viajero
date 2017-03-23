@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Bot-Viajero.iml" filepath="$PROJECT_DIR$/.idea/Bot-Viajero.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/javascript-and-jquery-book-code-0915/c06/.idea/c06.iml" filepath="$USER_HOME$/Downloads/javascript-and-jquery-book-code-0915/c06/.idea/c06.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/javascript-and-jquery-book-code-0915/c08/.idea/c08.iml" filepath="$USER_HOME$/Downloads/javascript-and-jquery-book-code-0915/c08/.idea/c08.iml" />
     </modules>
   </component>
 </project>
