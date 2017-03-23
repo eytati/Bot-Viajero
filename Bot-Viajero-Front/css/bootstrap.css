@@ -18,7 +18,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-
 .upTable{
  position: fixed;
 top:0px;
@@ -50,11 +49,49 @@ input[type='submit'], a.add {
   text-decoration: none;
 }
 
+input[type='submitLog']:hover, a.add:hover {
+  background-color: #2471A3;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  top: 1px;}
+
+input[type='text'], input[type='password'], textarea {
+  background-color: white;
+  color: #666;
+  font-family: 'Oswald', 'Futura', sans-serif;
+  font-size: 24px;
+  width: 96%;
+  padding: 4px 6px;
+  border: 1px solid #999;
+  border-radius: 8px;}
+
+input[type='text']:focus, input[type='password']:focus, textarea:focus {
+  border: 1px solid #fff;
+  background-color: #fff;
+  outline: none;}
+
 table{
   background-color: #3c763d;
   height: 110px;
   width: 1903px;
 }
+input[type='submitLog'], a.add {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  float: right;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;}
+
+
+form {
+  padding: 0 60px 65px 60px;}
 .selectbox {
   display: inline;
 }
@@ -64,6 +101,39 @@ table{
   margin: 0 auto 0 auto;
 }
 
+#page2{
+
+  background-color:white;
+  margin: 0 auto 0 auto;
+}
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: #403c3b;
+  }
+
+  #page2 {
+    max-width: 480px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  #page2 {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #page2 {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}
+/* Larger screens act like a demo for the app */
+@media only screen and (min-width: 960px) {
+  #page2 {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}
 #packageHint, #termsHint {
   color: #fff;
   text-shadow: -1px 1px 2px #000;}
@@ -101,6 +171,7 @@ h2 {
   letter-spacing: .3em;
   margin: 0 0 23px 0;
  }
+
  h2 span {
   background-color: #fff;
   color: #000;
@@ -133,6 +204,7 @@ h2 {
 label {width: 100%; display: block;}
 label[for="parentsConsent"], label[for="showPwd"], label[for="search"], label[for="print"], label[for="other"], label[for="parents-consent"] {display: inline;}
 label[for="equipmentType"], label[for="model"] {display: inline-block; width: 4em;}
+
 
 figcaption,
 figure,
@@ -599,6 +671,11 @@ label {
   margin: 10px 0 10px 0;
   font-size: 24px;
 }
+label2 {
+  color: #2471A3;
+  display: block;
+  margin: 10px 0 10px 0;
+  font-size: 24px;}
 
 button:focus {
   outline: 1px dotted;
