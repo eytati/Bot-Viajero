@@ -697,6 +697,14 @@ label {
   margin: 10px 0 10px 0;
   font-size: 24px;
 }
+
+label3 {
+    color: #000;
+  display: block;
+  margin: 10px 0 10px 0;
+  font-size: 20px;
+}
+
 label2 {
   color: #2471A3;
   display: block;
