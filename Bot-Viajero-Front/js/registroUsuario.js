@@ -17,11 +17,3 @@ var confirmpassword = document.getElementById("pass2").value;
 elUsername.addEventListener('blur', checkPassword, false);
 
 
-        if (password != confirmpassword) {
-            //alert("Passwords Do not match");
-            document.getElementById("password").style.borderColor = "#E34234";
-            document.getElementById("confirmpassword").style.borderColor = "#E34234";
-        }
-        else {
-            alert("Passwords Match!!!");
-        }
