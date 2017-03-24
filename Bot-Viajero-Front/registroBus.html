@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registro de Avion</title>
+    <title>Registro de Bus</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
   </head>
   <body>
     <div id="page2">
 
-      <img align="center" src="image/plane-icon.png" width="100" height="100"/>
+      <img align="center" src="image/bus-icon.png" width="100" height="100"/>
       <h2>Registro</h2>
       <form method="post">
 
-        <label2 for="companyname">Nombre de aereolínea </label2>
+        <label2 for="companyname">Nombre de compañía </label2>
         <input type="text" id="companyname" />
 
+        <label2 for="placa">Placa vehículo </label2>
+        <input type="text" id="placa" />
+
+        <label2 for="conductor">Conductor</label2>
+        
+        <div align="center">
+          <label3>Id</label3>
+           <input type="text" id="IDConductor" />
+
+          <label3>Nombre</label3>
+           <input type="text" id="NombreConductor" />
+
+        <label3>Apellido</label3>
+           <input type="text" id="ApellidoConductor" />
+
+          </div>
         <label2 for="route">Ruta Disponible </label2>
           <div align="center">
         <label3 for="packageOrigen" class="selectbox"> Origen</label3>
@@ -73,8 +89,9 @@
         </select>
 
   </div>
-        <label2 for="cantPasajeros">Cantidad de pasajeros</label2>
-        <input type="number" id="cantPasajeros" />
+
+        <label2 for="costoKilometro">Costo por kilómetro</label2>
+        <input type="number" id="costoKilometro" />
     <br>
 
          <label2 for="horario">Horario</label2>
@@ -83,10 +100,6 @@
 
           <label3> Llegada</label3>
         <input type="time" id="horarioLlegada" />
-
-              <label2>Costo Total</label2>
-                <input type="number" id="costoTotal" />
-
 
         <input type="submitLog" value="Continuar" />
       </form>
