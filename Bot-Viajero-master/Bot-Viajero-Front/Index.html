@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bot-Viajero</title>
+    <meta name="viewport" type="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="css/bootstrap.css">
+    <link rel="stylesheet"  href="css/style.css">
+</head>
+
+<body>
+<h2><img src="image/location-icon.png" width="100" height="100"/>Bot-Viajero</h2>
+    <hr class="style2">
+    <p>Elegir ruta</p>
+<div align="center">
+        <label for="packageOrigen" class="selectbox"> Origen: </label>
+        <select id="packageOrigen">
+          <option value="laFortuna">La Fortuna</option>
+          <option value="Quepos">Quepos</option>
+          <option value="MonteVerde">Monte Verde</option>
+          <option value="Tortuguero">Tortuguero</option>
+          <option value="PuertoJimenez">Puerto Jiménez</option>
+          <option value="Liberia">Liberia</option>
+          <option value="CantodeAlajuela">Cantón de Alajuela</option>
+          <option value="VolcanMiravalles">Volcán Miravalles</option>
+          <option value="Sarapiqui">Sarapiquí</option>
+          <option value="Cahuita">Cahuita</option>
+          <option value="Bagaces">Bagaces/option>
+          <option value="Irazu">Irazú</option>
+          <option value="PerezZeledon">Pérez Zeledón</option>
+          <option value="Uvita">Uvita</option>
+          <option value="Cartago">Cartago</option>
+          <option value="VolcanTenorio">Volcán Tenorio</option>
+          <option value="Turrialba">Turrialba</option>
+          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
+          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
+          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="LosChiles">Los Chiles</option>
+          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya">Nicoya</option>
+        </select>
+
+         <label for="packageDestino" class="selectbox"> Destino: </label>
+        <select id="packageDestino">
+          <option value="laFortuna">La Fortuna</option>
+          <option value="Quepos">Quepos</option>
+          <option value="MonteVerde">Monte Verde</option>
+          <option value="Tortuguero">Tortuguero</option>
+          <option value="PuertoJimenez">Puerto Jiménez</option>
+          <option value="Liberia">Liberia</option>
+          <option value="CantodeAlajuela">Cantón de Alajuela</option>
+          <option value="VolcanMiravalles">Volcán Miravalles</option>
+          <option value="Sarapiqui">Sarapiquí</option>
+          <option value="Cahuita">Cahuita</option>
+          <option value="Bagaces">Bagaces</option>
+          <option value="Irazu">Irazú</option>
+          <option value="PerezZeledon">Pérez Zeledón</option>
+          <option value="Uvita">Uvita</option>
+          <option value="Cartago">Cartago</option>
+          <option value="VolcanTenorio">Volcán Tenorio</option>
+          <option value="Turrialba">Turrialba</option>
+          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
+          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
+          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="LosChiles">Los Chiles</option>
+          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya">Nicoya</option>
+        </select>
+
+        <input type="submit" value="Calcular ruta" />
+  </div>
+
+
+<div align="center" id="cuadro_mapa">
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyADc-BHJM8eIL6QogZDCdJ0WB8hIetkhwk"></script>
+<script src="js/Mapa.js"></script>
+<script src="js/map-options.js"></script>
+<script src="js/script.js"></script>
+</div>
+
+    <hr class="style2">
+
+
+<div align="right" class="one-third column">
+          <fieldset>
+             <div align="center "><img src="image/plane-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonAvion" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+          <fieldset>
+            <div align="center "><img src="image/bus-icon.png"></div>
+              <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonBus" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+
+          <fieldset>
+            <div align="center "><img src="image/train-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonTren" type="submit" value="Elegir" />
+          </fieldset>
+        </div>
+
+        <div align="right" class="one-third column">
+
+          <fieldset>
+            <div align="center "><img src="image/taxi-icon.png"></div>
+            <div>
+              <table>
+                <tr>
+                  <td>Precio:</td>
+                </tr>
+                <tr>
+                  <td>Distancia:</td>
+                </tr>
+                <tr>
+                  <td>Duración:</td>
+                </tr>
+              </table>
+            </div>
+              <input id="botonTaxi" type="submit" value="Elegir" />
+          </fieldset>
+
+        </div>
+</body>
+</html>

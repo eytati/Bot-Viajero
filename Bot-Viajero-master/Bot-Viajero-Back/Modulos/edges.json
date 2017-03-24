@@ -1,0 +1,308 @@
+{
+   "routes":[
+      {
+         "a":6,
+         "b":5,
+         "weight":459.9,
+         "transport":"PLANE"
+      },
+      {
+         "a":6,
+         "b":4,
+         "weight": 327.7,
+         "transport":"PLANE"
+      },
+      {
+         "a":6,
+         "b":7,
+         "weight":202,
+         "transport":"PLANE"
+      },
+		{
+         "a":6,
+         "b":10,
+         "weight":407,
+         "transport":"PLANE"
+      },
+{
+         "a":19,
+         "b":6,
+         "weight":67.2,
+         "transport":"BUS"
+      },
+{
+         "a":6,
+         "b":11,
+         "weight":27.8,
+         "transport":"BUS"
+      },
+{
+         "a":11,
+         "b":24,
+         "weight":91.2,
+         "transport":"BUS"
+      },
+{
+         "a":6,
+         "b":24,
+         "weight":79.7,
+         "transport":"BUS"
+      },
+{
+         "a":6,
+         "b":16,
+         "weight":71.3,
+         "transport":"BUS"
+      },
+{
+         "a":16,
+         "b":8,
+         "weight":90.5,
+         "transport":"BUS"
+      },
+{
+         "a":16,
+         "b":1,
+         "weight":80.4,
+         "transport":"BUS"
+      },
+{
+         "a":16,
+         "b":3,
+         "weight":101,
+         "transport":"BUS"
+      },
+{
+         "a":3,
+         "b":1,
+         "weight":120,
+         "transport":"BUS"
+      },
+{
+         "a":1,
+         "b":7,
+         "weight":115,
+         "transport":"BUS"
+      },
+{
+         "a":23,
+         "b":2,
+         "weight":206,
+         "transport":"BUS"
+      },
+{
+         "a":2,
+         "b":14,
+         "weight":61.4,
+         "transport":"BUS"
+      },
+{
+         "a":3,
+         "b":14,
+         "weight":237,
+         "transport":"BUS"
+      },
+{
+         "a":3,
+         "b":2,
+         "weight":184,
+         "transport":"BUS"
+      },
+{
+         "a":9,
+         "b":4,
+         "weight":137.5,
+         "transport":"BUS"
+      },
+{
+         "a":12,
+         "b":4,
+         "weight":170.8,
+         "transport":"BUS"
+      },
+{
+         "a":14,
+         "b":5,
+         "weight":150,
+         "transport":"BUS"
+      },
+{
+         "a":14,
+         "b":18,
+         "weight":329.1,
+         "transport":"BUS"
+      },
+
+      {
+         "a": 15,
+         "b": 18,
+         "weight": 139.9,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 18,
+         "b": 17,
+         "weight": 297.6,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 4,
+         "b": 17,
+         "weight": 134.5,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 12,
+         "b": 17,
+         "weight": 67.3,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 17,
+         "b": 10,
+         "weight": 161,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 10,
+         "b": 20,
+         "weight": 180,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 10,
+         "b": 21,
+         "weight": 281,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 20,
+         "b": 5,
+         "weight": 390,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 22,
+         "b": 9,
+         "weight": 133,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 24,
+         "b": 3,
+         "weight": 108,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 18,
+         "b": 20,
+         "weight": 345.7,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 20,
+         "b": 7,
+         "weight": 377,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 7,
+         "b": 9,
+         "weight": 81,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 11,
+         "b": 23,
+         "weight": 221,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 19,
+         "b": 22,
+         "weight": 275,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 8,
+         "b": 22,
+         "weight": 443,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 8,
+         "b": 7,
+         "weight": 191.2,
+         "transport": "BUS"
+      },
+
+      {
+         "a": 6,
+         "b": 8,
+         "weight": 67.7,
+         "transport": "BUS"
+      },
+{
+         "a": 13,
+         "b": 7,
+         "weight": 168,
+         "transport": "TRAIN"
+      },
+      {
+         "a": 13,
+         "b": 15,
+         "weight": 123,
+         "transport": "TRAIN"
+      },
+      {
+         "a": 15,
+         "b": 12,
+         "weight": 31.1,
+         "transport": "TRAIN"
+      },
+      {
+         "a": 15,
+         "b": 23,
+         "weight": 60.4,
+         "transport": "TRAIN"
+      },
+
+      {
+         "a": 23,
+         "b": 7,
+         "weight": 51.1,
+         "transport": "TRAIN"
+      },
+
+      {
+         "a": 23,
+         "b": 9,
+         "weight": 50.2,
+         "transport": "TRAIN"
+      },
+
+      {
+         "a": 7,
+         "b": 9,
+         "weight": 81,
+         "transport": "TRAIN"
+      }
+
+   ]
+}
