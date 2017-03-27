@@ -208,6 +208,7 @@ h2 {
   margin: 0 0 23px 0;
  }
 
+<<<<<<< Updated upstream
 #map {
   position: absolute;
   height: 70%;
@@ -227,6 +228,14 @@ h2 {
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
 }
+=======
+#cuadro_mapa {
+    height: 100%;
+    width: 100%;
+
+}
+
+>>>>>>> Stashed changes
  h2 span {
   background-color: #fff;
   color: #000;

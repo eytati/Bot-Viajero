@@ -1,7 +1,7 @@
 (function(window, google, mapa) {
 
     // map options
-    var options = mapa.MAP_OPTIONS,
+        var options = mapa.MAP_OPTIONS,
         element = document.getElementById('cuadro_mapa'),
         map = mapa.create(element, options);
     map.zoom(10);
