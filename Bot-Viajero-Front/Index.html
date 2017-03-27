@@ -5,6 +5,7 @@
     <title>Bot-Viajero</title>
     <meta name="viewport" type="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="css/bootstrap.css">
+
 </head>
 
 <body>
@@ -12,6 +13,7 @@
 <div align="right">
   <input id="botonLogin" type="button" onclick='window.location.assign("login.html")' value="Login" />
   <input id="botonRegistro" type="button" onclick='window.location.assign("registroUsuarios.html")' value="Registro" />
+  <script src="js/script.js"></script>
 </div>
 
 
@@ -22,74 +24,79 @@
 <div align="center">
         <label for="packageOrigen" class="selectbox"> Origen: </label>
         <select id="packageOrigen">
-          <option value="laFortuna">La Fortuna</option>
-          <option value="Quepos">Quepos</option>
-          <option value="MonteVerde">Monte Verde</option>
-          <option value="Tortuguero">Tortuguero</option>
-          <option value="PuertoJimenez">Puerto Jiménez</option>
-          <option value="Liberia">Liberia</option>
-          <option value="CantodeAlajuela">Cantón de Alajuela</option>
-          <option value="VolcanMiravalles">Volcán Miravalles</option>
-          <option value="Sarapiqui">Sarapiquí</option>
-          <option value="Cahuita">Cahuita</option>
-          <option value="Bagaces">Bagaces/option>
-          <option value="Irazu">Irazú</option>
-          <option value="PerezZeledon">Pérez Zeledón</option>
-          <option value="Uvita">Uvita</option>
-          <option value="Cartago">Cartago</option>
-          <option value="VolcanTenorio">Volcán Tenorio</option>
-          <option value="Turrialba">Turrialba</option>
-          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
-          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
-          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Alajuela Province, La Fortuna, Costa Rica">La Fortuna</option>
+          <option value="Quepos, Provincia de Puntarenas, Costa Rica">Quepos</option>
+          <option value="Monte Verde, Costa Rica">Monte Verde</option>
+          <option value="Tortuguero, Provincia de Limón, Costa Rica">Tortuguero</option>
+          <option value="Puerto Jiménez, Provincia de Puntarenas, Costa Rica">Puerto Jiménez</option>
+          <option value="Liberia, Provincia de Guanacaste, Costa Rica">Liberia</option>
+          <option value="Cantón de Alajuela, Provincia de Alajuela, Costa Rica">Canton de Alajuela</option>
+          <option value="Volcán Miravalles, Bagaces, Provincia de Guanacaste, Costa Rica">Volcan Miravalles</option>
+          <option value="Heredia, Sarapiquí, Costa Rica">Sarapiquí</option>
+          <option value="Cahuita, Provincia de Limón, Costa Rica">Cahuita</option>
+          <option value="Bagaces, Provincia de Guanacaste, Costa Rica">Bagaces</option>
+          <option value="Irazú, Provincia de Cartago, Costa Rica">Irazú</option>
+          <option value="Pérez Zeledón, Provincia de San José, Costa Rica">Perez Zeledon</option>
+          <option value="Provincia de Puntarenas, Uvita, Costa Rica">Uvita</option>
+          <option value="Cartago Province, Cartago, Costa Rica">Cartago</option>
+          <option value="Volcan Tenorio, Provincia de Guanacaste, Costa Rica">Volcan Tenorio</option>
+          <option value="Turrialba, Provincia de Cartago, Costa Rica">Turrialba</option>
+          <option value="Parque Nacional Chirripó, Pérez Zeledón, Provincia de San José, Costa Rica">Parque Nacional
+            Chirripó</option>
+          <option value="Península de Santa Elena, Provincia de Guanacaste, Costa Rica">Península Santa Elena</option>
+          <option value="Parque Nacional La Amistad, Provincia de Limón, Costa Rica">Parque Nacional La Amistad</option>
           <option value="Talamanca">Talamanca</option>
-          <option value="LosChiles">Los Chiles</option>
-          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
-          <option value="Nicoya">Nicoya</option>
+          <option value="Los Chiles, Provincia de Alajuela, Costa Rica">Los Chiles</option>
+          <option value="Parque Nacional Braulio Carrillo, Provincia de Heredia, Costa Rica">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya, Provincia de Guanacaste, Costa Rica">Nicoya</option>
         </select>
 
          <label for="packageDestino" class="selectbox"> Destino: </label>
         <select id="packageDestino">
-          <option value="laFortuna">La Fortuna</option>
-          <option value="Quepos">Quepos</option>
-          <option value="MonteVerde">Monte Verde</option>
-          <option value="Tortuguero">Tortuguero</option>
-          <option value="PuertoJimenez">Puerto Jiménez</option>
-          <option value="Liberia">Liberia</option>
-          <option value="CantodeAlajuela">Cantón de Alajuela</option>
-          <option value="VolcanMiravalles">Volcán Miravalles</option>
-          <option value="Sarapiqui">Sarapiquí</option>
-          <option value="Cahuita">Cahuita</option>
-          <option value="Bagaces">Bagaces</option>
-          <option value="Irazu">Irazú</option>
-          <option value="PerezZeledon">Pérez Zeledón</option>
-          <option value="Uvita">Uvita</option>
-          <option value="Cartago">Cartago</option>
-          <option value="VolcanTenorio">Volcán Tenorio</option>
-          <option value="Turrialba">Turrialba</option>
-          <option value="ParqueNacionalChirripo">Parque Nacional Chirripó</option>
-          <option value="PeninsuladeSantaElena">Península de Santa Elena</option>
-          <option value="ParqueInternacionalLaAmistad">Parque Internacional La Amistad</option>
+          <option value="Alajuela Province, La Fortuna, Costa Rica">La Fortuna</option>
+          <option value="Quepos, Provincia de Puntarenas, Costa Rica">Quepos</option>
+          <option value="Monte Verde, Costa Rica">Monte Verde</option>
+          <option value="Tortuguero, Provincia de Limón, Costa Rica">Tortuguero</option>
+          <option value="Puerto Jiménez, Provincia de Puntarenas, Costa Rica">Puerto Jiménez</option>
+          <option value="Liberia, Provincia de Guanacaste, Costa Rica">Liberia</option>
+          <option value="Cantón de Alajuela, Provincia de Alajuela, Costa Rica">Canton de Alajuela</option>
+          <option value="Volcán Miravalles, Bagaces, Provincia de Guanacaste, Costa Rica">Volcan Miravalles</option>
+          <option value="Heredia, Sarapiquí, Costa Rica">Sarapiquí</option>
+          <option value="Cahuita, Provincia de Limón, Costa Rica">Cahuita</option>
+          <option value="Bagaces, Provincia de Guanacaste, Costa Rica">Bagaces</option>
+          <option value="Irazú, Provincia de Cartago, Costa Rica">Irazú</option>
+          <option value="Pérez Zeledón, Provincia de San José, Costa Rica">Perez Zeledon</option>
+          <option value="Provincia de Puntarenas, Uvita, Costa Rica">Uvita</option>
+          <option value="Cartago Province, Cartago, Costa Rica">Cartago</option>
+          <option value="Volcan Tenorio, Provincia de Guanacaste, Costa Rica">Volcan Tenorio</option>
+          <option value="Turrialba, Provincia de Cartago, Costa Rica">Turrialba</option>
+          <option value="Parque Nacional Chirripó, Pérez Zeledón, Provincia de San José, Costa Rica">Parque Nacional
+            Chirripó</option>
+          <option value="Península de Santa Elena, Provincia de Guanacaste, Costa Rica">Península Santa Elena</option>
+          <option value="Parque Nacional La Amistad, Provincia de Limón, Costa Rica">Parque Nacional La Amistad</option>
           <option value="Talamanca">Talamanca</option>
-          <option value="LosChiles">Los Chiles</option>
-          <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
-          <option value="Nicoya">Nicoya</option>
+          <option value="Los Chiles, Provincia de Alajuela, Costa Rica">Los Chiles</option>
+          <option value="Parque Nacional Braulio Carrillo, Provincia de Heredia, Costa Rica">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya, Provincia de Guanacaste, Costa Rica">Nicoya</option>
         </select>
 
-        <input type="submit" value="Calcular ruta" />
   </div>
 
-<div id="cuadro_mapa"></div>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyADc-BHJM8eIL6QogZDCdJ0WB8hIetkhwk"></script>
-<script src="Mapa_v2/Mapa.js"></script>
-<script src="Mapa_v2/map-options.js"></script>
-<script src="Mapa_v2/script.js"></script>
-    <hr class="style2">
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7aRWyE2wqIKQ9iruYf0O1vQCgqjuUgj8&callback=initMap"
+        async defer></script>
 
+    <hr class="style2">
+<style>
+.one-third {
+  position: relative;
+}
+</style>
 
 <div align="right" class="one-third column">
           <fieldset>
-             <div align="center "><img src="image/plane-icon.png"></div>
+
+             <div class = "cuadro" align="center "><img src="image/plane-icon.png"></div>
             <div>
               <table>
                 <tr>
@@ -169,5 +176,6 @@
           </fieldset>
 
         </div>
+
 </body>
 </html>
