@@ -6,5 +6,5 @@ class feature_password():
          pas =self.password_hash = pwd_context.encrypt(password)
          return pas
 
-    def verify_password(self, password):
-        return pwd_context.verify(password, self.password_hash)
+    def verify_password(self, password, password2):
+        return pwd_context.verify(password, password2)

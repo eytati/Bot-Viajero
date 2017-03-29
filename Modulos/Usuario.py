@@ -33,3 +33,5 @@ class usuario():
         user = db.verificar_usuario(usuario)
         return user
 
+    def verificar_usuario_pass(self, usu, passw):
+        return self.db.verificar_usuario_y_pass(usu, passw)

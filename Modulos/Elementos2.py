@@ -1,4 +1,4 @@
-
+from Modulos import Password_propia
 class base_de_datos:
     matriz = []
     instance = None
@@ -79,3 +79,20 @@ class base_de_datos:
                         existe = True
                         break
         return respuesta
+
+    def verificar_usuario_y_pass(self, usuario, password):
+        es_correcto= False
+        for linea in range(len(self.matriz)):
+            if es_correcto is True:
+                break
+            for columna in range(len(self.matriz[linea])):
+                if not self.matriz[linea][columna] is None:
+                    json_usuarios = self.matriz[linea][columna]
+                    if usuario == json_usuarios['persona'].get('usuario'):
+                        prueba = Password_propia.feature_password()
+                        prueba5 = str(json_usuarios['persona'].get('password'))
+                        if prueba.verify_password(password, prueba5):
+                            print("Sirve")
+                            es_correcto = True
+                            break
+        return es_correcto
