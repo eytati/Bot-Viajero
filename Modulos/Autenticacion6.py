@@ -12,11 +12,11 @@ def nuevo_usuario():
     username = request.json.get('username')
     password = request.json.get('password')
     repassword = request.json.get('repassword')
-    if username is None or password is None:# or repassword is None:
-        abort(400) # faltan datos
+    if username is None or password is None:#
+        abort(400)
         return "Faltan Datos"
     if usuario.verificar_usuario(username):
-        abort(400)#Existe usuario
+        abort(400)
         return 'Ya existe un usuario'
     if not password== repassword:
         abort(400)
@@ -37,15 +37,10 @@ def revision_de_datos():
     username = request.json.get('username')
     password = request.json.get('password')
     usuario =  Usuario.usuario()
-    contra =  Password_propia.feature_password()
-    password_con_hash = contra.hash_password(password)
-    usuario_prueba = usuario.verificar_usuario_pass(username, password_con_hash)
+    usuario_prueba = usuario.verificar_usuario_pass(username, password)
     if not usuario_prueba:
         abort(400)
     return "Su usuario es correcto"
-
-
-
 
 
 @app.route('/api/token')
