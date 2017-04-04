@@ -15,13 +15,15 @@ class usuario():
         return self.db.verificar_usuario(usu)
 
     def generate_auth_token(self, usuario, expiration=700):
+
         serializacion = Serializer('Hola', expires_in=expiration)
         #Solicitar que retorne el usuario
         return serializacion.dumps({'id': self.db.verificar_usuario(usuario)})
 
     @staticmethod
-    def verify_auth_token(token):
-        s = Serializer('Hola')
+    def verify_auth_token(token, id):
+
+        s = Serializer(id)
         try:
             data = s.loads(token)
         except SignatureExpired:

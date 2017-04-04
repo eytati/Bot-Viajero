@@ -8,6 +8,7 @@ registro_auth = HTTPBasicAuth()
 
 @app.route('/api/registrar/persona', methods = ['POST'])
 def nuevo_usuario():
+
     usuario = Usuario.usuario()
     username = request.json.get('username')
     password = request.json.get('password')
@@ -32,6 +33,22 @@ def nuevo_usuario():
 def get_resource():
     return jsonify({ 'Hello' })
 
+@app.route('/api/login/persona', methods = ['GET'])
+@registro_auth.verify_password
+def revision_de_datos(user, passw):
+    usuario =  Usuario.usuario()
+    usuario_prueba = usuario.verificar_usuario_pass(user, passw)
+    if not usuario_prueba:
+        abort(400)
+    token = usuario.generate_auth_token(usuario, expiration=700)
+    return jsonify({'token': token.decode('ascii')})
+
+
+
+
+
+
+'''
 @app.route('/api/login/persona', methods = ['POST'])
 def revision_de_datos():
     username = request.json.get('username')
@@ -40,17 +57,8 @@ def revision_de_datos():
     usuario_prueba = usuario.verificar_usuario_pass(username, password)
     if not usuario_prueba:
         abort(400)
-    return "Su usuario es correcto"
-
-
-@app.route('/api/token')
-#@auth.login_required
-def get_auth_token():
-    token = g.user.generate_auth_token()
-    return jsonify({ 'token': token.decode('ascii') })
-
-
-
-
+    token = usuario.generate_auth_token(usuario, expiration=700)
+    return jsonify({'token': token.decode('ascii')})
+'''
 if __name__ == '__main__':
     app.run()
