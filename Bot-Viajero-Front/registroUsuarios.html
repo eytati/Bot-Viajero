@@ -3,7 +3,7 @@
   <head>
     <title>Registro de usuarios</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
-    <script src="js/registroUsuario.js"></script>
+   <!-- <script src="js/registroUsuario.js"></script>-->
   </head>
 
   <body>
@@ -21,14 +21,15 @@
         <input type="password" id="password" />
 
           <label2 for="confirmpassword">Confirmar contraseña: </label2>
-        <input type="password" id="confirmpassword" />
+        <input type="password" id="confirmPassword" />
+        <div id="confirmMessage"></div>
 
-        <input type="button" onclick="alert2('Hola Mundo')" href="Index.html" value="Registrar" />
 
-        />
+        <input type="button" value="Register">
+        <!-- <input type="button" onclick="alert2('Hola Mundo'); window.location.assign('registroUsuarios.html')" value="Registrar" />-->
       </form>
     </div>
 
-
+      <script src="js/registroUsuario.js"></script>
   </body>
 </html>

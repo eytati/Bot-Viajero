@@ -11,8 +11,8 @@ def nuevo_usuario():
     usuario = Usuario.usuario()
     username = request.json.get('username')
     password = request.json.get('password')
-    repassword = request.json.get('repassword')
-    if username is None or password is None:# or repassword is None:
+    repassword = request.json.get('confirmPassword')
+    if username is None or password is None:# or confirmPassword is None:
         abort(400) # faltan datos
         return "Faltan Datos"
     if usuario.verificar_usuario(username):
