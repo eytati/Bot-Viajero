@@ -11,7 +11,7 @@
 
       <img align="center" src="image/location-icon4.png" width="100" height="100"/>
       <h2>Registro</h2>
-      <form method="post">
+      <form>
 
         <label2 for="username">Nombre de usuario: </label2>
         <input type="text" id="username" />
@@ -20,16 +20,15 @@
         <label2 for="password">Contraseña: </label2>
         <input type="password" id="password" />
 
-          <label2 for="confirmpassword">Confirmar contraseña: </label2>
-        <input type="password" id="confirmPassword" />
+          <label2 for="repassword">Confirmar contraseña: </label2>
+        <input type="password" id="repassword" />
         <div id="confirmMessage"></div>
 
+    <script  src="js/register.js"></script>
 
-        <input type="button" id= "botonRegistroUsuario" onclick='window.location.assign("Index.html")' value="Registrar">
+       <button onclick="register()">Registrar</button>
         <!-- <input type="button" onclick="alert2('Hola Mundo'); window.location.assign('registroUsuarios.html')" value="Registrar" />-->
       </form>
     </div>
-
-      <script src="js/registroUsuario.js"></script>
   </body>
 </html>

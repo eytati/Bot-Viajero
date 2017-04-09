@@ -1,5 +1,5 @@
 
-function registerPrueba() {
+function register() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var repassword = document.getElementById("repassword").value;
