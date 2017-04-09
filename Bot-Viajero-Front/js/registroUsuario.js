@@ -1,5 +1,6 @@
 
 function registerPrueba() {
+  //  var formP = document.getElementById("formP").submit();
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var repassword = document.getElementById("repassword").value;
@@ -26,8 +27,7 @@ function registerPrueba() {
                 data: data,
                 dataType: 'json',
                 success : function(result) {
-
-                    //alert("done")
+                    alert("Registrado con éxito")
                  window.location.href="Index.html"
 
     },           error: function(error){

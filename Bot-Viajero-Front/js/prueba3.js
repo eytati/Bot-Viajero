@@ -1,27 +1,40 @@
 
 function registerPlane() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var repassword = document.getElementById("repassword").value;
+    var companyname = document.getElementById("companyname").value;
+    var packageOrigen = document.getElementById("packageOrigen").value;
+    var packageDestino = document.getElementById("packageDestino").value;
+    var cantPasajeros = document.getElementById("cantPasajeros").value;
+    var horarioSalida = document.getElementById("horarioSalida").value;
+    var horarioLlegada = document.getElementById("horarioLlegada").value;
+    var costoTotal = document.getElementById("costoTotal").value;
 
        /* var json_data=
             {
-            "username": "palo",
-            "password": "pass",
-            "repassword": "pass"
+           "companyname": "American,
+            "packageOrigen": "Irazu,
+            "packageDestino": Puerto Viejo,
+            "cantPasajeros": 100,
+            "horarioSalida": 12: 00 am,
+            "horarioLlegada": 4:00 pm,
+            "costoTotal": 15000,
+
     }*/
        var jsonP=
-           {
-                "username": username,
-            "password": password,
-            "repassword": repassword
+           {"companyname": companyname,
+            "packageOrigen": packageOrigen,
+            "packageDestino": packageDestino,
+            "cantPasajeros": cantPasajeros,
+            "horarioSalida": horarioSalida,
+            "horarioLlegada": horarioLlegada,
+            "costoTotal": costoTotal,
+
            }
 
      var data = JSON.stringify(jsonP);
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.137:5016/api/registrar/persona',
+                url: 'http://192.168.1.137:5016/api/registrar/ruta',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
@@ -35,3 +48,5 @@ function registerPlane() {
 }
             })
         }
+
+

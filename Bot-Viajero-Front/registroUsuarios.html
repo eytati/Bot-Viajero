@@ -3,6 +3,8 @@
   <head>
     <title>Registro de usuarios</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
    <!-- <script src="js/registroUsuario.js"></script>-->
   </head>
 
@@ -11,24 +13,23 @@
 
       <img align="center" src="image/location-icon4.png" width="100" height="100"/>
       <h2>Registro</h2>
-      <form>
 
         <label2 for="username">Nombre de usuario: </label2>
-        <input type="text" id="username" />
+        <div align="center"> <input type="text" id="username" /></div>
+
         <div id="feedback"></div>
 
         <label2 for="password">Contraseña: </label2>
-        <input type="password" id="password" />
+        <div align="center"> <input type="password" id="password" /></div>
 
           <label2 for="repassword">Confirmar contraseña: </label2>
-        <input type="password" id="repassword" />
+        <div align="center "><input type="password" id="repassword" /></div>
         <div id="confirmMessage"></div>
 
-    <script  src="js/register.js"></script>
+    <script  src="js/registroUsuario.js"></script>
+  <br>
+      <div align="right"><button onclick="registerPrueba()">Registrar</button></div>
 
-       <button onclick="register()">Registrar</button>
-        <!-- <input type="button" onclick="alert2('Hola Mundo'); window.location.assign('registroUsuarios.html')" value="Registrar" />-->
-      </form>
     </div>
   </body>
 </html>

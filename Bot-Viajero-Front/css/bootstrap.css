@@ -82,11 +82,21 @@ input[type='submitLog']:hover, a.add:hover {
   position: relative;
   top: 1px;}
 
-input[type='text'], input[type='password'], textarea {
+input[type='text'], input[type='password'], input[type='number'], textarea {
   background-color: white;
   color: #666;
   font-family: 'Oswald', 'Futura', sans-serif;
   font-size: 24px;
+  width: 96%;
+  padding: 4px 6px;
+  border: 1px solid #999;
+  border-radius: 8px;}
+
+input[type='number'],input[type='time'] ,textarea {
+  background-color: white;
+  color: #666;
+  font-family: 'Oswald', 'Futura', sans-serif;
+  font-size: 18px;
   width: 96%;
   padding: 4px 6px;
   border: 1px solid #999;
@@ -148,6 +158,10 @@ form {
   background-color:white;
   margin: 0 auto 0 auto;
 }
+
+#espacio{
+ margin-top: 10px;
+  }
 @media only screen and (max-width: 500px) {
   body {
     background-color: #403c3b;
@@ -399,9 +413,32 @@ textarea {
   margin: 0;
 }
 
-button,
+button{
+    background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
 input {
-  overflow: visible;
+
+
+  background-color: white;
+  color: white;
+  border: gray;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 button,
@@ -755,13 +792,15 @@ label3 {
     color: #000;
   display: block;
   margin: 10px 0 10px 0;
+  margin-left: 10px;
   font-size: 17px;
 }
 
 label2 {
   color: #2471A3;
   display: block;
-  margin: 10px 0 10px 0;
+  margin: 10px 10px 10px 0;
+  margin-left: 10px;
   font-size: 24px;}
 
 button:focus {
