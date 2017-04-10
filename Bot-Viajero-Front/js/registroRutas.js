@@ -1,10 +1,10 @@
-/**
- * Created by hunterz on 4/8/17.
- */
+
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR AVION----------------------------------------------//
 var tokenTest = sessionStorage.getItem("tokenTest");
+    alert("hola");
 
 function registroAvion() {
+
     var company = document.getElementById("company").value;
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;
@@ -32,7 +32,7 @@ function registroAvion() {
             "passengers": passengers,
             "departure_time": departure_time,
             "arrival_time": arrival_time,
-            "total": total,
+            "total": total
 
            }
 
@@ -97,10 +97,10 @@ function registroAvion() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-                beforeSend: function (xhr,) {
-                    xhr.setRequestHeader("Authorization", "Basic "
-                        + btoa(tokenTest + ":" + password));
-                },
+                //beforeSend: function (xhr,) {
+                   // xhr.setRequestHeader("Authorization", "Basic "
+                 //       + btoa(tokenTest + ":" + password));
+               // },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
@@ -110,7 +110,7 @@ function registroAvion() {
                  alert(error);
 }
             })
-        }
+        };
 
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR TAXI----------------------------------------------//
 
@@ -175,7 +175,7 @@ function registroAvion() {
                  alert(error);
 }
             })
-        }
+        };
 
 
  //-----------------------------------SCRIPT REGISTRO DE RUTA POR BUS----------------------------------------------//
@@ -233,4 +233,4 @@ function registroAvion() {
                  alert(error);
 }
             })
-        }
+        };

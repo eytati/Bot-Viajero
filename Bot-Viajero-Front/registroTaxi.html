@@ -3,7 +3,7 @@
   <head>
     <title>Registro de Taxi</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
-            <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 
   </head>
   <body>
@@ -32,8 +32,11 @@
 
           </div>
         <label2 for="route">Ruta Disponible </label2>
+
           <div align="center">
+
         <label3 for="origin" class="selectbox"> Origen</label3>
+
         <select id="origin">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
@@ -91,19 +94,21 @@
 
   </div>
 
-        <label2 for="total">Costo por kilómetro</label2>
-        <input type="number" id="total" />
+      <label2 for="total">Costo por kilómetro</label2>
+      <input type="number" id="total" />
     <br>
 
-         <label2 for="horario">Horario</label2>
-          <label3> Salida</label3>
-        <input type="time" id="horarioSalida" />
+      <label2 for="horario">Horario</label2>
 
-          <label3> Llegada</label3>
-        <input type="time" id="arrive_time" />
-<script src="js/registroRutas.js"></script>
+      <label3> Salida</label3>
+      <input type="time" id="departure_time" />
 
-       <div align="right"><button onclick="registroTaxi()">Registrar</button></div>
+      <label3> Llegada</label3>
+      <input type="time" id="arrive_time" />
+
+      <script src="js/registroTaxi.js"></script>
+<br>
+      <div align="right"><button onclick="registro_Taxi()">Registrar</button></div>
     </div>
   </body>
 </html>

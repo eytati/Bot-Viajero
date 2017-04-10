@@ -3,7 +3,7 @@
   <head>
     <title>Registro de Tren</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
-            <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 
   </head>
   <body>
@@ -16,9 +16,12 @@
         <input type="text" id="company" />
 
         <label2 for="route">Ruta Disponible </label2>
-          <div align="center">
-        <label3 for="origin" class="selectbox"> Origen</label3>
-        <select id="origin">
+
+        <div align="center">
+
+          <label3 for="origin" class="selectbox"> Origen</label3>
+
+          <select id="origin">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
           <option value="MonteVerde">Monte Verde</option>
@@ -46,7 +49,8 @@
         </select>
 <br>
          <label3 for="destination" class="selectbox"> Destino </label3>
-        <select id="destination">
+
+          <select id="destination">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
           <option value="MonteVerde">Monte Verde</option>
@@ -76,17 +80,21 @@
   </div>
 
     <br>
-         <label2 for="horario">Horario</label2>
-          <label3> Salida</label3>
+        <label2 for="horario">Horario</label2>
+        <label3> Salida</label3>
         <input type="time" id="departure_time" />
 
-          <label3> Llegada</label3>
-        <input type="time" id="arrive_time" />
+        <label3> Llegada</label3>
+        <input type="time" id="arrival_time" />
 
-         <label2 for="total">Costo total</label2>
+        <label2 for="total">Costo total</label2>
         <input type="number" id="total" />
-<script src="js/registroRutas.js"></script>
-      <div align="right"><button onclick="registroTren()">Registrar</button></div>
+
+        <script src="js/registroTren.js"></script>
+
+        <br>
+
+      <div align="right"><button onclick="registro_Tren()">Registrar</button></div>
 
     </div>
   </body>

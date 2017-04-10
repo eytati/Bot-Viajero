@@ -1,3 +1,4 @@
+    alert("hola");
 
 function registerPrueba() {
   //  var formP = document.getElementById("formP").submit();

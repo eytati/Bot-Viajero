@@ -3,7 +3,7 @@
   <head>
     <title>Registro de Bus</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
-            <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 
   </head>
   <body>
@@ -19,12 +19,13 @@
         <input type="text" id="registration" />
 
         <label2 for="conductor">Conductor asignado</label2>
-        <input type="text" id="conductor" />
+        <input type="text" id="name" />
 
 
         <label2 for="route">Ruta Disponible </label2>
           <div align="center">
         <label3 for="origin" class="selectbox"> Origen</label3>
+
         <select id="origin">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
@@ -53,6 +54,7 @@
         </select>
             <br>
          <label3 for="destination" class="selectbox"> Destino </label3>
+
         <select id="destination">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
@@ -87,9 +89,9 @@
         <label2 for="total">Costo total</label2>
         <input type="number" id="total"/>
     <br>
-<script src="js/registroRutas.js"></script>
+<script src="js/registroBus.js.js"></script>
 
-      <div align="right"><button onclick="registroBus()">Registrar</button>
+      <div align="right"><button onclick="registro_Bus()">Registrar</button>
 </div>
 
     </div>
