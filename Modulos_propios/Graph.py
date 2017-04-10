@@ -1,7 +1,6 @@
 import networkx as nx
 import json
 
-
 class creacion_de_grafo:
     grafo = nx.Graph()
     instance = None
@@ -10,35 +9,33 @@ class creacion_de_grafo:
         if not self.grafo.instance:
             self.grafo.instance = self
 
-    def carga_de_nodos(self,grafo):
+
+    def carga_de_nodos(self):
         nodos = []
-        with open('data.json') as datos_json:
+        with open('data2.json') as datos_json:
             nodos = json.load(datos_json)
 
             for contador in range(len (nodos["locations"])):
-                grafo.add_node(nodos["locations"][contador].get('id'), nodos["locations"][contador])
+                self.grafo.add_node(nodos["locations"][contador].get('id'), nodos["locations"][contador])
 
 
-
-        json = {"ID": 1, "Nombre": "Alajuela"}
-
-        grafo.add_node(json["ID"], json)
-        print()
-
-
-    def carga_de_aristas(self,grafo):
+    def carga_de_aristas(self):
         aristas = []
-        with open('edges.json') as datos_json:
+        with open('edges2.json') as datos_json:
             aristas = json.load(datos_json)
         for contador in range(len(aristas["routes"])):
             peso = aristas['routes'][contador].get('weight')
-            grafo.add_edge(aristas['routes'][contador].get('a'), aristas['routes'][contador].get('b'), weight= peso)
+            self.grafo.add_edge(aristas['routes'][contador].get('a'), aristas['routes'][contador].get('b'), weight= peso)
+
+    def create_edge(self, origin, destination, data_json):
+        self.grafo.add_edge(origin, destination, json)
+
+
 
 class accede_al_grafo:
-
     a = creacion_de_grafo()
-    a.carga_de_nodos(a.grafo)
-    a.carga_de_aristas(a.grafo)
+    a.carga_de_nodos()
+    a.carga_de_aristas()
 
     def ruta_mas_corta(self, id1, id2):
         b =nx.dijkstra_path(self.a.grafo, id1, id2)
