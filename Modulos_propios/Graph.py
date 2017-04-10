@@ -18,6 +18,14 @@ class creacion_de_grafo:
             for contador in range(len (nodos["locations"])):
                 grafo.add_node(nodos["locations"][contador].get('id'), nodos["locations"][contador])
 
+
+
+        json = {"ID": 1, "Nombre": "Alajuela"}
+
+        grafo.add_node(json["ID"], json)
+        print()
+
+
     def carga_de_aristas(self,grafo):
         aristas = []
         with open('edges.json') as datos_json:
