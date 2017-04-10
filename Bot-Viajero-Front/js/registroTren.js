@@ -1,8 +1,9 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
 
-    alert('hola');
 
 function registro_Tren() {
+        alert('hola');
+
     var company = document.getElementById("company").value;
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;

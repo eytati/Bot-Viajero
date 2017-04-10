@@ -3,12 +3,14 @@ var tokenTest = sessionStorage.getItem("tokenTest");
     alert("Hola");
 
 function registro_Bus() {
-    var company = document.getElementById("companyname").value;
+    var company = document.getElementById("company").value;
     var registration = document.getElementById("registration").value;
     var name = document.getElementById("name").value;
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;
     var passengers = document.getElementById("passengers").value;
+    var departure_time= document.getElementById("departure_time").value;
+    var arrival_time= document.getElementById("arrival_time");
     var total = document.getElementById("total").value;
 
        /* var json_data=
@@ -30,6 +32,8 @@ function registro_Bus() {
            "origin": origin,
            "destination": destination,
            "passengers": passengers,
+           "departure_time": departure_time,
+           "arrival_time":arrival_time,
            "total": total
 
            }

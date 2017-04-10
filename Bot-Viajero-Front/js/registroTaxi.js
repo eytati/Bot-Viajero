@@ -1,6 +1,9 @@
-    alert("Hola");
+var tokenTest = sessionStorage.getItem("tokenTest");
+
 
 function registro_Taxi() {
+        alert('hola');
+
     var company = document.getElementById("company").value;
     var registration = document.getElementById("registration").value;
     var id = document.getElementById("id").value;
@@ -28,30 +31,30 @@ function registro_Taxi() {
 
        var jsonP=
            {"company": company,
-            "id": registration,
-            "IDConductor": id,
+            "registration": registration,
+            "id": id,
             "name": name,
             "lastname": lastname,
             "origin": origin,
             "destination": destination,
             "total": total,
             "departure_time": departure_time,
-            "horarioLlegada": arrival_time,
+            "arrival_time": arrival_time,
 
            }
+      alert(jsonP)
 
-     var data = JSON.stringify(jsonP);
-      //alert(data)
+      var data = JSON.stringify(jsonP);
             $.ajax({
                 type: 'POST',
                 url: 'http://192.168.1.137:5016/api/registrar/ruta/taxi',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-                 //beforeSend: function (header,) {
-                  //  header.setRequestHeader("Authorization", "Basic "
-                //        + btoa(tokenTest + ":" + password));
-              //  },
+                //beforeSend: function (xhr,) {
+                   // xhr.setRequestHeader("Authorization", "Basic "
+                 //       + btoa(tokenTest + ":" + password));
+               // },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
@@ -61,4 +64,4 @@ function registro_Taxi() {
                  alert(error);
 }
             })
-        };
+        }

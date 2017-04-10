@@ -1,4 +1,4 @@
-
+/*
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR AVION----------------------------------------------//
 var tokenTest = sessionStorage.getItem("tokenTest");
     alert("hola");
@@ -14,7 +14,7 @@ function registroAvion() {
     var total = document.getElementById("total").value;
 
 
-       /* var json_data=
+       var json_data=
             {
            "companyname": "American,
             "packageOrigen": "Irazu,
@@ -23,7 +23,7 @@ function registroAvion() {
             "horarioSalida": 12: 00 am,
             "horarioLlegada": 4:00 pm,
             "costoTotal": 15000,
-    }*/
+    }
 
        var jsonP=
            {"company": company,
@@ -67,7 +67,7 @@ function registroAvion() {
     var arrival_time = document.getElementById("arrival_time").value;
     var total = document.getElementById("total").value;
 
-       /* var json_data=
+       var json_data=
             {
            "companyname": "American,
             "packageOrigen": "Irazu,
@@ -76,7 +76,7 @@ function registroAvion() {
             "horarioSalida": 12: 00 am,
             "horarioLlegada": 4:00 pm,
             "costoTotal": 15000,
-    }*/
+    }
 
        var jsonP=
            {"company": company,
@@ -126,8 +126,8 @@ function registroAvion() {
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("horarioLlegada").value;
 
-       /* var json_data=
-            {
+        var json_data=
+           {
            "companyname": TaxiTico,
             "placa": 3454,
             "IDConductor": 2234213,
@@ -138,7 +138,7 @@ function registroAvion() {
             "costoKilometro": 575,
             "horarioSalida": 9:00 pm,
             "horarioLlegada": 1:00 am,
-    }*/
+    }
 
        var jsonP=
            {"company": company,
@@ -189,7 +189,7 @@ function registroAvion() {
     var capacidad = document.getElementById("capacidad").value;
     var costoTotal = document.getElementById("costoTotal").value;
 
-       /* var json_data=
+       var json_data=
             {
            "companyname": "TicaBus",
            "placa": "67281",
@@ -198,7 +198,7 @@ function registroAvion() {
            "packageDestino": "Turrialba",
            "capacidad": 50,
            "costoTotal": 3000
-    }*/
+    }
 
        var jsonP=
            {
@@ -233,4 +233,4 @@ function registroAvion() {
                  alert(error);
 }
             })
-        };
+        };*/
