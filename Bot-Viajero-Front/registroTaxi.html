@@ -3,6 +3,8 @@
   <head>
     <title>Registro de Taxi</title>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+            <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
   </head>
   <body>
     <div id="page2">
@@ -10,11 +12,11 @@
       <img align="center" src="image/taxi-icon.png" width="100" height="100"/>
       <h2>Registro</h2>
 
-        <label2 for="companyname">Nombre de compañía </label2>
-        <input type="text" id="companyname" />
+        <label2 for="company">Nombre de compañía </label2>
+        <input type="text" id="company" />
 
-        <label2 for="placa">Placa vehículo </label2>
-        <input type="text" id="placa" />
+        <label2 for="registration">Placa vehículo </label2>
+        <input type="text" id="registration" />
 
         <label2 for="conductor">Conductor</label2>
 
@@ -23,16 +25,16 @@
            <input type="text" id="IDConductor" />
 
           <label3>Nombre</label3>
-           <input type="text" id="NombreConductor" />
+           <input type="text" id="name" />
 
         <label3>Apellido</label3>
-           <input type="text" id="ApellidoConductor" />
+           <input type="text" id="last_name" />
 
           </div>
         <label2 for="route">Ruta Disponible </label2>
           <div align="center">
-        <label3 for="packageOrigen" class="selectbox"> Origen</label3>
-        <select id="packageOrigen">
+        <label3 for="origin" class="selectbox"> Origen</label3>
+        <select id="origin">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
           <option value="MonteVerde">Monte Verde</option>
@@ -59,8 +61,8 @@
           <option value="Nicoya">Nicoya</option>
         </select>
 <br>
-         <label3 for="packageDestino" class="selectbox"> Destino </label3>
-        <select id="packageDestino">
+         <label3 for="destination" class="selectbox"> Destino </label3>
+        <select id="destination">
           <option value="laFortuna">La Fortuna</option>
           <option value="Quepos">Quepos</option>
           <option value="MonteVerde">Monte Verde</option>
@@ -89,8 +91,8 @@
 
   </div>
 
-        <label2 for="costoKilometro">Costo por kilómetro</label2>
-        <input type="number" id="costoKilometro" />
+        <label2 for="total">Costo por kilómetro</label2>
+        <input type="number" id="total" />
     <br>
 
          <label2 for="horario">Horario</label2>
@@ -98,8 +100,8 @@
         <input type="time" id="horarioSalida" />
 
           <label3> Llegada</label3>
-        <input type="time" id="horarioLlegada" />
-   <script src="prueba3.html"></script>
+        <input type="time" id="arrive_time" />
+<script src="js/registroRutas.js"></script>
 
        <div align="right"><button onclick="registroTaxi()">Registrar</button></div>
     </div>

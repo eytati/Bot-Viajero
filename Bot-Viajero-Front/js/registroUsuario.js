@@ -27,7 +27,7 @@ function registerPrueba() {
                 data: data,
                 dataType: 'json',
                 success : function(result) {
-                    alert("Registrado con éxito")
+                 alert("Registrado con éxito")
                  window.location.href="Index.html"
 
     },           error: function(error){

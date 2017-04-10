@@ -426,6 +426,20 @@ button{
   font-size: 18px;
   text-decoration: none;
 }
+
+#minibutton{
+    background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 2px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
 input {
 
 

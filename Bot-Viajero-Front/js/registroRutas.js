@@ -2,6 +2,8 @@
  * Created by hunterz on 4/8/17.
  */
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR AVION----------------------------------------------//
+var tokenTest = sessionStorage.getItem("tokenTest");
+
 function registroAvion() {
     var companyname = document.getElementById("companyname").value;
     var packageOrigen = document.getElementById("packageOrigen").value;
@@ -10,6 +12,7 @@ function registroAvion() {
     var horarioSalida = document.getElementById("horarioSalida").value;
     var horarioLlegada = document.getElementById("horarioLlegada").value;
     var costoTotal = document.getElementById("costoTotal").value;
+
 
        /* var json_data=
             {
@@ -41,9 +44,14 @@ function registroAvion() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
+                beforeSend: function (xhr,) {
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(tokenTest + ":" + password));
+                },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
+
                  window.location.href="Index.html"
 
     },           error: function(error){
@@ -93,6 +101,10 @@ function registroAvion() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
+                beforeSend: function (xhr,) {
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(tokenTest + ":" + password));
+                },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
@@ -154,6 +166,10 @@ function registroAvion() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
+                 beforeSend: function (header,) {
+                    header.setRequestHeader("Authorization", "Basic "
+                        + btoa(tokenTest + ":" + password));
+                },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
@@ -208,6 +224,10 @@ function registroAvion() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
+                 beforeSend: function (header,) {
+                    header.setRequestHeader("Authorization", "Basic "
+                        + btoa(tokenTest + ":" + password));
+                },
                 success : function(result) {
 
                    // alert("Regisrado con éxito")
