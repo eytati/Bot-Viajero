@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Registro de Avion</title>
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-  </head>
-  <body>
-    <div id="page2">
+<html lang="en">
+<head>
+    <title>Prueba</title>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>Mashape Query</title>
 
-      <img align="center" src="image/plane-icon.png" width="100" height="100"/>
-      <h2>Registro</h2>
+</head>
+<body>
 
-        <label2 for="companyname">Nombre de aereolínea </label2>
+         <label2 for="companyname">Nombre de aereolínea </label2>
         <input type="text" id="companyname" />
+        <label2 for="username">Password: </label2>
+        <input type="password" id="password" />
+        <label2 for="username">Repassword: </label2>
+        <input type="password" id="repassword" />
 
-        <label2 for="route">Ruta Disponible </label2>
+               <label2 for="route">Ruta Disponible </label2>
           <div align="center">
         <label3 for="packageOrigen" class="selectbox"> Origen</label3>
         <select id="packageOrigen">
@@ -42,7 +45,7 @@
           <option value="ParqueNacionalBraulioCarrillo">Parque Nacional Braulio Carrillo</option>
           <option value="Nicoya">Nicoya</option>
         </select>
-<br>
+
          <label3 for="packageDestino" class="selectbox"> Destino </label3>
         <select id="packageDestino">
           <option value="laFortuna">La Fortuna</option>
@@ -84,9 +87,12 @@
 
               <label2>Costo Total</label2>
                 <input type="number" id="costoTotal" />
-        <script src="prueba3.html"></script>
 
-       <div align="right"><button onclick="registroAvion()">Registrar</button>
-    </div></div>
-  </body>
+<script src="js/prueba.js">
+
+    </script>
+
+<button onclick="registerPlane()">Registrar</button>
+<!--<div id="output">The API request is:</div>-->
+</body>
 </html>

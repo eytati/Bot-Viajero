@@ -1,25 +1,37 @@
 
+function registerPrueba() {
+  //  var formP = document.getElementById("formP").submit();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var repassword = document.getElementById("repassword").value;
 
-alert("Hola Mundo");
+       /* var json_data=
+            {
+            "username": "palo",
+            "password": "pass",
+            "repassword": "pass"
+    }*/
+       var jsonP=
+           {
+                "username": username,
+            "password": password,
+            "repassword": repassword
+           }
 
-function getMyData(data) {
-    alert(data);
+     var data = JSON.stringify(jsonP);
+      //alert(data)
+            $.ajax({
+                type: 'POST',
+                url: 'http://192.168.1.137:5016/api/registrar/persona',
+                contentType:"application/json",
+                data: data,
+                dataType: 'json',
+                success : function(result) {
+                    alert("Registrado con éxito")
+                 window.location.href="Index.html"
+
+    },           error: function(error){
+                 alert(error);
 }
-
-getMyData("Enter your data here");
-
-var username = ana;
-var password = ana;
-var repassword = ana;
-
-var json_registro = {"username": username, "password": password, "repassword": repassword};
-alert2({
-            type: 'POST',
-            url: '127.0.0.1:5000/api/registrar/persona',
-            data: json_registro,
-            dataType: 'application/json',
-            success: function(data) {
-             alert("POSTED SUCCESSFULLY TO THE SERVER");
-             $('#subscribePage').html('<h1>POSTED</h1>');
-          } // Success Function
-          });
+            })
+        }

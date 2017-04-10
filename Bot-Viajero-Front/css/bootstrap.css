@@ -82,7 +82,7 @@ input[type='submitLog']:hover, a.add:hover {
   position: relative;
   top: 1px;}
 
-input[type='text'], input[type='password'], textarea {
+input[type='text'], input[type='password'], input[type='number'], textarea {
   background-color: white;
   color: #666;
   font-family: 'Oswald', 'Futura', sans-serif;
@@ -92,10 +92,37 @@ input[type='text'], input[type='password'], textarea {
   border: 1px solid #999;
   border-radius: 8px;}
 
+input[type='number'],input[type='time'] ,textarea {
+  background-color: white;
+  color: #666;
+  font-family: 'Oswald', 'Futura', sans-serif;
+  font-size: 18px;
+  width: 96%;
+  padding: 4px 6px;
+  border: 1px solid #999;
+  border-radius: 8px;}
+
 input[type='text']:focus, input[type='password']:focus, textarea:focus {
   border: 1px solid #fff;
   background-color: #fff;
   outline: none;}
+
+#feedback, #termsHint {
+  color: #000000;
+  background-image: url('../image/warning.png');
+  background-repeat: no-repeat;
+  background-position: 2px 14px;
+  padding: 10px 0 0 22px;}
+
+#feedback.warning {background-image: url('../image/warning.png');}
+#feedback.tip {background-image: url('../image/tip.png');}
+
+#packageHint {
+  color: #fff;
+  background-image: url('../image/hint.png');
+  background-repeat: no-repeat;
+  background-position: 2px 5px;
+  padding-left: 22px;}
 
 table{
   background-color: #3c763d;
@@ -131,6 +158,10 @@ form {
   background-color:white;
   margin: 0 auto 0 auto;
 }
+
+#espacio{
+ margin-top: 10px;
+  }
 @media only screen and (max-width: 500px) {
   body {
     background-color: #403c3b;
@@ -307,11 +338,11 @@ strong {
   top: 600px;}
 
 
-.one-third {width: 250px; top:600px;}
-.one-third fieldset {border: none; margin: 0.1em; top:600px;}
+.one-third {width: 260px; top:610px; align-content: center}
+.one-third fieldset {border: none; margin: 0.2em; top:600px; align-content: center}
 
-.container .one-third, .container .two-thirds {height: 35em; top:600px;}
-.login .one-third, .login .two-thirds { height: 20em; top:600px;}
+.container .one-third, .container .two-thirds {height: 35em; top:600px; align-content: center}
+.login .one-third, .login .two-thirds { height: 30em; top:610px; align-content: center}
 
 label {width: 100%; display: block;}
 label[for="parentsConsent"], label[for="showPwd"], label[for="search"], label[for="print"], label[for="other"], label[for="parents-consent"] {display: inline;}
@@ -382,9 +413,32 @@ textarea {
   margin: 0;
 }
 
-button,
+button{
+    background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
 input {
-  overflow: visible;
+
+
+  background-color: white;
+  color: white;
+  border: gray;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 button,
@@ -418,6 +472,7 @@ fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
+  align-content: center;
 }
 
 legend {
@@ -515,8 +570,8 @@ template {
     overflow: auto;
     text-align: center;}
 
-.container .one-third, .container .two-thirds {height: 35em;}
-.login .one-third, .login .two-thirds { height: 20em;}
+.container .one-third, .container .two-thirds {height: 35em; align-content: center}
+.login .one-third, .login .two-thirds { height: 20em; align-content: center}
 
   a,
   a:visited {
@@ -737,13 +792,15 @@ label3 {
     color: #000;
   display: block;
   margin: 10px 0 10px 0;
+  margin-left: 10px;
   font-size: 17px;
 }
 
 label2 {
   color: #2471A3;
   display: block;
-  margin: 10px 0 10px 0;
+  margin: 10px 10px 10px 0;
+  margin-left: 10px;
   font-size: 24px;}
 
 button:focus {
@@ -779,6 +836,7 @@ fieldset {
   padding: 0;
   margin: 0;
   border: 0;
+  align-content: center;
 }
 
 legend {
