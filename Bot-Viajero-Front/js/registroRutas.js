@@ -5,13 +5,13 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
 
 function registroAvion() {
-    var companyname = document.getElementById("companyname").value;
-    var packageOrigen = document.getElementById("packageOrigen").value;
-    var packageDestino = document.getElementById("packageDestino").value;
-    var cantPasajeros = document.getElementById("cantPasajeros").value;
-    var horarioSalida = document.getElementById("horarioSalida").value;
-    var horarioLlegada = document.getElementById("horarioLlegada").value;
-    var costoTotal = document.getElementById("costoTotal").value;
+    var company = document.getElementById("company").value;
+    var origin = document.getElementById("origin").value;
+    var destination = document.getElementById("destination").value;
+    var passengers = document.getElementById("passengers").value;
+    var departure_time = document.getElementById("departure_time").value;
+    var arrival_time = document.getElementById("arrive_time").value;
+    var total = document.getElementById("total").value;
 
 
        /* var json_data=
@@ -26,13 +26,13 @@ function registroAvion() {
     }*/
 
        var jsonP=
-           {"companyname": companyname,
-            "packageOrigen": packageOrigen,
-            "packageDestino": packageDestino,
-            "cantPasajeros": cantPasajeros,
-            "horarioSalida": horarioSalida,
-            "horarioLlegada": horarioLlegada,
-            "costoTotal": costoTotal,
+           {"company": company,
+            "origin": origin,
+            "destination": destination,
+            "passengers": passengers,
+            "departure_time": departure_time,
+            "arrival_time": arrival_time,
+            "total": total,
 
            }
 
@@ -40,17 +40,13 @@ function registroAvion() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.137:5016/api/registrar/ruta/Avion',
+                url: 'http://192.168.1.137:5016/api/registrar/ruta/avion',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-                beforeSend: function (xhr,) {
-                    xhr.setRequestHeader("Authorization", "Basic "
-                        + btoa(tokenTest + ":" + password));
-                },
-                success : function(result) {
+                success : function(result, e) {
 
-                   // alert("Regisrado con éxito")
+                    alert(result)
 
                  window.location.href="Index.html"
 
@@ -58,18 +54,18 @@ function registroAvion() {
                  alert(error);
 }
             })
-        }
+        };
 
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR TREN----------------------------------------------//
 
         function registroTren() {
-    var companyname = document.getElementById("companyname").value;
-    var packageOrigen = document.getElementById("packageOrigen").value;
-    var packageDestino = document.getElementById("packageDestino").value;
-    var cantPasajeros = document.getElementById("cantPasajeros").value;
-    var horarioSalida = document.getElementById("horarioSalida").value;
-    var horarioLlegada = document.getElementById("horarioLlegada").value;
-    var costoTotal = document.getElementById("costoTotal").value;
+    var company = document.getElementById("company").value;
+    var origin = document.getElementById("origin").value;
+    var destination = document.getElementById("destination").value;
+    //var cantPasajeros = document.getElementById("cantPasajeros").value;
+    var departure_time = document.getElementById("departure_time").value;
+    var arrival_time = document.getElementById("arrival_time").value;
+    var total = document.getElementById("total").value;
 
        /* var json_data=
             {
@@ -83,13 +79,13 @@ function registroAvion() {
     }*/
 
        var jsonP=
-           {"companyname": companyname,
-            "packageOrigen": packageOrigen,
-            "packageDestino": packageDestino,
-            "cantPasajeros": cantPasajeros,
-            "horarioSalida": horarioSalida,
-            "horarioLlegada": horarioLlegada,
-            "costoTotal": costoTotal,
+           {"company": company,
+            "origin": origin,
+            "destination": destination,
+          //  "cantPasajeros": cantPasajeros,
+            "departure_time": departure_time,
+            "arrival_time": arrival_time,
+            "total": total,
 
            }
 
@@ -97,7 +93,7 @@ function registroAvion() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.137:5016/api/registrar/ruta/Tren',
+                url: 'http://192.168.1.137:5016/api/registrar/ruta/tren',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
@@ -119,16 +115,16 @@ function registroAvion() {
 //-----------------------------------SCRIPT REGISTRO DE RUTA POR TAXI----------------------------------------------//
 
         function registroTaxi() {
-    var companyname = document.getElementById("companyname").value;
-    var placa = document.getElementById("placa").value;
-    var IDConductor = document.getElementById("IDConductor").value;
-    var nombreConductor = document.getElementById("nombreConductor").value;
-    var apellidosConductor = document.getElementById("apellidosConductor").value;
-    var packageOrigen = document.getElementById("packageOrigen").value;
-    var packageDestino = document.getElementById("packageDestino").value;
-    var costoKilometro = document.getElementById("costoKilometro").value;
-    var horarioSalida = document.getElementById("horarioSalida").value;
-    var horarioLlegada = document.getElementById("horarioLlegada").value;
+    var company = document.getElementById("company").value;
+    var registration = document.getElementById("registration").value;
+    var id = document.getElementById("id").value;
+    var name = document.getElementById("name").value;
+    var lastname = document.getElementById("lastname").value;
+    var origin = document.getElementById("origin").value;
+    var destination = document.getElementById("destination").value;
+    var total = document.getElementById("total").value;
+    var departure_time = document.getElementById("departure_time").value;
+    var arrival_time = document.getElementById("horarioLlegada").value;
 
        /* var json_data=
             {
@@ -145,16 +141,16 @@ function registroAvion() {
     }*/
 
        var jsonP=
-           {"companyname": companyname,
-            "placa": placa,
-            "IDConductor": IDConductor,
-            "nombreConductor": nombreConductor,
-            "apellidosConductor": apellidosConductor,
-            "packageOrigen": packageOrigen,
-            "packageDestino": packageDestino,
-            "costoKilometro": costoKilometro,
-            "horarioSalida": horarioSalida,
-            "horarioLlegada": horarioLlegada,
+           {"company": company,
+            "id": registration,
+            "IDConductor": id,
+            "name": name,
+            "lastname": lastname,
+            "origin": origin,
+            "destination": destination,
+            "total": total,
+            "departure_time": departure_time,
+            "horarioLlegada": arrival_time,
 
            }
 
@@ -185,7 +181,7 @@ function registroAvion() {
  //-----------------------------------SCRIPT REGISTRO DE RUTA POR BUS----------------------------------------------//
 
         function registroBus() {
-    var companyname = document.getElementById("companyname").value;
+    var company = document.getElementById("companyname").value;
     var placa = document.getElementById("placa").value;
     var nombreConductor = document.getElementById("nombreConductor").value;
     var packageOrigen = document.getElementById("packageOrigen").value;
@@ -206,7 +202,7 @@ function registroAvion() {
 
        var jsonP=
            {
-           "companyname": companyname,
+           "companyname": company,
            "placa": placa,
            "nombreConductor": nombreConductor,
            "packageOrigen": packageOrigen,
@@ -225,7 +221,7 @@ function registroAvion() {
                 data: data,
                 dataType: 'json',
                  beforeSend: function (header,) {
-                    header.setRequestHeader("Authorization", "Basic "
+                    xhr.setRequestHeader("Authorization", "Basic "
                         + btoa(tokenTest + ":" + password));
                 },
                 success : function(result) {

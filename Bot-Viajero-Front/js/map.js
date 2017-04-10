@@ -3,7 +3,7 @@ function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 6,
-        center: {lat: 10.0000000, lng: -84.0000000},
+        center: {lat: 9.748916999999999, lng: -83.75342799999999},
         draggable: false
     });
     directionsDisplay.setMap(map);
@@ -11,14 +11,14 @@ function initMap() {
     var onChangeHandler = function() {
         calculateAndDisplay(directions, directionsDisplay);
     };
-    document.getElementById('packageDestino').addEventListener('change', onChangeHandler);
-    document.getElementById('packageDestino').addEventListener('change', onChangeHandler);
+    document.getElementById('origin').addEventListener('change', onChangeHandler);
+    document.getElementById('destination').addEventListener('change', onChangeHandler);
 }
 
 function calculateAndDisplay(directionsService, directionsDisplay) {
     directionsService.route({
-        origin: document.getElementById('packageOrigen').value,
-        destination: document.getElementById('packageDestino').value,
+        origin: document.getElementById('origin').value,
+        destination: document.getElementById('destination').value,
         travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -28,13 +28,3 @@ function calculateAndDisplay(directionsService, directionsDisplay) {
         }
     });
 }
-
-/*$.ajax({
-    type: "POST",
-    contentType: "application/json; charset=utf-8",
-    url: "<URL WEBSERVICE>",
-    dataType: "json",
-    data: "<PARÁMETROS>",
-    success: function (data){<RESPUESTA_WEB_SERVICE>},
-    error: function (data){<ERROR_WEB_SERVICE>}
-});*/
