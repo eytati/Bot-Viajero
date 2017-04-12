@@ -25,10 +25,10 @@ instance_method_register_route = Method_Register_Route.Register_routes()
 
 
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
-@app.route('/hola', methods=["GET",'POST'])
+@app.route('/hola', methods=["GET"])
 @registro_auth.login_required
 def hola():
-    return "Hola"
+    return instance_method_register_route.load_data(base_de_datos)
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])

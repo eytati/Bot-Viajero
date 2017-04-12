@@ -1,4 +1,3 @@
-from flask import Response
 from flask import request, jsonify
 from  Modulos_propios import Graph
 
@@ -10,7 +9,7 @@ class Register_routes():
         company = request.json.get('company')
         origin = request.json.get('origin')
         destination = request.json.get('destination')
-        passangers= request.json.get('passangers')
+        passengers= request.json.get('passengers')
         departure_time= request.json.get('departure_time')
         arrival_time = request.json.get('arrival_time')
         total = request.json.get('total')
@@ -18,27 +17,34 @@ class Register_routes():
 #-----------------------------------------------Revision de datos------------------------------------------------------#
         if company is None or origin is None:
             # abort(400)
-            print("Faltan Datos")
-            return jsonify({"Error": "Faltan datos"})
+            print("Faltan Datos1")
+            return jsonify({"Error": "Faltan datos 1"})
 
-        if destination is None or passangers is None or departure_time is None:
+        if destination is None or passengers is None or departure_time is None:
             # abort(400)
-            print("Faltan Datos")
-            return jsonify({"Error": "Faltan datos"})
+            print("Faltan Datos2")
+            return jsonify({"Error": "Faltan datos 2"})
 
         if arrival_time is None or total is None:
             # abort(400)
-            print("Faltan Datos")
-            return jsonify({"Error": "Faltan datos"})
+            print("Faltan Datos3")
+            return jsonify({"Error": "Faltan datos 3"})
 
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
-        json_edges_db = {"type": "plane", "company": company, "origin": origin, "destination" : destination,"passangers": passangers, "departure_time": departure_time, "arrival_time" : arrival_time, "total": total}
+        json_edges_db = {"type": "plane",
+                         "company": company,
+                         "origin": origin,
+                         "destination" : destination,
+                         "passangers": passengers,
+                         "departure_time": departure_time,
+                         "arrival_time" : arrival_time,
+                         "total": total}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes =string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-        return jsonify({"Estado": "Se agrego correctamente"})
-
+        self.load_one(json_edges_db)
+        return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Tren--------------------------------------------------------------------------------#
     def register_train(self, string_connection):
@@ -79,8 +85,8 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-
-        return jsonify({"Estado": "Se agrego correctamente"})
+        self.load_one(json_edges_db)
+        return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Taxi--------------------------------------------------------------------------------#
 
@@ -135,8 +141,8 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-
-        return jsonify({"Estado": "Se agrego correctamente"})
+        self.load_one(json_edges_db)
+        return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar bus--------------------------------------------------------------------------------#
     def register_bus(self, string_connection):
@@ -190,5 +196,22 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
+        self.load_one(json_edges_db)
+        return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
-        return jsonify({'Estado': "Se agrego correctamente"})
+
+#-------------------------------------------Cargar Rutas de la base de Datos-------------------------------------------#
+    def load_data(self, string_connection):
+        collection_routes = string_connection.db.Rutas
+        for counter in collection_routes.find():
+             self.load_one(counter)
+        return jsonify({"Estado": "Se agrego a la base de datos"})
+
+#------------------------------------------------Cargar una arista-----------------------------------------------------#
+    def load_one(self,data):
+        load_graph = Graph.creacion_de_grafo()
+        origin = data['origin']
+        destination = data['destination']
+        load_graph.create_edge(origin, destination, data)
+        print("origin: " + origin + " destination: " + destination + "json" + str(data))
+        return jsonify({"Estado":"Se realiza correctamente", "\nDatos":str(data)})

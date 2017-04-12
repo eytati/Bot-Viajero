@@ -18,7 +18,6 @@ class creacion_de_grafo:
             for contador in range(len (nodos["locations"])):
                 self.grafo.add_node(nodos["locations"][contador].get('id'), nodos["locations"][contador])
 
-
     def carga_de_aristas(self):
         aristas = []
         with open('edges2.json') as datos_json:
@@ -28,7 +27,7 @@ class creacion_de_grafo:
             self.grafo.add_edge(aristas['routes'][contador].get('a'), aristas['routes'][contador].get('b'), weight= peso)
 
     def create_edge(self, origin, destination, data_json):
-        self.grafo.add_edge(origin, destination, json)
+        self.grafo.add_edge(origin, destination, data_json)
 
 
 
