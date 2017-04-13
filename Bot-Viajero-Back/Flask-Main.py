@@ -19,16 +19,22 @@ app.config['MONGO_URI'] = 'mongodb://botViajero:bot5917@ds135800.mlab.com:35800/
 app.config.from_object(__name__)
 base_de_datos = PyMongo(app)
 
+
 #----------------------------------Instancia de la clase de los metodos de persona-------------------------------------#
 instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_register_route = Method_Register_Route.Register_routes()
+instance_method_load_data = Method_Register_Route.Load_data()
+instance_method_routes = Method_Routes.Use_graph()
+
+
 
 
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
-@app.route('/hola', methods=["GET"])
-@registro_auth.login_required
-def hola():
-    return instance_method_register_route.load_data(base_de_datos)
+@app.route('/', methods=["GET"])
+def index():
+    instance_method_load_data.load_data_nodes(base_de_datos)
+    instance_method_load_data.load_data_edges(base_de_datos)
+    return instance_method_routes.list_places()
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])
