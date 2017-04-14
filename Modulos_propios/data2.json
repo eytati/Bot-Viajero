@@ -26,7 +26,7 @@
     },
     {
       "id" : 5,
-      "ciudad" : "Puerto Jiménez",
+      "ciudad" : "Puerto Jimenez",
       "latitude" : 8.5336439,
       "longitude" : -83.30678019999999
     },
@@ -38,19 +38,19 @@
     },
     {
       "id" : 7,
-      "ciudad" : "Cantón de Alajuela",
+      "ciudad" : "Canton de Alajuela",
       "latitude" : 10.0525756,
       "longitude" : -84.20679919999998
     },
     {
       "id" : 8,
-      "ciudad" : "Volcán Miravalles",
+      "ciudad" : "Volcan Miravalles",
       "latitude" : 10.0525756,
       "longitude" : -84.20679919999998
     },
     {
       "id" : 9,
-      "ciudad" : "Sarapiquí",
+      "ciudad" : "Sarapiqui",
       "latitude" : 10.473523,
       "longitude" : -84.01674229999998
     },
@@ -68,13 +68,13 @@
     },
     {
       "id" : 12,
-      "ciudad" : "Irazú",
+      "ciudad" : "Irazu",
       "latitude" : 9.9799813,
       "longitude" : -85.23084140000003
     },
     {
       "id" : 13,
-      "ciudad" : "Pérez Zeledón",
+      "ciudad" : "Perez Zeledon",
       "latitude" : 9.35473,
       "longitude" : -83.63484299999999
     },
@@ -92,7 +92,7 @@
     },
     {
       "id" : 16,
-      "ciudad" : "Volcán Tenorio",
+      "ciudad" : "Volcan Tenorio",
       "latitude" : 10.6713889,
       "longitude" : -85.01249999999999
     },
@@ -104,13 +104,13 @@
     },
     {
       "id" : 18,
-      "ciudad" : "Parque Nacional Chirripó",
+      "ciudad" : "Parque Nacional Chirripo",
       "latitude" : 9.5134327,
       "longitude" : -83.4946218
     },
     {
       "id" : 19,
-      "ciudad" : "Península de Santa Elena",
+      "ciudad" : "Peninsula de Santa Elena",
       "latitude" : 10.8841185,
       "longitude" : -85.78716630000002
     },

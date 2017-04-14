@@ -30,7 +30,7 @@ instance_method_routes = Method_Routes.Use_graph()
 
 
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
-@app.route('/', methods=["GET"])
+@app.route('/api/ciudades', methods=["GET"])
 def index():
     instance_method_load_data.load_data_nodes(base_de_datos)
     instance_method_load_data.load_data_edges(base_de_datos)
