@@ -19,30 +19,85 @@
     <hr class="style2">
     <p>Elegir ruta</p>
 <div align="center">
-        <label for="packageOrigen" class="selectbox"> Origen: </label>
-        <select id="packageOrigen" onclick="SelectJson()">
-        </select>
+        <!-- <label for="origin" class="selectbox"> Origen: </label>
+          <select id="origin" onclick="SelectJson()"></select>
 
-         <label for="packageDestino" class="selectbox"> Destino: </label>
-        <select id="packageDestino" onclick="SelectJson()"></select>
+     <label for="destination" class="selectbox"> Destino: </label>
+  <select id="destination" onclick="SelectJson"></select>-->
+   <label for="origin" class="selectbox"> Origen: </label>
+
+        <select id="origin">
+          <option value="Alajuela Province, La Fortuna, Costa Rica">La Fortuna</option>
+          <option value="Quepos, Provincia de Puntarenas, Costa Rica">Quepos</option>
+          <option value="Monte Verde, Costa Rica">Monte Verde</option>
+          <option value="Tortuguero, Provincia de Limón, Costa Rica">Tortuguero</option>
+          <option value="Puerto Jiménez, Provincia de Puntarenas, Costa Rica">Puerto Jiménez</option>
+          <option value="Liberia, Provincia de Guanacaste, Costa Rica">Liberia</option>
+          <option value="Cantón de Alajuela, Provincia de Alajuela, Costa Rica">Canton de Alajuela</option>
+          <option value="Volcán Miravalles, Bagaces, Provincia de Guanacaste, Costa Rica">Volcan Miravalles</option>
+          <option value="Heredia, Sarapiquí, Costa Rica">Sarapiquí</option>
+          <option value="Cahuita, Provincia de Limón, Costa Rica">Cahuita</option>
+          <option value="Bagaces, Provincia de Guanacaste, Costa Rica">Bagaces</option>
+          <option value="Irazú, Provincia de Cartago, Costa Rica">Irazú</option>
+          <option value="Pérez Zeledón, Provincia de San José, Costa Rica">Perez Zeledon</option>
+          <option value="Provincia de Puntarenas, Uvita, Costa Rica">Uvita</option>
+          <option value="Cartago Province, Cartago, Costa Rica">Cartago</option>
+          <option value="Volcan Tenorio, Provincia de Guanacaste, Costa Rica">Volcan Tenorio</option>
+          <option value="Turrialba, Provincia de Cartago, Costa Rica">Turrialba</option>
+          <option value="Parque Nacional Chirripó, Pérez Zeledón, Provincia de San José, Costa Rica">Parque Nacional
+            Chirripó</option>
+          <option value="Península de Santa Elena, Provincia de Guanacaste, Costa Rica">Península Santa Elena</option>
+          <option value="Parque Nacional La Amistad, Provincia de Limón, Costa Rica">Parque Nacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="Los Chiles, Provincia de Alajuela, Costa Rica">Los Chiles</option>
+          <option value="Parque Nacional Braulio Carrillo, Provincia de Heredia, Costa Rica">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya, Provincia de Guanacaste, Costa Rica">Nicoya</option>
+        </select>
+  <label for="destination" class="selectbox"> Destino: </label>
+        <select id="destination">
+
+          <option value="Alajuela Province, La Fortuna, Costa Rica">La Fortuna</option>
+          <option value="Quepos, Provincia de Puntarenas, Costa Rica">Quepos</option>
+          <option value="Monte Verde, Costa Rica">Monte Verde</option>
+          <option value="Tortuguero, Provincia de Limón, Costa Rica">Tortuguero</option>
+          <option value="Puerto Jiménez, Provincia de Puntarenas, Costa Rica">Puerto Jiménez</option>
+          <option value="Liberia, Provincia de Guanacaste, Costa Rica">Liberia</option>
+          <option value="Cantón de Alajuela, Provincia de Alajuela, Costa Rica">Canton de Alajuela</option>
+          <option value="Volcán Miravalles, Bagaces, Provincia de Guanacaste, Costa Rica">Volcan Miravalles</option>
+          <option value="Heredia, Sarapiquí, Costa Rica">Sarapiquí</option>
+          <option value="Cahuita, Provincia de Limón, Costa Rica">Cahuita</option>
+          <option value="Bagaces, Provincia de Guanacaste, Costa Rica">Bagaces</option>
+          <option value="Irazú, Provincia de Cartago, Costa Rica">Irazú</option>
+          <option value="Pérez Zeledón, Provincia de San José, Costa Rica">Perez Zeledon</option>
+          <option value="Provincia de Puntarenas, Uvita, Costa Rica">Uvita</option>
+          <option value="Cartago Province, Cartago, Costa Rica">Cartago</option>
+          <option value="Volcan Tenorio, Provincia de Guanacaste, Costa Rica">Volcan Tenorio</option>
+          <option value="Turrialba, Provincia de Cartago, Costa Rica">Turrialba</option>
+          <option value="Parque Nacional Chirripó, Pérez Zeledón, Provincia de San José, Costa Rica">Parque Nacional
+            Chirripó</option>
+          <option value="Península de Santa Elena, Provincia de Guanacaste, Costa Rica">Península Santa Elena</option>
+          <option value="Parque Nacional La Amistad, Provincia de Limón, Costa Rica">Parque Nacional La Amistad</option>
+          <option value="Talamanca">Talamanca</option>
+          <option value="Los Chiles, Provincia de Alajuela, Costa Rica">Los Chiles</option>
+          <option value="Parque Nacional Braulio Carrillo, Provincia de Heredia, Costa Rica">Parque Nacional Braulio Carrillo</option>
+          <option value="Nicoya, Provincia de Guanacaste, Costa Rica">Nicoya</option>
+        </select>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
   <script type="text/javascript" >
   </script>
 <script src="js/mapaTest2.js"></script>
 
-  <button id="minibutton">Calcular</button>
+  <button id="minibutton" onclick="window.location.assign('calculoRutas.html')">Calcular</button>
 
   </div>
-
 
     <hr class="style2">
 <br>
 <div id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7aRWyE2wqIKQ9iruYf0O1vQCgqjuUgj8&callback=initMap"
-        async defer></script>
-
-
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7aRWyE2wqIKQ9iruYf0O1vQCgqjuUgj8&callback=initMap">
+</script>
 
 </body>
 </html>

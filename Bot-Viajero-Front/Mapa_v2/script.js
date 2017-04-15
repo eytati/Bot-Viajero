@@ -4,7 +4,7 @@
         var options = mapa.MAP_OPTIONS,
         element = document.getElementById('cuadro_mapa'),
         map = mapa.create(element, options);
-    map.zoom(10);
+    map.zoom(100);
 
     map._on('click', function(){
         //aqui es donde se van a conectar las localizaciones señaladas

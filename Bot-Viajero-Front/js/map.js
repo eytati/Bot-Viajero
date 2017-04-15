@@ -2,7 +2,7 @@ function initMap() {
     var directions= new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
+        zoom: 8,
         center: {lat: 9.748916999999999, lng: -83.75342799999999},
         draggable: false
     });

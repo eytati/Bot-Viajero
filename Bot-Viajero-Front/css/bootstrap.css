@@ -42,6 +42,8 @@ background-color: #3c763d;
   width: 800px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
 input[type='button'], a.add {
   background-color: black;
   color: white;
@@ -440,6 +442,20 @@ button{
   font-size: 18px;
   text-decoration: none;
 }
+
+#minibutton2{
+    background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-top: 180px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
 input {
 
 
@@ -484,6 +500,13 @@ button:-moz-focusring,
 
 fieldset {
   border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+  align-content: center;
+}
+
+#fieldset2 {
+  border: 0px solid gray;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
   align-content: center;
@@ -683,6 +706,13 @@ p {
   margin-bottom: 1rem;
   color: #000000;
   font-size: larger;
+}
+
+#p3{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #000000;
+  font-size: 25px;
 }
 
 abbr[title],
