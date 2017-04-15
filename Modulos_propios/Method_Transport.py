@@ -1,37 +1,7 @@
 from flask import request, jsonify
-from  Modulos_propios import Graph
 
-class Load_data():
-#-------------------------------------------Cargar Rutas de la base de Datos-------------------------------------------#
-    def load_data_edges(self, string_connection):
-        collection_routes = string_connection.db.Rutas
-        for counter in collection_routes.find():
-            self.load_one(counter)
-        return jsonify({"Estado": "Se agrego a la base de datos"})
+class Register_transport():
 
-#-------------------------------------------Cargar Rutas de la base de Datos-------------------------------------------#
-    def load_data_nodes(self, string_connection):
-        collection_cities = string_connection.db.Ciudades
-        load_graph = Graph.create_graph()
-        for counter in collection_cities.find():
-            name = counter['ciudad']
-            load_graph.create_node(name, counter)
-            print(" ciudad: " + name + "json" + str(counter))
-        return jsonify({"Estado": "Se agrego a grafo"})
-
-#------------------------------------------------Cargar una arista-----------------------------------------------------#
-    def load_one(self,valor):
-        load_graph = Graph.create_graph()
-        origin = valor['origin']
-        destination = valor['destination']
-        load_graph.create_edge(origin, destination, valor)
-        print("origin: " + origin + " destination: " + destination + "json" + str(valor))
-        return jsonify({"Estado":"Se realiza correctamente", "\nDatos":str(valor)})
-
-
-class Register_routes():
-
-    instance_load = Load_data()
 #--------------------------------------------------------Registrar avion--------------------------------------------------------------------------------#
     def register_plane(self, string_connection):
 #-----------------------------------------------Obtiene datos----------------------------------------------------------#
@@ -72,7 +42,6 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes =string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-        self.instance_load.load_one(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Tren--------------------------------------------------------------------------------#
@@ -114,7 +83,6 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-        self.instance_load.load_one(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Taxi--------------------------------------------------------------------------------#
@@ -170,7 +138,6 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-        self.instance_load.load_one(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar bus--------------------------------------------------------------------------------#
@@ -225,8 +192,4 @@ class Register_routes():
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_routes = string_connection.db.Rutas
         collection_routes.insert(json_edges_db)
-        self.instance_load.load_one(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
-
-
-

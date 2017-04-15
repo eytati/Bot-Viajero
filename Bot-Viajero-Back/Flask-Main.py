@@ -1,7 +1,7 @@
 from flask import Response
 from flask import abort, jsonify
 from flask import json
-from Modulos_propios import Method_Person, Method_Register_Route, Method_Routes
+from Modulos_propios import Method_Person, Method_Transport, Method_Routes
 from flask import Flask
 from flask.ext.pymongo import PyMongo
 from flask_httpauth import  HTTPBasicAuth
@@ -22,18 +22,14 @@ base_de_datos = PyMongo(app)
 
 #----------------------------------Instancia de la clase de los metodos de persona-------------------------------------#
 instance_method_person = Method_Person.Conexion_con_datos()
-instance_method_register_route = Method_Register_Route.Register_routes()
-instance_method_load_data = Method_Register_Route.Load_data()
+instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
-
-
-
 
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
-    instance_method_load_data.load_data_nodes(base_de_datos)
-    instance_method_load_data.load_data_edges(base_de_datos)
+    instance_method_routes.load_nodes(base_de_datos)
+    instance_method_routes.load_edges(base_de_datos)
     return instance_method_routes.list_places()
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
@@ -64,20 +60,20 @@ def verify_password(user_token, password):
 
 @app.route('/api/registrar/ruta/avion', methods=['Post'])
 def registrar_plane():
-    return instance_method_register_route.register_plane(base_de_datos)
+    return instance_method_transport.register_plane(base_de_datos)
 
 @app.route('/api/registrar/ruta/taxi', methods=['Post'])
 def registrar_taxi():
-    return instance_method_register_route.register_taxi(base_de_datos)
+    return instance_method_transport.register_taxi(base_de_datos)
 
 @app.route('/api/registrar/ruta/tren', methods=['Post'])
 def registrar_train():
-    return instance_method_register_route.register_train(base_de_datos)
+    return instance_method_transport.register_train(base_de_datos)
 
 @app.route('/api/registrar/ruta/bus', methods=['Post'])
 def registrar_bus():
-    return instance_method_register_route.register_bus(base_de_datos)
+    return instance_method_transport.register_bus(base_de_datos)
 
 if __name__ == '__main__':
-    app.run(host= '192.168.1.137', port=5016)
+    app.run(host= '192.168.1.140', port=5016)
 
