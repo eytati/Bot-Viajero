@@ -29,6 +29,8 @@ class Register_transport():
             print("Faltan Datos3")
             return jsonify({"Error": "Faltan datos 3"})
 
+        print("hola 2")
+
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
         json_edges_db = {"type": "plane",
                          "company": company,
@@ -40,8 +42,10 @@ class Register_transport():
                          "total": total}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
-        collection_routes =string_connection.db.Rutas
-        collection_routes.insert(json_edges_db)
+
+        collection_transport =string_connection.db.Transportes
+        collection_transport.insert(json_edges_db)
+        print("HOlA")
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Tren--------------------------------------------------------------------------------#
@@ -81,8 +85,8 @@ class Register_transport():
             "total": total}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
-        collection_routes = string_connection.db.Rutas
-        collection_routes.insert(json_edges_db)
+        collection_transport = string_connection.db.Transportes
+        collection_transport.insert(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar Taxi--------------------------------------------------------------------------------#
@@ -136,8 +140,8 @@ class Register_transport():
             "total": total}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
-        collection_routes = string_connection.db.Rutas
-        collection_routes.insert(json_edges_db)
+        collection_transport = string_connection.db.Transportes
+        collection_transport.insert(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
 
 #--------------------------------------------------------Registrar bus--------------------------------------------------------------------------------#
@@ -190,6 +194,6 @@ class Register_transport():
             "total": total}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
-        collection_routes = string_connection.db.Rutas
-        collection_routes.insert(json_edges_db)
+        collection_transport = string_connection.db.Transportes
+        collection_transport.insert(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
