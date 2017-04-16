@@ -147,10 +147,10 @@ class Register_transport():
 #--------------------------------------------------------Registrar bus--------------------------------------------------------------------------------#
     def register_bus(self, string_connection):
 #-----------------------------------------------Obtiene datos----------------------------------------------------------#
-        company = request.json.get('company')
+        companymame = request.json.get('companyname')
         registration = request.json.get('registration')
         name = request.json.get('name')
-        passegers = request.json.get('passegers')
+        passengers = request.json.get('passengers')
         origin = request.json.get('origin')
         destination = request.json.get('destination')
         departure_time = request.json.get('departure_time')
@@ -158,17 +158,17 @@ class Register_transport():
         total = request.json.get('total')
 
 #-----------------------------------------------Revision de datos------------------------------------------------------#
-        if company is None or registration is None or origin is None:
+        if companymame is None or registration is None or origin is None:
             # abort(400)
             print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
 
-        if destination is None or id is None or departure_time is None:
+        if destination is None or departure_time is None:
             # abort(400)
             print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
 
-        if name is None or passagers is None:
+        if name is None or passengers is None:
             # abort(400)
             print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
@@ -182,10 +182,9 @@ class Register_transport():
         json_edges_db = {
             "type": "bus",
             'registration': registration,
-            'id': id,
             'name': name,
-            'passagers': passagers,
-            "company": company,
+            'passengers': passengers,
+            "company": companymame,
             "origin": origin,
             "destination": destination,
             "departure_time": departure_time,
@@ -196,3 +195,23 @@ class Register_transport():
         collection_transport = string_connection.db.Transportes
         collection_transport.insert(json_edges_db)
         return jsonify({"Estado": "Se agrego correctamente", "Datos": str(json_edges_db)})
+
+
+#-----------------------------------------Mejor precio por tipo de transporte------------------------------------------#
+    def best_price(self, string_connection, point_a, point_b, transport):
+        collection_transport = string_connection.db.Transportes
+        best = {}
+        for data in collection_transport.find():
+            origin = data['origin']
+            destination = data['destination']
+            if origin == point_a and destination == point_b:
+                if data['type'] == transport:
+                    if best == {}:
+                        best = data
+                else:
+                    best_price = best['total']
+                    if best_price > data['total']:
+                        best = data
+        if best == {}:
+            return False
+        return best

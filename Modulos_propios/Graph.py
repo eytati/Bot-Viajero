@@ -17,25 +17,38 @@ class create_graph:
 
     def create_edge(self, origin, destination, weight):
         self.grafo.add_edge(origin, destination, weight = weight)
-        print(str(self.grafo.edge))
 
     def show_cities(self):
         cities = []
         for couter in self.grafo.node:
             graph_data = self.grafo.node[couter]
             if not graph_data == {}:
+                id = graph_data['id']
                 city = graph_data['ciudad']
-                cities.append(city)
+                latitude = graph_data['latitude']
+                longitude = graph_data['longitude']
+                json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
+                cities.append(json_data)
         print(cities)
         return cities
 
     def show_routes(self, source, target):
-
         exists = nx.has_path(self.grafo,  source, target)
         if exists:
-            path = nx.all_shortest_paths(self.grafo, source, target, weight='weight')
+            path = []
+            for value in nx.all_shortest_paths(self.grafo, source, target, weight='weight'):
+                for a in range(len(value)):
+                    data = value[a]
+                    new_data = self.grafo.node[data]
+                    #id = data['id']
+                    city = data['ciudad']
+                    latitude = data['latitude']
+                    longitude = data['longitude']
+                    json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
+                    path += json_data
             length = nx.shortest_path_length(self.grafo, source, target, weight='weight')
-            return jsonify({"Camino": path, "Total de Km": length})
+            print(str(path))
+            return {"Camino": path, "Total de Km": length}
 
 
 
