@@ -38,7 +38,7 @@ function registro_Avion() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.137:5016/api/registrar/ruta/avion',
+                url: 'http://192.168.1.140:5016/api/registrar/ruta/avion',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
