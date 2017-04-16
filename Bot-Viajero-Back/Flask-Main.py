@@ -32,6 +32,11 @@ def index():
     instance_method_routes.load_edges(base_de_datos)
     return instance_method_routes.list_places()
 
+#-----------------------------------------------------Rutas del grafo--------------------------------------------------#
+@app.route('/api/mejor/truta/transporte')
+def best_routes():
+    return instance_method_routes.route_between_points(base_de_datos)
+
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])
 def create_user():
