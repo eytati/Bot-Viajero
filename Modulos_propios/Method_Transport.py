@@ -149,9 +149,8 @@ class Register_transport():
 #-----------------------------------------------Obtiene datos----------------------------------------------------------#
         company = request.json.get('company')
         registration = request.json.get('registration')
-        id = request.json.get('id')
         name = request.json.get('name')
-        passagers = request.json.get('passagers')
+        passegers = request.json.get('passegers')
         origin = request.json.get('origin')
         destination = request.json.get('destination')
         departure_time = request.json.get('departure_time')
