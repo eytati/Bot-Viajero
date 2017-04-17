@@ -2,7 +2,7 @@ var tokenTest = sessionStorage.getItem("tokenTest");
  alert('hola');
 function SelectJsonTaxi() {
     var jsonData = {
-             "Table": [
+             "ciudades": [
             {
       "id": 1,
       "ciudad" : "Alajuela Provincia, La Fortuna, Costa Rica",
@@ -153,8 +153,8 @@ function SelectJsonTaxi() {
      $(document).ready(function () {
          var listItems = '<option selected="selected" value="">- Seleccione lugar -</option>';
 
-      for (var i = 0; i < jsonData.Table.length; i++) {
-             listItems += "<option value='"+jsonData.Table[i].ciudad + "'>" + jsonData.Table[i].ciudad  +"</option>";
+      for (var i = 0; i < jsonData.ciudades.length; i++) {
+             listItems += "<option value='"+jsonData.ciudades[i].ciudad + "'>" + jsonData.ciudades[i].ciudad  +"</option>";
 
          }
 

@@ -3,7 +3,7 @@ var tokenTest = sessionStorage.getItem("tokenTest");
 
 function SelectJsonPlane() {
     var jsonData = {
-    "Table": [
+    "ciudades": [
             {
       "id": 1,
       "ciudad" : "Alajuela Provincia, La Fortuna, Costa Rica",
