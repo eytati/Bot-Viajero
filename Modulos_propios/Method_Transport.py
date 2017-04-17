@@ -209,7 +209,7 @@ class Register_transport():
                     if best == {}:
                         best = data
                 else:
-                    best_price = best['total']
+                    best_price = data['total']
                     if best_price > data['total']:
                         best = data
         if best == {}:

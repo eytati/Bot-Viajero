@@ -1,6 +1,8 @@
 from flask import Response
 from flask import abort, jsonify
 from flask import json
+from flask import request
+
 from Modulos_propios import Method_Person, Method_Transport, Method_Routes
 from flask import Flask
 from flask.ext.pymongo import PyMongo
@@ -25,6 +27,13 @@ instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
 
+
+@app.before_request
+def verifiqueRutas():
+    uri = request.url_rule
+    if uri == None:
+
+        return jsonify("Ruta desconocida")
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
@@ -33,7 +42,7 @@ def index():
     return instance_method_routes.list_places()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
-@app.route('/api/mejor/truta/transporte')
+@app.route('/api/mejor/ruta/transporte', methods=['POST'])
 def best_routes():
     return instance_method_routes.route_between_points(base_de_datos)
 
