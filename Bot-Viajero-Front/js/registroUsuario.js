@@ -23,7 +23,7 @@ function registerPrueba() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.140:5016/api/registrar/persona',
+                url: 'http://192.168.43.26:5016/api/registrar/persona',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
