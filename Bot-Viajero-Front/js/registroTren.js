@@ -1,5 +1,40 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
  alert('hola');
+
+/* $.ajax({
+     type: "GET",
+     url: "http://192.168.1.140:5016/api/cuidades",
+               data: data,
+               success: function (e, result) {
+                   alert(e);
+               }, error :function (x) {
+                                alert("Incompleto");
+
+               };
+
+     });*/
+
+
+$.ajax({
+    url: "http://192.168.1.140:5016/api/cuidades",
+    //force to handle it as text
+    dataType: "application/json",
+    success: function(data) {
+
+        //data downloaded so we call parseJSON function
+        //and pass downloaded data
+        var json = $.parseJSON(data);
+        //now json variable contains data in json format
+        //let's display a few items
+        for (var i=0;i<json.cuidades.length;++i)
+        {
+            listItems += "<option value='"+json.ciudades[i].ciudad + "'>" + json.ciudades[i].ciudad  +"</option>";
+           // $('#origin').append('<div class="name">'+json[i].name+'</>');
+           // $('#destination').append('<div class="name">'+json[i].name+'</>');
+
+        }
+    }
+});
 function SelectJsonTrain() {
     var jsonData = {
      "ciudades": [
@@ -192,6 +227,9 @@ function registro_Tren() {
             "total": total,
 
            }
+
+
+
 
      var data = JSON.stringify(jsonP);
       //alert(data)
