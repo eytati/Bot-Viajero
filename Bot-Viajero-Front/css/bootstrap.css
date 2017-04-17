@@ -444,7 +444,7 @@ button{
 }
 
 #minibutton2{
-    background-color: white;
+    background-color: #2471A3;
   color: black;
   border: none;
   border-radius: 5px;
@@ -808,10 +808,17 @@ textarea {
       touch-action: manipulation;
 }
 
-table {
+table{
   border-collapse: collapse;
   background-color: transparent;
+  width:auto;
 }
+.table2{
+      border-collapse: collapse;
+    width: 100%;
+   background: black;
+   color: #ffffff;
+ }
 
 caption {
   padding-top: 0.75rem;
@@ -820,9 +827,28 @@ caption {
   text-align: left;
   caption-side: bottom;
 }
+td {
+  text-align: left;
+    width: 2%;
+    padding: 1px;
+}
 
+tr{
+  width: 10%;
+}
 th {
   text-align: left;
+  border-collapse: collapse;
+  width: 4%;
+  color: #ffffff;
+  margin-top:50px;
+}
+th.th2{
+
+       border-collapse: collapse;
+    width: 4%;
+   background: black;
+   color: #ffffff;
 }
 
 label {
