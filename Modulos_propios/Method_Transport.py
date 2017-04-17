@@ -216,28 +216,18 @@ class Register_transport():
             return False
         return best
 
-#----------------------------------------- 5 rutas por precio----------------------------------------------------------#
+#-----------------------------------------rutas disponibles------------------------------------------------------------#
     def best_price(self, string_connection, arrival, departure):
      collection_transport = string_connection.db.Transportes
-
+     options= []
      for data in collection_transport.find():
          origin= data['origin']
          destination = data['destination']
          if origin == arrival and destination == departure:
-
-
-
-
-
-    def list_best_price(self, data):
-        best = [{}, {}, {}, {}, {}]
-        total = data['total']
-        for counter in range(len(best)):
-            if best[counter]== {}:
-                best[counter] = data
-            else:
-                total_list = best[counter].get('total')
-                if total_list < total:
+             options.append(data)
+     if options is []:
+         return False
+     return options
 
 
 
