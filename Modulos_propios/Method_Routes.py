@@ -54,7 +54,7 @@ class Use_graph:
         if not best_path is False:
             path = best_path['Camino']
             km = best_path['Total de Km']
-            price = self.method_transport.best_price(string_connect, point_a, point_b, 'plane')
+            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'plane')
             if not price is False:
                  price = price['total']
 #---------------------El avion se utiliza aproximadamente la tercea parte de los kilometros que por tierra-------------#
@@ -71,7 +71,7 @@ class Use_graph:
         if not best_path is False:
             path = best_path['Camino']
             km = best_path['Total de Km']
-            price = self.method_transport.best_price(string_connect, point_a, point_b, 'taxi')
+            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'taxi')
 
             if not price is False:
                 km_taxi = km - ((km ) / 20) #El taxi se  disminuye la vigesima parte de los kilometros por las variaciones en rutas
@@ -88,7 +88,7 @@ class Use_graph:
         if not best_path is False:
             path = best_path['Camino']
             km = best_path['Total de Km']
-            price = self.method_transport.best_price(string_connect, point_a, point_b, 'bus')
+            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'bus')
             if not price is False:
                 price = price['total']
                 time_bus = (km / 30) #
@@ -102,7 +102,7 @@ class Use_graph:
         if not best_path is False:
             path = best_path['Camino']
             km = best_path['Total de Km']
-            price = self.method_transport.best_price(string_connect, point_a, point_b, 'tren')
+            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'tren')
 
             if not price is False:
                 price = price['total']
