@@ -52,6 +52,28 @@ class create_graph:
             return {"Camino": path, "Total de Km": length}
         return False
 
+    def show_all_routes(self, source, target):
+        exists = nx.has_path(self.grafo, source, target)
+        if exists is True:
+            path = []
+            for value in nx.all_simple_paths(self.grafo, source, target):
+                mini_path =[]
+                for a in range(len(value)):
+                    data = value[a]
+                    new_data = self.grafo.node[data]
+                    id = new_data['id']
+                    city = new_data['ciudad']
+                    latitude = new_data['latitude']
+                    longitude = new_data['longitude']
+                    json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
+                    path.append(json_data)
+            length = nx.shortest_path_length(self.grafo, source, target, weight='weight')
+            print(str(path))
+            print(length)
+            return {"Camino": path, "Total de Km": length}
+        return False
+
+
 
 
 

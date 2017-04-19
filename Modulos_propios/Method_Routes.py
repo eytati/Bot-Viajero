@@ -113,8 +113,18 @@ class Use_graph:
         return {"No disponible"}
 
     def best_distance(self):
+
+
+
         return
 
-    def best_cost(self):
-        return
+    def best_cost(self, string_connection):
+        arrival = request.json.get('origin')
+        departure = request.json.get('destination')
+        if arrival is None or departure is None:
+            # abort(400)
+            print("Faltan Datos")
+            return jsonify({"Error": "Faltan datos"})
+        array_cost = self.method_transport.best_price(string_connection, arrival,departure)
+        return jsonify(str(array_cost))
 

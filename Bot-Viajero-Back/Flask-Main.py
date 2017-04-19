@@ -32,7 +32,6 @@ instance_method_routes = Method_Routes.Use_graph()
 def verifiqueRutas():
     uri = request.url_rule
     if uri == None:
-
         return jsonify("Ruta desconocida")
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
@@ -42,9 +41,14 @@ def index():
     return instance_method_routes.list_places()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
-@app.route('/api/mejor/ruta/transporte', methods=['POST'])
+@app.route('/api/rutas/mejores/transporte', methods=['POST'])
 def best_routes():
     return instance_method_routes.route_between_points(base_de_datos)
+
+@app.route('/api/rutas/mejores/costo', methods=['POST'])
+def better_routes():
+    return instance_method_routes.best_cost(base_de_datos)
+
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])
@@ -89,5 +93,5 @@ def registrar_bus():
     return instance_method_transport.register_bus(base_de_datos)
 
 if __name__ == '__main__':
-    app.run(host= '192.168.43.26', port=5016)
+    app.run(host= '192.168.1.140', port=5016)
 
