@@ -15,7 +15,7 @@ function login() {
 
          $.ajax({
              //crossDomain: true,
-             url: "http://192.168.43.26:5016/api/token/" + username ,
+             url: "http://192.168.1.140:5016/api/token/" + username ,
              type: "GET",
              contentType: "application/json",
              data: dataPerson,
