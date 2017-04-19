@@ -188,10 +188,9 @@ function registro_Taxi() {
             "destination": destination,
             "total": total,
             "departure_time": departure_time,
-            "arrival_time": arrival_time,
+            "arrival_time": arrival_time
 
-           }
-      //alert(jsonP)
+           }      //alert(jsonP)
 
       var data = JSON.stringify(jsonP);
             $.ajax({

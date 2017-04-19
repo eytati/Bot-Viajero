@@ -1,4 +1,3 @@
-
 from passlib.hash import sha256_crypt
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, SignatureExpired, BadSignature)
 

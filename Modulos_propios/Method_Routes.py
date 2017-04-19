@@ -1,12 +1,13 @@
 from flask import jsonify
 from flask import request
 
-from Modulos_propios import Method_Transport
+from Modulos_propios import Method_Transport, Sort_Json
 
 from  Modulos_propios import Graph
 class Use_graph:
     graph_information = Graph.create_graph()
     method_transport = Method_Transport.Register_transport()
+    sort_data = Sort_Json.Sort()
 
     def load_nodes(self, string_connect):
         collections_nodes = string_connect.db.Ciudades
@@ -126,5 +127,8 @@ class Use_graph:
             print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
         array_cost = self.method_transport.best_price(string_connection, arrival,departure)
+        best = self.sort_data.sort_list(array_cost)
+
+
         return jsonify(str(array_cost))
 

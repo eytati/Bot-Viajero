@@ -137,7 +137,7 @@ function initMap() {
           });
 
      var infoWindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(marker, "click", function(e) {
+        google.maps.event.addListener(marker, "click", function(e) {
     infoWindow.setContent(data.ciudad);
     infoWindow.open(map, marker);
 });
