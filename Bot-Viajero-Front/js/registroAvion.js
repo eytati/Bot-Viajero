@@ -155,8 +155,8 @@ function SelectJsonPlane() {
      $(document).ready(function () {
          var listItems = '<option selected="selected" value="">- Seleccione lugar -</option>';
 
-      for (var i = 0; i < jsonData.Table.length; i++) {
-             listItems += "<option value='"+jsonData.Table[i].ciudad + "'>" + jsonData.Table[i].ciudad  +"</option>";
+      for (var i = 0; i < jsonData.ciudades.length; i++) {
+             listItems += "<option value='"+jsonData.ciudades[i].ciudad + "'>" + jsonData.ciudades[i].ciudad  +"</option>";
 
          }
 
@@ -175,17 +175,6 @@ function registro_Avion() {
     var arrival_time = document.getElementById("arrive_time").value;
     var total = document.getElementById("total").value;
 
-
-       /* var json_data=
-            {
-           "companyname": "American,
-            "packageOrigen": "Irazu,
-            "packageDestino": Puerto Viejo,
-            "cantPasajeros": 100,
-            "horarioSalida": 12: 00 am,
-            "horarioLlegada": 4:00 pm,
-            "costoTotal": 15000,
-    }*/
 
        var jsonP=
            {"company": company,

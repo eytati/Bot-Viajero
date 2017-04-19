@@ -1,5 +1,46 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
  alert('hola');
+ /*$(document).ready(function () {
+                 $.getJSON('http://192.168.1.140:5016/api/ciudades', function (data, e) {
+                     alert(data);
+                 });
+         });*/
+
+ $.ajax({ 
+    type: "GET", 
+    url: "http://192.168.1.140:5016/api/ciudades", 
+    //contentType: "application/json", 
+  //  data: data, 
+    dataType: 'json',  
+    success: function (datos, e) { 
+             alert(datos + "Datos del json"); 
+             var jsonTest=  $.parseJSON(datos);
+            alert(jsonTest);
+    //   console.log(result.status) //
+    //       return datos  
+
+      }, error: function (error) { 
+          alert('Error'); 
+      }
+        // success: function(data) {
+});
+
+ /* $.ajax({
+  type: 'GET',
+  url: "http://192.168.1.140:5016/api/ciudades",
+  data: data,
+  async: false,
+  dataType: 'json',
+  success: function (data) {
+          alert(data); 
+   //Do stuff with the JSON data
+  },
+     error: function (error) {
+         alert("error");
+     }
+});*/
+
+
 
 /* $.ajax({
      type: "GET",
@@ -15,8 +56,8 @@ var tokenTest = sessionStorage.getItem("tokenTest");
      });*/
 
 
-$.ajax({
-    url: "http://192.168.1.140:5016/api/cuidades",
+/*$.ajax({
+    url: "http://192.168.43.26::5016/api/ciudades",
     //force to handle it as text
     dataType: "application/json",
     success: function(data) {
@@ -34,7 +75,7 @@ $.ajax({
 
         }
     }
-});
+});*/
 function SelectJsonTrain() {
     var jsonData = {
      "ciudades": [
@@ -186,7 +227,7 @@ function SelectJsonTrain() {
   };
 
      $(document).ready(function () {
-         var listItems = '<option selected="selected" value="">- Seleccione lugar -</option>';
+         var listItems = '<option selected="selected" value="" widht="100px">- Seleccione lugar -</option>';
 
       for (var i = 0; i < jsonData.ciudades.length; i++) {
              listItems += "<option value='"+jsonData.ciudades[i].ciudad + "'>" + jsonData.ciudades[i].ciudad  +"</option>";
@@ -208,16 +249,6 @@ function registro_Tren() {
     var arrival_time = document.getElementById("arrival_time").value;
     var total = document.getElementById("total").value;
 
-       /* var json_data=
-            {
-           "companyname": "American,
-            "packageOrigen": "Irazu,
-            "packageDestino": Puerto Viejo,
-            "horarioSalida": 12: 00 am,
-            "horarioLlegada": 4:00 pm,
-            "costoTotal": 15000,
-    }*/
-
        var jsonP=
            {"company": company,
             "origin": origin,
@@ -227,7 +258,6 @@ function registro_Tren() {
             "total": total,
 
            }
-
 
 
 

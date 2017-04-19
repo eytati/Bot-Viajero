@@ -176,16 +176,6 @@ function registro_Bus() {
     var arrival_time= document.getElementById("arrival_time");
     var total = document.getElementById("total").value;
 
-       /* var json_data=
-            {
-           "companyname": "TicaBus",
-           "registration": "67281",
-           "name": "Luis",
-           "origin": "Cartago",
-           "destination": "Turrialba",
-           "passengers": 50,
-           "total": 3000
-    }*/
 
        var jsonP=
            {

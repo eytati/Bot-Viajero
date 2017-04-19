@@ -177,19 +177,6 @@ function registro_Taxi() {
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("arrive_time").value;
 
-       /* var json_data=
-            {
-           "companyname": TaxiTico,
-            "placa": 3454,
-            "IDConductor": 2234213,
-            "nombreConductor": Guillermo,
-            "apellidosConductor": Rojas Fallas,
-            "packageOrigen": Tortuguero,
-            "packageDestino": Bagaces,
-            "costoKilometro": 575,
-            "horarioSalida": 9:00 pm,
-            "horarioLlegada": 1:00 am,
-    }*/
 
        var jsonP=
            {"company": company,
