@@ -59,8 +59,9 @@ class create_graph:
             for value in nx.all_simple_paths(self.grafo, source, target):
                 mini_path =[]
                 for a in range(len(value)):
-                    data = value[a]
-                    new_data = self.grafo.node[data]
+                    data_point1 = value[a]
+                    data_point2 = value[a+1]
+                    new_data = self.grafo.edge[data_point1, data_point2]
                     id = new_data['id']
                     city = new_data['ciudad']
                     latitude = new_data['latitude']

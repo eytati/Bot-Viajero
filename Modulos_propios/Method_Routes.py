@@ -127,8 +127,7 @@ class Use_graph:
             print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
         array_cost = self.method_transport.best_price(string_connection, arrival,departure)
-        best = self.sort_data.sort_list(array_cost)
-
+        best = self.sort_data.sort_list(array_cost, 'total')
 
         return jsonify(str(array_cost))
 
