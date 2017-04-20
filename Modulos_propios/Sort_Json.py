@@ -1,3 +1,6 @@
+from bson import ObjectId
+
+
 class Sort():
 
     def sort_list(self, list, tipo):
@@ -17,7 +20,7 @@ class Sort():
 
     def sort_division(self, list, first, last_one, tipo):
 
-        compare_value = list[first].get(tipo)
+        compare_value = int(list[first].get(tipo))
 
         left_part = first + 1
         right_part = last_one
@@ -25,11 +28,19 @@ class Sort():
         done = False
 
         while not done:
-            while left_part <= right_part and list[left_part].get(tipo)<= compare_value:
-                left_part +=1
 
-            while list[right_part].get(tipo) >= compare_value and right_part >= left_part:
-               right_part -=1
+            value_1 =  int(list[left_part].get(tipo))
+            while left_part <= right_part and value_1 <= compare_value:
+                left_part += 1
+                if left_part < len(list):
+                    value_1 = int(list[left_part].get(tipo))
+
+            value_2= int(list[right_part].get(tipo))
+            while  value_2>= compare_value and right_part >= left_part:
+                right_part -= 1
+                if right_part < len(list):
+                  value_2 = int(list[right_part].get(tipo))
+
 
             if right_part < left_part:
                 done = True
@@ -45,9 +56,3 @@ class Sort():
 
         return right_part
 
-'''
-lista = [14, 17, 13, 15, 15, 10, 3, 16, 9, 3]
-clase = Sort()
-data = clase.sort_list(lista, )
-print(data)
-'''

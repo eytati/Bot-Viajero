@@ -16,9 +16,6 @@ class User():
             return True
         return False
 
-    def verify_user_password(self):
-        print("")
-
 
 class Password():
 
@@ -27,7 +24,6 @@ class Password():
 
     def verify_password(self, password, password2):
         return sha256_crypt.verify(password2, password)
-
 
 
 class Token():

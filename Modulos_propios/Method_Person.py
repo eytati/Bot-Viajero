@@ -1,6 +1,5 @@
 from Modulos_propios import   Person
-from flask import request, abort, jsonify
-from  Modulos_propios import  Graph
+from flask import request, jsonify
 
 class Conexion_con_datos():
 
@@ -16,19 +15,13 @@ class Conexion_con_datos():
         repassword = request.json.get('repassword')
 
         if username is None or password is None:  #
-            #abort(400)
-            print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
 
         allow_user = Users.verify_user(string_connection, username)
         if not allow_user is True:
-            #abort(400)
-            print("usuario repetido")
             return jsonify({"Error": "Usuario ya existe"})
 
         if not password == repassword:
-           # abort(400)
-           print("contraseñas mal")
            return jsonify({"Error": "'Las contraseñas no coinciden'"})
 
         password_hash = Passwords.hash_password(password)
@@ -45,13 +38,10 @@ class Conexion_con_datos():
         Tokens = Person.Token()
 
         if username is None or password is None:  #
-            # abort(400)
-            print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
 
         allow_user = Users.verify_user(string_connection, username)
         if  allow_user is True:
-            # abort(400)
             return jsonify({"Error": "Usuario no existe"})
 
         data_db =  Tokens.get_information(string_connection, username)
@@ -88,6 +78,3 @@ class Conexion_con_datos():
             return Tokens.verify_auth_token(user, token)
 
         return jsonify({"Error": "Token expirado"})
-
-
-

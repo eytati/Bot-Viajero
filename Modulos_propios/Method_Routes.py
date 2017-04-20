@@ -113,8 +113,11 @@ class Use_graph:
 
         return {"No disponible"}
 
-    def best_distance(self):
-
+    def best_time(self, string_connection):
+        arrival = request.json.get('origin')
+        departure = request.json.get('destination')
+        if arrival is None or departure is None:
+            return jsonify({"Error": "Faltan datos"})
 
 
         return
@@ -123,11 +126,9 @@ class Use_graph:
         arrival = request.json.get('origin')
         departure = request.json.get('destination')
         if arrival is None or departure is None:
-            # abort(400)
-            print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
         array_cost = self.method_transport.best_price(string_connection, arrival,departure)
         best = self.sort_data.sort_list(array_cost, 'total')
 
-        return jsonify(str(array_cost))
+        return jsonify(str(best))
 
