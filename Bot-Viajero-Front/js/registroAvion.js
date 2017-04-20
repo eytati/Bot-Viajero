@@ -1,5 +1,4 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
-    alert("hola");
 
 function SelectJsonPlane() {
     var jsonData = {
@@ -188,7 +187,6 @@ function registro_Avion() {
            }
 
      var data = JSON.stringify(jsonP);
-      //alert(data)
             $.ajax({
                 type: 'POST',
                 url: 'http://192.168.1.140:5016/api/registrar/ruta/avion',

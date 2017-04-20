@@ -1,5 +1,4 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
- alert('hola');
  /*$(document).ready(function () {
                  $.getJSON('http://192.168.1.140:5016/api/ciudades', function (data, e) {
                      alert(data);
@@ -8,14 +7,25 @@ var tokenTest = sessionStorage.getItem("tokenTest");
 
  $.ajax({ 
     type: "GET", 
-    url: "http://192.168.1.140:5016/api/ciudades", 
-    //contentType: "application/json", 
+    url: "http://192.168.1.141:5016/api/ciudades", 
+    contentType: "application/json", 
   //  data: data, 
-    dataType: 'json',  
+     dataType: 'json',  
     success: function (datos, e) { 
              alert(datos + "Datos del json"); 
              var jsonTest=  $.parseJSON(datos);
+
+             var listItems = '<option selected="selected" value="" widht="100px">- Seleccione lugar -</option>';
+
+      for (var i = 0; i < jsonTest.Ciudades.length; i++) {
+             listItems += "<option value='"+jsonTest.Ciudades[i].Ciudad+ "'>" + jsonTest.Ciudades[i].Ciudad +"</option>";
+
+         }
+
+         $("#origin").html(listItems);
+         $("#destination").html(listItems);
             alert(jsonTest);
+
     //   console.log(result.status) //
     //       return datos  
 
@@ -265,7 +275,7 @@ function registro_Tren() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.1.140:5016/api/registrar/ruta/tren',
+                url: 'http://192.168.1.141:5016/api/registrar/ruta/tren',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
@@ -274,8 +284,8 @@ function registro_Tren() {
                  //       + btoa(tokenTest + ":" + password));
                // },
                 success : function(result) {
-
-                   alert("Regisrado con éxito")
+                    sessionStorage.setItem("token", datos['token']);
+                   alert("Regisrado con éxito");
                  window.location.href="Index.html"
 
     },           error: function(error){

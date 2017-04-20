@@ -1,6 +1,5 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
 
-    alert("Hola");
 function SelectJsonBus() {
     var jsonData = {
         "ciudades": [

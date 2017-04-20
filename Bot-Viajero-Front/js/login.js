@@ -26,7 +26,7 @@ function login() {
                      + btoa(username + ":" + password));
              },
              success: function (datos,e) {
-                 alert(datos)
+                 //alert(datos)
                  sessionStorage.setItem("token", datos['token']);
                  window.location.href = "Index.html"
               //   console.log(result.status)

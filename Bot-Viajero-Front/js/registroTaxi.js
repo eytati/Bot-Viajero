@@ -1,5 +1,4 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
- alert('hola');
 function SelectJsonTaxi() {
     var jsonData = {
              "ciudades": [
