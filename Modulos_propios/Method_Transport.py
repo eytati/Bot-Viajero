@@ -67,7 +67,9 @@ class Register_transport():
 #-----------------------------------------------Obtiene datos----------------------------------------------------------#
         company = request.json.get('company')
         origin = request.json.get('origin')
+        print(origin)
         destination = request.json.get('destination')
+        print(destination)
         departure_time = request.json.get('departure_time')
         arrival_time = request.json.get('arrival_time')
         total = request.json.get('total')

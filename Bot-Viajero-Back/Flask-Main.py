@@ -36,24 +36,31 @@ def verifiqueRutas():
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
-    instance_method_routes.load_nodes(base_de_datos)
-    instance_method_routes.load_edges(base_de_datos)
     return instance_method_routes.list_places()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
 @app.route('/api/rutas/mejores/transporte', methods=['POST'])
 def best_routes():
+    instance_method_routes.load_nodes(base_de_datos)
+    instance_method_routes.load_edges(base_de_datos)
     return instance_method_routes.route_between_points(base_de_datos)
 
 @app.route('/api/rutas/mejores/costo', methods=['POST'])
-def better_routes():
+def better_cost():
     return instance_method_routes.best_cost(base_de_datos)
+
+@app.route('/api/rutas/mejores/tiempo', methods=['POST'])
+def better_time():
+    return instance_method_routes.better_time(base_de_datos)
+
+@app.route('/api/rutas/mejores/distancia', methods=['POST'])
+def better_distance():
+    return instance_method_routes.better_distance(base_de_datos)
 
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])
 def create_user():
-    print('saludo')
     return instance_method_person.create_user(base_de_datos)
 
 #------------------------------------------------Inicio de sesion------------------------------------------------------#
@@ -66,6 +73,8 @@ def token(user):
 
 @registro_auth.verify_password
 def verify_password(user_token, password):
+    print(user_token)
+    print(password)
     respuesta = instance_method_person.authentication(base_de_datos, user_token, password)
     if not respuesta is True:
         valor = instance_method_person.verify_token(base_de_datos, user_token)
@@ -93,5 +102,5 @@ def registrar_bus():
     return instance_method_transport.register_bus(base_de_datos)
 
 if __name__ == '__main__':
-    app.run(host= '192.168.1.141', port=5016)
+    app.run(host= '192.168.43.26', port=5016)
 

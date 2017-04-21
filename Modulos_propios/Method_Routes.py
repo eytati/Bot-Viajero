@@ -53,16 +53,18 @@ class Use_graph:
 #---------------------------------------------------Mejor ruta de avion-------------------------------------------------#
         best_path = self.graph_information.show_routes(point_a, point_b)
         if not best_path is False:
-            path = best_path['Camino']
-            km = best_path['Total de Km']
-            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'plane')
-            if not price is False:
-                 price = price['total']
+            data = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'plane')
+            if not data is False:
+                 price = data['total']
+                 path = data['path']
+                 km= self.distance(point_a, point_b, path)
+
 #---------------------El avion se utiliza aproximadamente la tercea parte de los kilometros que por tierra-------------#
                  km_plane = km - ((km + 1) / 3)
+
 #-----------------------Calculo de tiempo que utiliza la formula v=(d/t) que se despeja t=(d/v)------------------------#
-                 time_plane = (km_plane / 97)
-                 return  {"Precio": price, "Distancia": km_plane, "Duracion": time_plane, "Camino": str(path)}
+                 time_plane = data['time']
+                 return  {"Precio": price, "Distancia": km_plane, "Duracion": time_plane}
         return  {"No disponible"}
 
     def best_taxi(self, string_connect, point_a, point_b):
@@ -70,30 +72,30 @@ class Use_graph:
         best_path = self.graph_information.show_routes(point_a, point_b)
 
         if not best_path is False:
-            path = best_path['Camino']
-            km = best_path['Total de Km']
-            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'taxi')
 
-            if not price is False:
-                km_taxi = km - ((km ) / 20) #El taxi se  disminuye la vigesima parte de los kilometros por las variaciones en rutas
-                price_num =price['total']
-                price = km_taxi * int(price_num)
-                time_taxi = (km_taxi / 50)#Calculo de tiempo que utiliza la formula v=(d/t) que se despeja t=(d/v)
-                return {"Precio": price, "Distancia": km_taxi, "Duracion": time_taxi, "Camino": str(path)}
+            data = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'taxi')
+
+            if not data is False:
+                path = int(data['path'])
+                km_taxi = self.distance(point_a, point_b, path)
+                price_num = data['total_km']
+                price = km_taxi * float(int(price_num))
+                time = data['time']
+                return {"Precio": price, "Distancia": km_taxi, "Duracion": time}
 
         return {"No disponible"}
 
     def best_bus(self, string_connect, point_a, point_b):
-
         best_path = self.graph_information.show_routes(point_a, point_b)
         if not best_path is False:
-            path = best_path['Camino']
-            km = best_path['Total de Km']
-            price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'bus')
-            if not price is False:
-                price = price['total']
-                time_bus = (km / 30) #
-                return {"Precio": price, "Distancia": km, "Duracion": time_bus, "Camino": str(path)}
+
+            data = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'bus')
+            if not data is False:
+                path = int(data['path'])
+                km = self.distance(point_a, point_b,path)
+                price = data['total']
+                time_bus = data['time']
+                return {"Precio": price, "Distancia": km, "Duracion": time_bus}
 
         return {"No disponible"}
 
@@ -104,11 +106,11 @@ class Use_graph:
             path = best_path['Camino']
             km = best_path['Total de Km']
             price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'tren')
-
             if not price is False:
                 price = price['total']
-                km_train = km-(km*0.03)#Se disminuye un 3% ela cantidad de kilometros
-                time_train = (km_train / 40)#Calculo de tiempo que utiliza la formula v=(d/t) que se despeja t=(d/v)
+                path = int(price['path'])
+                km_train = self.distance(point_a, point_b, path)
+                time_train = price['time']
                 return {"Precio": price, "Distancia": km_train, "Duracion": time_train, "Camino": str(path)}
 
         return {"No disponible"}
@@ -123,32 +125,96 @@ class Use_graph:
         array_cost = self.method_transport.transport_data(string_connection, arrival, departure)
         sort_array = self.sort_data.sort_list(array_cost, 'total')
         best =[]
-        for counter in range(0,5):
-            best.append(sort_array[counter])
+        for counter in range(0, 5):
+            if counter <= len(sort_array):
+                path = sort_array[counter].get('path')
+                distance = self.distance(arrival, departure, path)
+
+                json = {
+                    "origin": sort_array[counter].get('origin'),
+                    "destination": sort_array[counter].get('destination'),
+                    "company": sort_array[counter].get('company'),
+                    "distance": distance,
+                    "costo": sort_array[counter].get('total'),
+                    "time": sort_array[counter].get('time')}
+                best.append(json)
+            else:
+                best.append({"No disponible"})
+
         return jsonify(str(best))
 
-    def best_time(self, string_connection):
+    def better_time(self, string_connection):
 
         arrival = request.json.get('origin')
         departure = request.json.get('destination')
         if arrival is None or departure is None:
             return jsonify({"Error": "Faltan datos"})
+
         array_time = self.method_transport.transport_data(string_connection, arrival, departure)
         sort_array = self.sort_data.sort_list(array_time, 'time')
         best = []
+
         for counter in range(0, 5):
-            best.append(sort_array[counter])
+            if counter <= len(sort_array):
+                path = sort_array[counter].get('path')
+                distance = self.distance(arrival, departure, path)
+
+                json = {
+                    "origin": sort_array[counter].get('origin'),
+                    "destination": sort_array[counter].get('destination'),
+                    "company": sort_array[counter].get('company'),
+                    "distance": distance,
+                    "costo": sort_array[counter].get('total'),
+                    "time": sort_array[counter].get('time')}
+                best.append(json)
+            else:
+                best.append({"No disponible"})
         return jsonify(str(best))
 
-    def best_distance(self, string_connection):
+    def better_distance(self, string_connection):
         arrival = request.json.get('origin')
         departure = request.json.get('destination')
         if arrival is None or departure is None:
             return jsonify({"Error": "Faltan datos"})
-        array_time = self.graph_information.show_all_routes(arrival, departure)
-        sort_array = self.sort_data.sort_list(array_time, 'time')
+
+        array_all_routes = self.graph_information.show_all_routes(arrival, departure)
+
+        if not array_all_routes is False:
+            sort_array = self.sort_data.sort_list(array_all_routes, 'Distancia')
+            transport_array = self.method_transport.transport_data(string_connection, arrival, departure)
+            datos =self.sort_distance_data(sort_array, transport_array)
+
+            return  jsonify({"Rutas": str(datos)})
+        return jsonify({"Estado": "No hay rutas"})
+
+
+    def sort_distance_data(self, sort_array, transport_array):
         best = []
-        for counter in range(0, 5):
-            best.append(sort_array[counter])
-        return jsonify(str(best))
+        while len(best) <= 4:
+            for counter in range(len(sort_array)):
+                number = sort_array[counter].get('Numero de ruta')
+                for counter_transport in range(len(transport_array)):
+                    valor =  transport_array[counter_transport].get('path')
+                    if number == valor:
+                        json = {
+                            "origin": transport_array[counter_transport].get('origin'),
+                            "destination":transport_array[counter_transport].get('destination'),
+                            "company": transport_array[counter_transport].get('company'),
+                            "distance": sort_array[counter].get('Distancia'),
+                            "costo": transport_array[counter_transport].get('total'),
+                            "time": transport_array[counter_transport].get('time')
+                        }
+                        best.append(json)
+            if len(best) <=4 :
+                best.append({"No disponible"})
+        return best
+
+#------------------------------------------Obtener km de distancia-----------------------------------------------------#
+    def distance(self, arrival, departure, path):
+        array_all_routes = self.graph_information.show_all_routes(arrival, departure)
+        for counter in range(len(array_all_routes)):
+            number = array_all_routes[counter].get('Numero de ruta')
+            if number == path:
+                return int(array_all_routes[counter].get('Distancia'))
+        return 0
 

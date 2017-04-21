@@ -3,7 +3,6 @@ import json
 
 from flask import jsonify
 
-
 class create_graph:
     grafo = nx.Graph()
     instance = None
@@ -47,8 +46,6 @@ class create_graph:
                     json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
                     path.append(json_data)
             length = nx.shortest_path_length(self.grafo, source, target, weight='weight')
-            print(str(path))
-            print(length)
             return {"Camino": path, "Total de Km": length}
         return False
 
@@ -56,18 +53,19 @@ class create_graph:
         exists = nx.has_path(self.grafo, source, target)
         if exists is True:
             path = []
+            ruta = 0
             for value in nx.all_simple_paths(self.grafo, source, target):
-                ruta = 0
                 distance = 0
                 for a in range(len(value)):
                     data_point1 = value[a]
-                    if a < value:
+                    if a < len(value)-1:
                         data_point2 = value[a+1]
                         new_data = self.grafo[data_point1][data_point2]['weight']
                         distance += new_data
-                ruta += 1
                 json_route = {"Numero de ruta": ruta, "Distancia": distance}
+                ruta += 1
                 path.append(json_route)
+            return path
         return False
 
     def number_routes(self, source, target):
