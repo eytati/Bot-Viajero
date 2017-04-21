@@ -49,14 +49,17 @@ def best_routes():
 
 @app.route('/api/rutas/mejores/costo', methods=['POST'])
 def better_cost():
+    print('hola')
     return instance_method_routes.best_cost(base_de_datos)
 
 @app.route('/api/rutas/mejores/tiempo', methods=['POST'])
 def better_time():
+    print('hola')
     return instance_method_routes.better_time(base_de_datos)
 
 @app.route('/api/rutas/mejores/distancia', methods=['POST'])
 def better_distance():
+    print('hola')
     return instance_method_routes.better_distance(base_de_datos)
 
 
