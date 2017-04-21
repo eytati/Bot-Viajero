@@ -1,7 +1,4 @@
 import networkx as nx
-import json
-
-from flask import jsonify
 
 class create_graph:
     grafo = nx.Graph()
@@ -75,35 +72,5 @@ class create_graph:
             for value in nx.all_simple_paths(self.grafo, source, target):
                 counter += 1
         return counter
-
-
-
-
-
-
-# todas las rutas  for path in nx.all_simple_paths(G, source=0, target=3):
-# Existe una ruta = nx.has_path(self.grafo, "Liberia", "Puerto Jimenez")
-# todas las rutas cortas =  nx.all_shortest_paths(G,source=0,target=2)
-#largo de la mas corta = nx.shortest_path_length(G,source=0,target=4
-#nx.dijkstra_path(G,0,4)
-
-'''
-a = create_graph()
-a.carga_de_nodos()
-a.carga_de_aristas()
-a.show_cities()
-a.show_routes()
-
-class accede_al_grafo:
-    a = creacion_de_grafo()
-    a.carga_de_nodos()
-    a.carga_de_aristas()
-
-    def ruta_mas_corta(self, id1, id2):
-        b =nx.dijkstra_path(self.a.grafo, id1, id2)
-        print(b)
-
-'''
-
 
 

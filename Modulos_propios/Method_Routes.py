@@ -14,7 +14,6 @@ class Use_graph:
 
         for cities  in collections_nodes.find():
             city = cities['ciudad']
-            print(str(city))
             self.graph_information.create_node(city, cities)
         return  jsonify({"Estago": "Se agrego correctamente"})
 
@@ -33,10 +32,10 @@ class Use_graph:
     def route_between_points(self, string_connect):
         origin = request.json.get('origin')
         destination = request.json.get('destination')
+
         if origin is None or destination is None:
-            # abort(400)
-            print("Faltan Datos")
             return jsonify({"Error": "Faltan datos"})
+
         best_transports = []
         json_plane = self.best_plane(string_connect, origin, destination)
         best_transports.append(json_plane)
@@ -103,8 +102,6 @@ class Use_graph:
 
         best_path = self.graph_information.show_routes(point_a, point_b)
         if not best_path is False:
-            path = best_path['Camino']
-            km = best_path['Total de Km']
             price = self.method_transport.best_price_transport(string_connect, point_a, point_b, 'tren')
             if not price is False:
                 price = price['total']

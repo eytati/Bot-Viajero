@@ -2,7 +2,6 @@ from Modulos_propios import   Person
 from flask import request, jsonify
 
 class Conexion_con_datos():
-
  #------------------------------Metodo de crear usuarios---------------------------------------------------------------#
     def create_user(self, string_connection):
 
