@@ -27,7 +27,7 @@ function registro_Avion() {
                async: true,
        crossDomain: true,
                 type: 'POST',
-                url: 'http://192.168.1.141:5016/api/registrar/ruta/avion',
+                url: 'http://192.168.43.26:5016/api/registrar/ruta/avion',
                 contentType:"application/json",
                 data: jsonP,
                 dataType: 'json',
