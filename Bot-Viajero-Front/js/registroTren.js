@@ -29,12 +29,13 @@ function registro_Tren() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
+
                 //beforeSend: function (xhr,) {
                    // xhr.setRequestHeader("Authorization", "Basic "
                  //       + btoa(tokenTest + ":" + password));
                // },
                 success : function(result) {
-                    sessionStorage.setItem("token", datos['token']);
+                  //  sessionStorage.setItem("token", datos['token']);
                    alert("Regisrado con éxito");
                  window.location.href="Index.html"
 

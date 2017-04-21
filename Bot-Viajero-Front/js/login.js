@@ -20,15 +20,21 @@ function login() {
              contentType: "application/json",
              data: jsonP,
              dataType: 'json',
-
-           beforeSend: function (xhr) {
-                 xhr.setRequestHeader("Authorization", "Basic "
-                     + btoa(username + ":" + password));
-             },
+            // header:
+              // {
+	           //'authorization': "Basic " + btoa(username + ":" +password),
+	           //contentType: "application/json"
+	        //},
+         beforeSend: function (xhr) {
+         xhr.setRequestHeader("Authorization", "Basic "
+              + btoa(username + ":" + password));
+         },
              success: function (datos) {
                  alert(datos)
                  //var token =localStorage.setItem(datos);
-                 sessionStorage.setItem('user_token', datos['user_token']);
+                 sessionStorage.setItem('user_token', datos);
+                 sessionStorage.setItem('user_name', username);
+                 sessionStorage.setItem('password', password);
                  window.location.href = "Index.html"
 
 

@@ -1,3 +1,4 @@
+
 var json = [
 {
       "ciudad" : "Alajuela Provincia, La Fortuna, Costa Rica",
@@ -166,6 +167,7 @@ function calculateAndDisplay(directionsService, directionsDisplay) {
     directionsService.route({
         origin: document.getElementById('origin').value,
         destination: document.getElementById('destination').value,
+
         travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -173,3 +175,4 @@ function calculateAndDisplay(directionsService, directionsDisplay) {
         }
     });
 }
+

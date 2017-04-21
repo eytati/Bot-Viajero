@@ -455,7 +455,7 @@ button{
 }
 
 #minibutton2{
-    background-color: #2471A3;
+    background-color: white;
   color: black;
   border: none;
   border-radius: 5px;
@@ -464,7 +464,7 @@ button{
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
 }
 input {

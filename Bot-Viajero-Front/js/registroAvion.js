@@ -7,9 +7,11 @@ function registro_Avion() {
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("arrive_time").value;
     var total = document.getElementById("total").value;
-    var User_token = sessionStorage.getItem("user_token");
+    var User_token = sessionStorage.getItem('user_token');
+    var User_name = sessionStorage.getItem('user_name');
+    var Password = sessionStorage.getItem("password");
 
-               alert(JSON.stringify(User_token));
+               alert(JSON.stringify(User_name +  " " + User_token));
 
        var jsonP=
            {"company": company,
@@ -29,14 +31,29 @@ function registro_Avion() {
                 type: 'POST',
                 url: 'http://192.168.43.26:5016/api/registrar/ruta/avion',
                 contentType:"application/json",
-                data: jsonP,
-                dataType: 'json',
-              beforeSend: function (xhr) {
-                 xhr.setRequestHeader("Authorization", "Basic "
-                     + btoa(User_token + ":" + " "));
-             },
+                data: data,
 
-                processData: false,
+                dataType: 'json',
+
+             //  header:
+               //{
+	          // 'authorization': "Basic " + btoa(User_token + ":" +Password),
+	           // contentType: "application/json"
+	        //},
+                beforeSend: function (xhr) {
+                 xhr.setRequestHeader("Authorization", "Basic "
+                   + btoa(User_token + ":" + User_name));
+             },
+               //beforeSend: function (xhr) {
+                // xhr.setRequestHeader("Authorization", "Basic "
+                  //   + btoa(User_name + ":" + User_token));
+             //},
+
+              //beforeSend: function (xhr) {
+              //   xhr.setRequestHeader("Authorization", "Basic "
+                    // + btoa(User_token + ":" + ""));
+            // },
+
                 success : function(datos, e) {
 
                     alert("Registrado con éxito");
@@ -44,7 +61,7 @@ function registro_Avion() {
                  window.location.href="Index.html";
 
     },           error: function(error){
-                 alert(error);
+                 alert("Error");
 }
             })
         }
