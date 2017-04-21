@@ -13,23 +13,24 @@ function login() {
 
 
          $.ajax({
-             //crossDomain: true,
-             url: "http://192.168.1.140:5016/api/token/" + username ,
+             async: true,
+             crossDomain: true,
+             url: "http://192.168.1.141:5016/api/token/" + username ,
              type: "GET",
              contentType: "application/json",
-             data: dataPerson,
+             data: jsonP,
              dataType: 'json',
 
-             beforeSend: function (xhr) {
+           beforeSend: function (xhr) {
                  xhr.setRequestHeader("Authorization", "Basic "
                      + btoa(username + ":" + password));
              },
-             success: function (datos,e) {
-                 //alert(datos)
-                 sessionStorage.setItem("token", datos['token']);
+             success: function (datos) {
+                 alert(datos)
+                 //var token =localStorage.setItem(datos);
+                 sessionStorage.setItem('user_token', datos['user_token']);
                  window.location.href = "Index.html"
-              //   console.log(result.status)
-//              return datos
+
 
              }, error: function (error) {
                  alert('Datos incorrectos');

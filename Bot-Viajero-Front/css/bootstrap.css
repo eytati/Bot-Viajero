@@ -159,7 +159,18 @@ form {
 
   background-color:white;
   margin: 0 auto 0 auto;
+  width: 700px;
 }
+
+#opt{
+ width:45px;
+}
+
+option{
+ width:300px;
+}.opt2{
+  font-size: 8px;
+ }
 
 #espacio{
  margin-top: 10px;
