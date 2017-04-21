@@ -1,7 +1,7 @@
 function readRouteDistance() {
 
-    var origin = document.getElementById("origin").value;
-    var destination = document.getElementById("destination").value;
+    var origin = localStorage.getItem('origin');
+    var destination = localStorage.getItem('destination');
 
     var jsonP =
         {
@@ -10,7 +10,7 @@ function readRouteDistance() {
         }
 
     var data = JSON.stringify(jsonP);
-
+    alert(data);
 
       $.ajax({
              url: "http://192.168.43.26:5016/api/rutas/mejores/distancia",
@@ -29,6 +29,4 @@ function readRouteDistance() {
              }
 
          });
-
-
 }
