@@ -57,22 +57,26 @@ class create_graph:
         if exists is True:
             path = []
             for value in nx.all_simple_paths(self.grafo, source, target):
-                mini_path =[]
+                ruta = 0
+                distance = 0
                 for a in range(len(value)):
                     data_point1 = value[a]
-                    data_point2 = value[a+1]
-                    new_data = self.grafo.edge[data_point1, data_point2]
-                    id = new_data['id']
-                    city = new_data['ciudad']
-                    latitude = new_data['latitude']
-                    longitude = new_data['longitude']
-                    json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
-                    path.append(json_data)
-            length = nx.shortest_path_length(self.grafo, source, target, weight='weight')
-            print(str(path))
-            print(length)
-            return {"Camino": path, "Total de Km": length}
+                    if a < value:
+                        data_point2 = value[a+1]
+                        new_data = self.grafo[data_point1][data_point2]['weight']
+                        distance += new_data
+                ruta += 1
+                json_route = {"Numero de ruta": ruta, "Distancia": distance}
+                path.append(json_route)
         return False
+
+    def number_routes(self, source, target):
+        exists = nx.has_path(self.grafo, source, target)
+        counter = 0
+        if exists is True:
+            for value in nx.all_simple_paths(self.grafo, source, target):
+                counter += 1
+        return counter
 
 
 

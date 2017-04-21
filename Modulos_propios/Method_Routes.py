@@ -113,22 +113,42 @@ class Use_graph:
 
         return {"No disponible"}
 
-    def best_time(self, string_connection):
-        arrival = request.json.get('origin')
-        departure = request.json.get('destination')
-        if arrival is None or departure is None:
-            return jsonify({"Error": "Faltan datos"})
-
-
-        return
 
     def best_cost(self, string_connection):
+
         arrival = request.json.get('origin')
         departure = request.json.get('destination')
         if arrival is None or departure is None:
             return jsonify({"Error": "Faltan datos"})
-        array_cost = self.method_transport.best_price(string_connection, arrival,departure)
-        best = self.sort_data.sort_list(array_cost, 'total')
+        array_cost = self.method_transport.transport_data(string_connection, arrival, departure)
+        sort_array = self.sort_data.sort_list(array_cost, 'total')
+        best =[]
+        for counter in range(0,5):
+            best.append(sort_array[counter])
+        return jsonify(str(best))
 
+    def best_time(self, string_connection):
+
+        arrival = request.json.get('origin')
+        departure = request.json.get('destination')
+        if arrival is None or departure is None:
+            return jsonify({"Error": "Faltan datos"})
+        array_time = self.method_transport.transport_data(string_connection, arrival, departure)
+        sort_array = self.sort_data.sort_list(array_time, 'time')
+        best = []
+        for counter in range(0, 5):
+            best.append(sort_array[counter])
+        return jsonify(str(best))
+
+    def best_distance(self, string_connection):
+        arrival = request.json.get('origin')
+        departure = request.json.get('destination')
+        if arrival is None or departure is None:
+            return jsonify({"Error": "Faltan datos"})
+        array_time = self.graph_information.show_all_routes(arrival, departure)
+        sort_array = self.sort_data.sort_list(array_time, 'time')
+        best = []
+        for counter in range(0, 5):
+            best.append(sort_array[counter])
         return jsonify(str(best))
 

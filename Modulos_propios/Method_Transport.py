@@ -1,16 +1,23 @@
+import random
 from datetime import datetime
-
+from  Modulos_propios import Graph
 from flask import request, jsonify
 
 class Register_transport():
 
+    graph = Graph.create_graph()
 #-----------------------------------------------Calculo de tiempo------------------------------------------------------#
     def time(self, arrival_time, departure_time):
-        format = "%H:%M:%S"
-        hour_1 = datetime.strptime(arrival_time, format)
-        hour_2 = datetime.strptime(departure_time, format)
-        time = hour_2 - hour_1
+        format = '%H:%M'
+        hour_1= datetime.strptime(arrival_time,format)
+        hour_2= datetime.strptime(departure_time,format)
+        time = hour_1 - hour_2
         return str(time)
+
+#-----------------------------------------------Numero de ruta------------------------------------------------------#
+    def path(self, arrival_time, departure_time):
+        number = self.graph.number_routes(arrival_time, departure_time)
+        return random.randrange(number)
 
 #--------------------------------------------------------Registrar avion--------------------------------------------------------------------------------#
     def register_plane(self, string_connection):
@@ -36,6 +43,7 @@ class Register_transport():
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
 
         time = self.time(arrival_time,departure_time)
+        path = self.path(origin, destination)
 
         json_edges_db = {"type": "plane",
                          "company": company,
@@ -45,8 +53,8 @@ class Register_transport():
                          "departure_time": departure_time,
                          "arrival_time" : arrival_time,
                          "time": time,
-                         "total": total
-                         }
+                         "total": total,
+                         "path": path}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
 
@@ -77,6 +85,7 @@ class Register_transport():
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
 
         time = self.time(arrival_time, departure_time)
+        path = self.path(origin, destination)
 
         json_edges_db = {
             "type": "train",
@@ -86,7 +95,8 @@ class Register_transport():
             "departure_time": departure_time,
             "arrival_time": arrival_time,
             "time": time,
-            "total": total}
+            "total": total,
+            "path": path}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_transport = string_connection.db.Transportes
@@ -106,7 +116,7 @@ class Register_transport():
         destination = request.json.get('destination')
         departure_time = request.json.get('departure_time')
         arrival_time = request.json.get('arrival_time')
-        total = request.json.get('total')
+        total_km = request.json.get('total')
 
 #-----------------------------------------------Revision de datos------------------------------------------------------#
         if company is None or registration is None or origin is None:
@@ -118,12 +128,13 @@ class Register_transport():
         if name is None or last_name is None:
             return jsonify({"Error": "Faltan datos"})
 
-        if arrival_time is None or total is None:
+        if arrival_time is None or total_km is None:
             return jsonify({"Error": "Faltan datos"})
 
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
 
         time = self.time(arrival_time, departure_time)
+        path = self.path(origin, destination)
 
         json_edges_db = {
             "type": "taxi",
@@ -137,7 +148,9 @@ class Register_transport():
             "departure_time": departure_time,
             "arrival_time": arrival_time,
             "time": time,
-            "total": total}
+            "total_km": total_km,
+            "total": "",
+            "path": path}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_transport = string_connection.db.Transportes
@@ -173,6 +186,7 @@ class Register_transport():
 #-----------------------------------------Valores del json de las rutas------------------------------------------------#
 
         time = self.time(arrival_time, departure_time)
+        path = self.path(origin, destination)
 
         json_edges_db = {
             "type": "bus",
@@ -185,7 +199,8 @@ class Register_transport():
             "departure_time": departure_time,
             "arrival_time": arrival_time,
             "time": time,
-            "total": total}
+            "total": total,
+            "path": path}
 
 #---------------------------Conexion con las bases de datos y ingresar la ruta-----------------------------------------#
         collection_transport = string_connection.db.Transportes
@@ -213,9 +228,10 @@ class Register_transport():
         return best
 
 #-----------------------------------------rutas disponibles------------------------------------------------------------#
-    def best_price(self, string_connection, arrival, departure):
+    def transport_data(self, string_connection, arrival, departure):
      collection_transport = string_connection.db.Transportes
      options= []
+     self.change_total(string_connection, arrival,departure)
      for data in collection_transport.find():
          origin= data['origin']
          destination = data['destination']
@@ -225,7 +241,18 @@ class Register_transport():
          return False
      return options
 
-#------------------------------------------agragar tiempo--------------------------------------------------------------#
+#------------------------------------------total en los taxi-----------------------------------------------------------#
+
+    def change_total(self, string_connection, arrival, departure):
+        collection_transport = string_connection.db.Transportes
+        for data in collection_transport.find():
+            if data['type'] == 'taxi':
+                best_path = self.graph.show_routes(arrival, departure)
+                km = best_path['Total de Km']
+                price_num = data['total_km']
+                price = km* int(price_num)
+                collection_transport.update_one({ "origin": arrival, "destination": departure}, {'$set': {'total': str(price)}}, upsert=False)
+
 
 
 
