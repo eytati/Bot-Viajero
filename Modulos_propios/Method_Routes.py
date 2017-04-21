@@ -30,9 +30,11 @@ class Use_graph:
         return jsonify({"Ciudades": self.graph_information.show_cities()})
 
     def route_between_points(self, string_connect):
+        print('hola')
         origin = request.json.get('origin')
+        print(origin)
         destination = request.json.get('destination')
-
+        print(destination)
         if origin is None or destination is None:
             return jsonify({"Error": "Faltan datos"})
 
@@ -46,6 +48,7 @@ class Use_graph:
         json_train = self.best_train(string_connect, origin, destination)
         best_transports.append(json_train)
 
+        print({"Datos": str(best_transports)})
         return jsonify({"Datos": str(best_transports)})
 
     def best_plane(self, string_connect, point_a, point_b):
