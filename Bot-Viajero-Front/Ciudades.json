@@ -1,0 +1,148 @@
+{
+  "Ciudades" : [
+    {
+      "Longitud" : -84.8255097,
+      "Latitud" : 10.2749682,
+      "Ciudad" : "Monte Verde, Costa Rica",
+      "Id" : "3"
+    },
+    {
+      "Longitud" : -84.01674229999998,
+      "Latitud" : 10.473523,
+      "Ciudad" : "Heredia, Sarapiqui, Costa Rica",
+      "Id" : "9"
+    },
+    {
+      "Longitud" : -84.08309109999999,
+      "Latitud" : 9.6540146,
+      "Ciudad" : "Talamanca",
+      "Id" : "21"
+    },
+    {
+      "Longitud" : -84.64268060000001,
+      "Latitud" : 10.4678335,
+      "Ciudad" : "Alajuela Provincia, La Fortuna, Costa Rica",
+      "Id" : "1"
+    },
+    {
+      "Longitud" : -84.16190760000001,
+      "Latitud" : 9.431868099999999,
+      "Ciudad" : "Quepos, Provincia de Puntarenas, Costa Rica",
+      "Id" : "2"
+    },
+    {
+      "Longitud" : -83.5069226,
+      "Latitud" : 10.4488767,
+      "Ciudad" : "Tortuguero, Provincia de Limon, Costa Rica",
+      "Id" : "4"
+    },
+    {
+      "Longitud" : -83.30678019999999,
+      "Latitud" : 8.5336439,
+      "Ciudad" : "Puerto Jimenez, Provincia de Puntarenas, Costa Rica",
+      "Id" : "5"
+    },
+    {
+      "Longitud" : -85.44067469999999,
+      "Latitud" : 10.6345964,
+      "Ciudad" : "Liberia, Provincia de Guanacaste, Costa Rica",
+      "Id" : "6"
+    },
+    {
+      "Longitud" : -84.20679919999998,
+      "Latitud" : 10.0525756,
+      "Ciudad" : "Canton de Alajuela, Provincia de Alajuela, Costa Rica",
+      "Id" : "7"
+    },
+    {
+      "Longitud" : -84.20679919999998,
+      "Latitud" : 10.0525756,
+      "Ciudad" : "Volcan Miravalles, Bagaces, Provincia de Guanacaste, Costa Rica",
+      "Id" : "8"
+    },
+    {
+      "Longitud" : -82.84521459999996,
+      "Latitud" : 9.7347856,
+      "Ciudad" : "Cahuita, Provincia de Limon, Costa Rica",
+      "Id" : "10"
+    },
+    {
+      "Longitud" : -85.25413600000002,
+      "Latitud" : 10.5388321,
+      "Ciudad" : "Bagaces, Provincia de Guanacaste, Costa Rica",
+      "Id" : "11"
+    },
+    {
+      "Longitud" : -85.230841,
+      "Latitud" : 9.9799813,
+      "Ciudad" : "Irazu, Provincia de Cartago, Costa Rica",
+      "Id" : "12"
+    },
+    {
+      "Longitud" : -83.84907609999999,
+      "Latitud" : 9.35473,
+      "Ciudad" : "Perez Zeledon, Provincia de San José, Costa Rica",
+      "Id" : "13"
+    },
+    {
+      "Longitud" : -83.7358514,
+      "Latitud" : 9.163500899999999,
+      "Ciudad" : "Provincia de Puntarenas, Uvita, Costa Rica",
+      "Id" : "14"
+    },
+    {
+      "Longitud" : -83.91619349999996,
+      "Latitud" : 9.863809099999999,
+      "Ciudad" : "Cartago Provincia, Cartago, Costa Rica",
+      "Id" : "15"
+    },
+    {
+      "Longitud" : -85.01249999999999,
+      "Latitud" : 10.6713889,
+      "Ciudad" : "Volcan Tenorio, Provincia de Guanacaste, Costa Rica",
+      "Id" : "16"
+    },
+    {
+      "Longitud" : -83.68005119999998,
+      "Latitud" : 9.9067054,
+      "Ciudad" : "Turrialba, Provincia de Cartago, Costa Rica",
+      "Id" : "17"
+    },
+    {
+      "Longitud" : -83.4946218,
+      "Latitud" : 9.513432699999999,
+      "Ciudad" : "Parque Nacional Chirripo, Perez Zeledon, Provincia de San Jose, Costa Rica",
+      "Id" : "18"
+    },
+    {
+      "Longitud" : -85.78716630000002,
+      "Latitud" : 10.8841185,
+      "Ciudad" : "Península de Santa Elena, Provincia de Guanacaste, Costa Rica",
+      "Id" : "19"
+    },
+    {
+      "Longitud" : -82.93880000000001,
+      "Latitud" : 9.4071,
+      "Ciudad" : "Parque Nacional La Amistad, Provincia de Limon, Costa Rica",
+      "Id" : "20"
+    },
+    {
+      "Longitud" : -84.338745,
+      "Latitud" : 10.398795,
+      "Ciudad" : "Los Chiles, Provincia de Alajuela, Costa Rica",
+      "Id" : "22"
+    },
+    {
+      "Longitud" : -83.974425,
+      "Latitud" : 10.1599,
+      "Ciudad" : "Parque Nacional Braulio Carrillo, Provincia de Heredia, Costa Rica",
+      "Id" : "23"
+    },
+    {
+      "Longitud" : -85.45302950000001,
+      "Latitud" : 10.1445678,
+      "Ciudad" : "Nicoya, Provincia de Guanacaste, Costa Rica",
+      "Id" : "24"
+    }
+  ]
+}

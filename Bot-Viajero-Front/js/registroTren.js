@@ -1,11 +1,5 @@
 var tokenTest = sessionStorage.getItem("tokenTest");
- /*$(document).ready(function () {
-                 $.getJSON('http://192.168.1.140:5016/api/ciudades', function (data, e) {
-                     alert(data);
-                 });
-         });*/
-
- $.ajax({ 
+ /*$.ajax({ 
     type: "GET", 
     url: "http://192.168.1.141:5016/api/ciudades", 
     contentType: "application/json", 
@@ -33,40 +27,10 @@ var tokenTest = sessionStorage.getItem("tokenTest");
           alert('Error'); 
       }
         // success: function(data) {
-});
-
- /* $.ajax({
-  type: 'GET',
-  url: "http://192.168.1.140:5016/api/ciudades",
-  data: data,
-  async: false,
-  dataType: 'json',
-  success: function (data) {
-          alert(data); 
-   //Do stuff with the JSON data
-  },
-     error: function (error) {
-         alert("error");
-     }
 });*/
 
 
-
-/* $.ajax({
-     type: "GET",
-     url: "http://192.168.1.140:5016/api/cuidades",
-               data: data,
-               success: function (e, result) {
-                   alert(e);
-               }, error :function (x) {
-                                alert("Incompleto");
-
-               };
-
-     });*/
-
-
-/*$.ajax({
+$.ajax({
     url: "http://192.168.43.26::5016/api/ciudades",
     //force to handle it as text
     dataType: "application/json",
@@ -85,7 +49,8 @@ var tokenTest = sessionStorage.getItem("tokenTest");
 
         }
     }
-});*/
+});
+
 function SelectJsonTrain() {
     var jsonData = {
      "ciudades": [

@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+ <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
+$(document).ready(function(){
+   $("button").click(function(){
+        $.getJSON("Ciudades.json", function(result){
+            $.each(result.Ciudades, function(key, value){
+              // alert(JSON.stringify(value.Ciudad));
+                var json=  JSON.stringify(result);
+                //var prueba = eval(JS);
+              //alert(prueba);
+                $("div").append( json + " ");
+                alert("Hola" + (JSON.parse(json[0].get("Ciudad"))));
 
-$(function() {
 
-var entries = [];
-var dmJSON = "http://192.168.1.141:5016/api/ciudades";
-$.getJSON( dmJSON, function(data) {
-   $.each(data.entries, function(i, f) {
-      var tblRow = "<tr>" + "<td>" + f.Ciudad + "</td>" + "<td>" + f.user.username + "</td>" + "<td>" + f.message + "</td>" + "<td> " + f.location + "</td>" +  "<td>" + f.at + "</td>" + "</tr>"
-       $(tblRow).appendTo("#entrydata tbody");
- });
+            });
 
+            alert(JS[1].Ciudad);
+        });
+    });
 });
 
-});
+
 </script>
 </head>
-
 <body>
 
-<div class="wrapper">
-<div class="profile">
-<table id= "entrydata" border="1">
-<thead>
-        <th>ID</th>
-        <th>UserName</th>
-        <th>Message</th>
-    <th>Location</th>
-        <th>Time</th>
-    </thead>
-  <tbody>
+<button>Get JSON data</button>
 
-   </tbody>
-</table>
+ <label3 for="destination" class="selectbox"> Destino </label3>
 
-</div>
-</div>
+          <select id="destinationT">
+
+        </select>
+
+
 
 </body>
-
 </html>
