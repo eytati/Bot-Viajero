@@ -4,7 +4,11 @@ function readRoute() {
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;
 
+    localStorage["origin"]= origin;
+    localStorage["destination"]= destination;
 
+    //sessionStorage.setItem('origin', origin);
+    //sessionStorage.setItem('destination', destination);
 
     var jsonP =
         {
@@ -25,7 +29,6 @@ function readRoute() {
              success: function (datos) {
                var routes = JSON.stringify(datos);
                  alert(routes);
-
                  window.location.href = "calculoRutas.html"
 
              }, error: function (error) {
@@ -34,7 +37,7 @@ function readRoute() {
 
          });
 
-         sessionStorage.setItem('origin', origin);
+    sessionStorage.setItem('origin', origin);
     sessionStorage.setItem('destination', destination);
 }
 

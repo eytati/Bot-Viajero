@@ -1,7 +1,7 @@
 function readRouteDistance() {
 
-    var origin = localStorage.getItem('origin');
-    var destination = localStorage.getItem('destination');
+    var origin = localStorage.origin;
+    var destination = localStorage.destination;
 
     var jsonP =
         {

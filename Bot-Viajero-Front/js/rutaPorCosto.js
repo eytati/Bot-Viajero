@@ -1,9 +1,8 @@
 function readRouteCost() {
     alert("entro");
-    var origin = document.getElementById("origin").value;
-    alert(origin);
-    var destination = document.getElementById("destination").value;
-    alert(destination);
+
+    localStorage["origin"]= origin;
+    localStorage["destination"]= destination;
 
     var jsonP =
         {
@@ -12,9 +11,10 @@ function readRouteCost() {
         }
 
     var data = JSON.stringify(jsonP);
+
     alert(data);
       $.ajax({
-             url: "http://192.168.43.26:5016/api/rutas/mejores/costo",
+             url: "http://192.168.43.26:5016/api/rutas/mejores/transporte",
              type: "POST",
              contentType: "application/json",
              data: data,
@@ -23,10 +23,11 @@ function readRouteCost() {
              success: function (datos) {
                var routes = JSON.stringify(datos);
                  alert(routes);
-                 window.location.href = "rutasPorCosto.html"
+                 window.location.href = "calculoRutas.html"
 
              }, error: function (error) {
                  alert('Datos incorrectos');
              }
+
          });
 }

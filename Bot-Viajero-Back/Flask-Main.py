@@ -12,6 +12,7 @@ from flask_cors import CORS
 #--------------------------------------------Inicio del codigo---------------------------------------------------------#
 app = Flask(__name__)
 CORS(app)
+
 #--------------------------------------------Para utilizar la autenticacion--------------------------------------------#
 registro_auth = HTTPBasicAuth()
 
@@ -27,7 +28,6 @@ instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
 
-
 @app.before_request
 def verifiqueRutas():
     uri = request.url_rule
@@ -36,7 +36,6 @@ def verifiqueRutas():
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
-
     return instance_method_routes.list_places()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
