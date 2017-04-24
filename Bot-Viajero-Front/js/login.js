@@ -31,7 +31,6 @@ function login() {
          },
              success: function (datos) {
                  alert(datos)
-                 //var token =localStorage.setItem(datos);
                  sessionStorage.setItem('user_token', datos);
                  sessionStorage.setItem('user_name', username);
                  sessionStorage.setItem('password', password);

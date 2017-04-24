@@ -35,19 +35,11 @@ function registro_Avion() {
 
                 dataType: 'json',
 
-             //  header:
-               //{
-	          // 'authorization': "Basic " + btoa(User_token + ":" +Password),
-	           // contentType: "application/json"
-	        //},
                 beforeSend: function (xhr) {
                  xhr.setRequestHeader("Authorization", "Basic "
                    + btoa(User_token + ":" + User_name));
              },
-               //beforeSend: function (xhr) {
-                // xhr.setRequestHeader("Authorization", "Basic "
-                  //   + btoa(User_name + ":" + User_token));
-             //},
+
 
               //beforeSend: function (xhr) {
               //   xhr.setRequestHeader("Authorization", "Basic "
