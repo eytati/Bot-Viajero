@@ -12,6 +12,7 @@ from flask_cors import CORS
 #--------------------------------------------Inicio del codigo---------------------------------------------------------#
 app = Flask(__name__)
 CORS(app)
+
 #--------------------------------------------Para utilizar la autenticacion--------------------------------------------#
 registro_auth = HTTPBasicAuth()
 
@@ -27,7 +28,6 @@ instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
 
-
 @app.before_request
 def verifiqueRutas():
     uri = request.url_rule
@@ -36,7 +36,6 @@ def verifiqueRutas():
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
-
     return instance_method_routes.list_places()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
@@ -49,14 +48,17 @@ def best_routes():
 
 @app.route('/api/rutas/mejores/costo', methods=['POST'])
 def better_cost():
+    print('hola')
     return instance_method_routes.best_cost(base_de_datos)
 
 @app.route('/api/rutas/mejores/tiempo', methods=['POST'])
 def better_time():
+    print('hola')
     return instance_method_routes.better_time(base_de_datos)
 
 @app.route('/api/rutas/mejores/distancia', methods=['POST'])
 def better_distance():
+    print('hola')
     return instance_method_routes.better_distance(base_de_datos)
 
 

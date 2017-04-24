@@ -4,8 +4,16 @@ function readRoute() {
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;
 
+<<<<<<< HEAD
          sessionStorage.setItem('origin', origin);
          sessionStorage.setItem('destination', destination);
+=======
+    localStorage["origin"]= origin;
+    localStorage["destination"]= destination;
+
+    //sessionStorage.setItem('origin', origin);
+    //sessionStorage.setItem('destination', destination);
+>>>>>>> origin/master
 
     var jsonP =
         {
@@ -26,7 +34,6 @@ function readRoute() {
              success: function (datos) {
                var routes = JSON.stringify(datos);
                  alert(routes);
-
                  window.location.href = "calculoRutas.html"
 
              }, error: function (error) {
@@ -35,6 +42,27 @@ function readRoute() {
 
          });
 
+<<<<<<< HEAD
+=======
+    sessionStorage.setItem('origin', origin);
+    sessionStorage.setItem('destination', destination);
+}
+
+/*function readRouteDistance2() {
+
+    var origin = document.getElementById("origin").value;
+    var destination = document.getElementById("destination").value;
+
+
+    var jsonP =
+        {
+            "origin": origin,
+            "destination": destination,
+        }
+
+    var data = JSON.stringify(jsonP);
+
+>>>>>>> origin/master
 
 }
 

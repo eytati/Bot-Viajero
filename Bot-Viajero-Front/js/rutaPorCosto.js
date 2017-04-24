@@ -1,7 +1,8 @@
-function readRouteDistance() {
+function readRouteCost() {
+    alert("entro");
 
-    var origin = localStorage.origin;
-    var destination = localStorage.destination;
+    localStorage["origin"]= origin;
+    localStorage["destination"]= destination;
 
     var jsonP =
         {
@@ -10,10 +11,10 @@ function readRouteDistance() {
         }
 
     var data = JSON.stringify(jsonP);
-    alert(data);
 
+    alert(data);
       $.ajax({
-             url: "http://192.168.43.26:5016/api/rutas/mejores/distancia",
+             url: "http://192.168.43.26:5016/api/rutas/mejores/transporte",
              type: "POST",
              contentType: "application/json",
              data: data,
@@ -22,7 +23,7 @@ function readRouteDistance() {
              success: function (datos) {
                var routes = JSON.stringify(datos);
                  alert(routes);
-                 window.location.href = "rutasPorDistancia.html"
+                 window.location.href = "calculoRutas.html"
 
              }, error: function (error) {
                  alert('Datos incorrectos');
