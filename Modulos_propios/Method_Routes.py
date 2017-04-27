@@ -25,19 +25,24 @@ class Use_graph:
             weight = paths["weight"]
             self.graph_information.create_edge(origin, destination, weight)
         return "Correcto"
-
+#---------------------------------------------Lista de lugares---------------------------------------------------------#
     def list_places(self):
         return jsonify({"Ciudades": self.graph_information.show_cities()})
 
-    def route_between_points(self, string_connect):
-        print('hola')
+#---------------------------------------------------Ruta mas corta-----------------------------------------------------#
+    def short_path(self):
         origin = request.json.get('origin')
-        print(origin)
         destination = request.json.get('destination')
-        print(destination)
         if origin is None or destination is None:
             return jsonify({"Error": "Faltan datos"})
+        return jsonify({"Ciudades": self.graph_information.show_short_path(origin, destination)})
 
+#--------------------------Mejores rutas segun el medio de transporte--------------------------------------------------#
+    def route_between_points(self, string_connect):
+        origin = request.json.get('origin')
+        destination = request.json.get('destination')
+        if origin is None or destination is None:
+            return jsonify({"Error": "Faltan datos"})
         best_transports = []
         json_plane = self.best_plane(string_connect, origin, destination)
         best_transports.append(json_plane)
@@ -48,7 +53,6 @@ class Use_graph:
         json_train = self.best_train(string_connect, origin, destination)
         best_transports.append(json_train)
 
-        print({"Datos": str(best_transports)})
         return jsonify({"Datos": str(best_transports)})
 
     def best_plane(self, string_connect, point_a, point_b):

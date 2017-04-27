@@ -11,7 +11,6 @@ from flask_cors import CORS
 
 #--------------------------------------------Inicio del codigo---------------------------------------------------------#
 app = Flask(__name__)
-
 CORS(app)
 
 #--------------------------------------------Para utilizar la autenticacion--------------------------------------------#
@@ -28,21 +27,28 @@ instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
 
+#-------------------------------------Carga el grafo antes del servicio------------------------------------------------#
 with app.app_context():
     print(instance_method_routes.load_nodes(base_de_datos))
     print(instance_method_routes.load_edges(base_de_datos))
 
 
-
+#--------------------------------------------Si hace un request a una ruta desconocida---------------------------------#
 @app.before_request
 def verifiqueRutas():
     uri = request.url_rule
     if uri == None:
         return jsonify("Ruta desconocida")
+
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
     return instance_method_routes.list_places()
+
+#-------------------------------------------------Rutas mas corta------------------------------------------------------#
+@app.route('/api/ruta/corta', methods=["POST"])
+def short_route():
+    return instance_method_routes.short_path()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
 @app.route('/api/rutas/mejores/transporte', methods=['POST'])
