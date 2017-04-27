@@ -106,5 +106,4 @@ def registrar_bus():
     return instance_method_transport.register_bus(base_de_datos)
 
 if __name__ == '__main__':
-    app.run(host= '192.168.43.26', port=5016)
 
