@@ -13,7 +13,7 @@ function readRouteTime() {
     alert(data);
 
       $.ajax({
-             url: "http://192.168.43.26:5016/api/rutas/mejores/tiempo",
+             url: "http://192.168.1.138:5016/api/rutas/mejores/tiempo",
              type: "POST",
              contentType: "application/json",
              data: data,

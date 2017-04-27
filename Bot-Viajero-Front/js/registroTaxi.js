@@ -31,7 +31,7 @@ function registro_Taxi() {
       var data = JSON.stringify(jsonP);
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.43.26:5016/api/registrar/ruta/taxi',
+                url: 'http://192.168.1.138::5016/api/registrar/ruta/taxi',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',

@@ -4,16 +4,16 @@ function readRoute() {
     var origin = document.getElementById("origin").value;
     var destination = document.getElementById("destination").value;
 
-<<<<<<< HEAD
+
          sessionStorage.setItem('origin', origin);
          sessionStorage.setItem('destination', destination);
-=======
+
     localStorage["origin"]= origin;
     localStorage["destination"]= destination;
 
     //sessionStorage.setItem('origin', origin);
     //sessionStorage.setItem('destination', destination);
->>>>>>> origin/master
+
 
     var jsonP =
         {
@@ -25,7 +25,7 @@ function readRoute() {
 
 
       $.ajax({
-             url: "http://192.168.43.26:5016/api/rutas/mejores/transporte",
+             url: "http://192.168.1.138::5016/api/rutas/mejores/transporte",
              type: "POST",
              contentType: "application/json",
              data: data,
@@ -42,8 +42,7 @@ function readRoute() {
 
          });
 
-<<<<<<< HEAD
-=======
+
     sessionStorage.setItem('origin', origin);
     sessionStorage.setItem('destination', destination);
 }
@@ -62,7 +61,7 @@ function readRoute() {
 
     var data = JSON.stringify(jsonP);
 
->>>>>>> origin/master
+*/
 
-}
+
 

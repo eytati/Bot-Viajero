@@ -25,7 +25,7 @@ function registro_Tren() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.43.26:5016/api/registrar/ruta/tren',
+                url: 'http://192.168.1.138::5016/api/registrar/ruta/tren',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',

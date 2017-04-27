@@ -31,7 +31,7 @@ function registro_Bus() {
       //alert(data)
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.43.26:5016/api/registrar/ruta/bus',
+                url: 'http://192.168.1.138::5016/api/registrar/ruta/bus',
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
