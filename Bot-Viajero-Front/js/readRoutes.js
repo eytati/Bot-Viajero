@@ -25,7 +25,7 @@ function readRoute() {
 
 
       $.ajax({
-             url: "http://192.168.1.138::5016/api/rutas/mejores/transporte",
+             url: "http://192.168.1.138:5016/api/rutas/mejores/transporte",
              type: "POST",
              contentType: "application/json",
              data: data,

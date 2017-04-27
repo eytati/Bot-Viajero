@@ -13,7 +13,7 @@ function readRouteDistance() {
     alert(data);
 
       $.ajax({
-             url: "http://192.168.1.138::5016/api/rutas/mejores/distancia",
+             url: "http://192.168.1.138:5016/api/rutas/mejores/distancia",
              type: "POST",
              contentType: "application/json",
              data: data,
