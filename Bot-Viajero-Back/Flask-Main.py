@@ -11,6 +11,7 @@ from flask_cors import CORS
 
 #--------------------------------------------Inicio del codigo---------------------------------------------------------#
 app = Flask(__name__)
+
 CORS(app)
 
 #--------------------------------------------Para utilizar la autenticacion--------------------------------------------#
@@ -22,11 +23,16 @@ app.config['MONGO_URI'] = 'mongodb://botViajero:bot5917@ds135800.mlab.com:35800/
 app.config.from_object(__name__)
 base_de_datos = PyMongo(app)
 
-
 #----------------------------------Instancia de la clase de los metodos de persona-------------------------------------#
 instance_method_person = Method_Person.Conexion_con_datos()
 instance_method_transport = Method_Transport.Register_transport()
 instance_method_routes = Method_Routes.Use_graph()
+
+with app.app_context():
+    print(instance_method_routes.load_nodes(base_de_datos))
+    print(instance_method_routes.load_edges(base_de_datos))
+
+
 
 @app.before_request
 def verifiqueRutas():
@@ -42,8 +48,7 @@ def index():
 @app.route('/api/rutas/mejores/transporte', methods=['POST'])
 def best_routes():
     print('hola')
-    instance_method_routes.load_nodes(base_de_datos)
-    instance_method_routes.load_edges(base_de_datos)
+
     return instance_method_routes.route_between_points(base_de_datos)
 
 @app.route('/api/rutas/mejores/costo', methods=['POST'])

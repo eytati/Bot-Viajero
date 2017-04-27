@@ -15,7 +15,7 @@ class Use_graph:
         for cities  in collections_nodes.find():
             city = cities['ciudad']
             self.graph_information.create_node(city, cities)
-        return  jsonify({"Estago": "Se agrego correctamente"})
+        return  "Correcto"
 
     def load_edges(self, string_connect):
         collections_routes = string_connect.db.Rutas
@@ -24,7 +24,7 @@ class Use_graph:
             destination = paths["b"]
             weight = paths["weight"]
             self.graph_information.create_edge(origin, destination, weight)
-        return jsonify({"Estago": "Se agrego correctamente"})
+        return "Correcto"
 
     def list_places(self):
         return jsonify({"Ciudades": self.graph_information.show_cities()})
