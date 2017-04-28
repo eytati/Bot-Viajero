@@ -11,25 +11,54 @@
       <script src="js/parseJsonRutasTransporte.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript">
-  function hola() {
+
+      function datos() {
       var DATA = localStorage.json_transport;
     alert(DATA);
     var json = JSON.parse(DATA);
     alert(json.Valores);
     var json3 = JSON.parse(json.Valores[0]);
-    var data = json3.Distancia;
+    var distancia = json3.Distancia;
+    var precio = json3.Precio;
+    var duracion = json3.Duracion;
+    var transporte= json3.Transport;
 
-  document.getElementById("avion").innerHTML = data;
+    //alert(json3.Transport);
+    //alert("3" + route3.ciudad);
+
+
+
+     document.getElementById("DistanciaTaxi").innerHTML = distancia;
+     document.getElementById("PrecioTaxi").innerHTML = precio;
+     document.getElementById("DuracionTaxi").innerHTML = duracion;
+
+   /* else if (transporte == "plane"){
+
+     document.getElementById("DistanciaPlane").innerHTML = distancia;
+     document.getElementById("PrecioPlane").innerHTML = precio;
+     document.getElementById("DuracionPlane").innerHTML = duracion;
+    }
+    else if (transporte== "train"){
+     document.getElementById("DistanciaTrain").innerHTML = distancia;
+     document.getElementById("PrecioTrain").innerHTML = precio;
+     document.getElementById("DuracionTrain").innerHTML = duracion;
+    }
+    else{
+     document.getElementById("DistanciaBus).innerHTML = distancia;
+     document.getElementById("PrecioBus").innerHTML = precio;
+     document.getElementById("DuracionBus").innerHTML = duracion;
+    }*/
+
   }
 
 </script>
 </head>
-<body onload="hola();">
+<body onload="datos();">
 
 <h2><img src="image/location-icon.png" width="100" height="100"/>Bot-Viajero
 <div align="right">
 
-  <input id="botonCerrarSesion" type="button" onclick='window.location.assign("Index.html")' value="Cerrar Sesión" />
+  <!--<input id="botonCerrarSesion" type="button" onclick='window.location.assign("Index.html")' value="Cerrar Sesión" />-->
   <script src="js/map.js"></script>
       <hr class="style2">
     <p align="left">Rutas</p>
@@ -47,13 +76,17 @@
               <table id="table1">
                 <tr>
                   <td id="PrecioAvion">Precio:</td>
-                  <td id="avion"></td>
+                  <td id="PrecioPlane"></td>
                </tr>
                 <tr>
                   <td id="DistanciaAvion">Distancia:</td>
+                    <td id="DistanciaPlane"></td>
+
                 </tr>
                 <tr>
                   <td id="DuracionAvion">Duración:</td>
+                    <td id="DuracionPlane"></td>
+
                 </tr>
               </table>
 
@@ -66,14 +99,19 @@
             <div align="center "><img src="image/bus-icon.png"></div>
               <div>
               <table>
+           <tr>
+                  <td id="PrecioB">Precio:</td>
+                  <td id="PrecioBus"></td>
+               </tr>
                 <tr>
-                  <td>Precio:</td>
+                  <td id="DistanciaB">Distancia:</td>
+                    <td id="DistanciaBus"></td>
+
                 </tr>
                 <tr>
-                  <td>Distancia:</td>
-                </tr>
-                <tr>
-                  <td>Duración:</td>
+                  <td id="DuracionB">Duración:</td>
+                    <td id="DuracionBus"></td>
+
                 </tr>
               </table>
             </div>
@@ -86,14 +124,19 @@
             <div align="center "><img src="image/train-icon.png"></div>
             <div>
               <table>
+             <tr>
+                  <td id="PrecioTren">Precio:</td>
+                  <td id="PrecioTrain"></td>
+               </tr>
                 <tr>
-                  <td>Precio:</td>
+                  <td id="DistanciaTren">Distancia:</td>
+                    <td id="DistanciaTrain"></td>
+
                 </tr>
                 <tr>
-                  <td>Distancia:</td>
-                </tr>
-                <tr>
-                  <td>Duración:</td>
+                  <td id="DuracionTren">Duración:</td>
+                    <td id="DuracionTrain"></td>
+
                 </tr>
               </table>
             </div>
@@ -106,14 +149,19 @@
             <div align="center "><img src="image/taxi-icon.png"></div>
             <div>
               <table>
+              <tr>
+                  <td id="PrecioT">Precio:</td>
+                  <td id="PrecioTaxi"></td>
+               </tr>
                 <tr>
-                  <td>Precio:</td>
+                  <td id="DistanciaT">Distancia:</td>
+                    <td id="DistanciaTaxi"></td>
+
                 </tr>
                 <tr>
-                  <td>Distancia:</td>
-                </tr>
-                <tr>
-                  <td>Duración:</td>
+                  <td id="DuracionT">Duración:</td>
+                    <td id="DuracionTaxi"></td>
+
                 </tr>
               </table>
             </div>
@@ -136,7 +184,7 @@
 </div
 ></h2>
 <div align="center">
-<button id="minibutton3" onclick="read()">Distancia</button>
+<button id="minibutton3" onclick="readRouteDistance()">Distancia</button>
 <button id="minibutton4" onclick="readRouteCost()">Costo</button>
 <button id="minibutton5" onclick="window.location.assign('rutasPorTiempo.html')">Tiempo</button>
 </div>
