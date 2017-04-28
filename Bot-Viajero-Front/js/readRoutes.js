@@ -13,7 +13,7 @@ function readRoute() {
         {
             "origin": origin,
             "destination": destination,
-        }
+        };
 
     var data = JSON.stringify(jsonP);
 
@@ -29,6 +29,7 @@ function readRoute() {
                  json_transport= JSON.stringify(data);
                  alert(json_transport);
                  localStorage["json_transport"]= json_transport;
+                 alert(json_transport.Valores);
                  window.location.href = "calculoRutas.html"
 
              }, error: function (error) {

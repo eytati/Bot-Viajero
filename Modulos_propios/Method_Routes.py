@@ -55,8 +55,8 @@ class Use_graph:
         best_transports.append(json_bus)
         json_train = self.best_train(string_connect, origin, destination)
         best_transports.append(json_train)
-        data = json.dumps({"valor": str(best_transports)})
-        return jsonify({"Valores":str(best_transports)})
+        #data= json.dumps({"Rutas":[{json_plane},{json_bus},{json_taxi},{json_train}]})
+        return jsonify({"Valores": str(best_transports)})
     def best_plane(self, string_connect, point_a, point_b):
 #---------------------------------------------------Mejor ruta de avion-------------------------------------------------#
         best_path = self.graph_information.show_routes(point_a, point_b)

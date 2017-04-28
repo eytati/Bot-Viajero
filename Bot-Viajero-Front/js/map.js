@@ -164,7 +164,8 @@ function initMap() {
 }
 
 function calculateAndDisplay(directionsService, directionsDisplay) {
-   //ejemplo
+   /*
+    //ejemplo
    var origin2= document.getElementById('origin').value;
    var destination2= document.getElementById('destination').value;
       var jsonP =
@@ -214,7 +215,7 @@ var getJson= function () {
               stopover: true
             });
           }
-        }//ejemplo
+        }//ejemplo*/
 
 
     directionsService.route({
