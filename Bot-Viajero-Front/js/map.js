@@ -167,6 +167,8 @@ function calculateAndDisplay(directionsService, directionsDisplay) {
    /*
     //ejemplo
    var origin2= document.getElementById('origin').value;
+  /* var origin2= document.getElementById('origin').value;
+>>>>>>> origin/master
    var destination2= document.getElementById('destination').value;
       var jsonP =
         {
@@ -175,58 +177,52 @@ function calculateAndDisplay(directionsService, directionsDisplay) {
         }
 
     var data = JSON.stringify(jsonP);
-//    var route= null;
-var roy;
-var getJson= function () {
-    var json3;
 
-
-         $.ajax({
+      $.ajax({
              url: "http://192.168.1.138:5016/api/ruta/corta",
              type: "POST",
              contentType: "application/json",
              data: data,
              dataType: 'json',
+          async: false,
 
-             success: function (datos) {
-               // roy2= datos;
-                 json3=datos;
-                 var routes = JSON.stringify(datos);
-                // alert(routes);
-                 window.location.href = "calculoRutas.html";
-              // var route=routes;
-                //return route;
+             success: function (data) {
+                 json_short= JSON.stringify(data);
+                 alert(json_short);
+                 localStorage["json_short"]= json_short;
+                 window.location.href = "calculoRutas.html"
 
              }, error: function (error) {
                  alert('Datos incorrectos');
              }
-
          });
-         return json3;
-}
-        //roy=roy2;
-        alert("Hola" + getJson());
-         var waypts = [];
-        var checkboxArray = document.getElementById('waypoints');
+
+      var routes= JSON.stringify(localStorage.json_short) ;
+     alert("Hola " + routes);
+
+        var waypts = [];
+        var checkboxArray = routes;
         for (var i = 0; i < checkboxArray.length; i++) {
-          if (checkboxArray.options[i].selected) {
+          if (checkboxArray[i]) {
             waypts.push({
-              location: checkboxArray[i].value,
+              location: checkboxArray["City"],
               stopover: true
             });
           }
         }//ejemplo*/
+        }
 
 
     directionsService.route({
         origin: document.getElementById('origin').value,
         destination: document.getElementById('destination').value,
-        //waypoint: wayp;
+       // waypoint: waypts,
+       // optimizeWaypoints: true,
         travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
         }
     });
-}
+
 

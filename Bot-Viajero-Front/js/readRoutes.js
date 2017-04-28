@@ -19,17 +19,16 @@ function readRoute() {
 
 
       $.ajax({
-             url: "http://192.168.1.138:5016/api/rutas/mejores/transporte",
+             url: "http://192.168.43.26:5016/api/rutas/mejores/transporte",
              type: "POST",
              contentType: "application/json",
              data: data,
              dataType: 'json',
 
-             success: function (data) {
-                 json_transport= JSON.stringify(data);
+             success: function (response) {
+                 json_transport= JSON.stringify(response);
                  alert(json_transport);
                  localStorage["json_transport"]= json_transport;
-                 alert(json_transport.Valores);
                  window.location.href = "calculoRutas.html"
 
              }, error: function (error) {

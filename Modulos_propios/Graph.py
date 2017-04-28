@@ -1,3 +1,5 @@
+import json
+
 import networkx as nx
 
 class create_graph:
@@ -23,7 +25,7 @@ class create_graph:
                 city = graph_data['ciudad']
                 latitude = graph_data['latitude']
                 longitude = graph_data['longitude']
-                json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
+                json_data = json.dumps({"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude})
                 cities.append(json_data)
         print(cities)
         return cities

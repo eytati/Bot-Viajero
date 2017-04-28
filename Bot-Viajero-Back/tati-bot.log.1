@@ -16,8 +16,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:/Users/Tatiana/Documents/GitHub/Bot-Viajero/Bot-Viajero-Back/Flask-Main.py", line 75, in best_routes
     return instance_method_routes.route_between_points(base_de_datos)
-  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 58, in route_between_points
-    data = json.dumps(best_transports)
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 55, in route_between_points
+    json_bus = self.best_bus(string_connect, origin, destination)
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 111, in best_bus
+    return json.dumps({"No disponible"})
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\json.py", line 123, in dumps
     rv = _json.dumps(obj, **kwargs)
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\__init__.py", line 238, in dumps
@@ -49,8 +51,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:/Users/Tatiana/Documents/GitHub/Bot-Viajero/Bot-Viajero-Back/Flask-Main.py", line 75, in best_routes
     return instance_method_routes.route_between_points(base_de_datos)
-  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 58, in route_between_points
-    data= json.dumps({"Rutas":[json_plane,json_bus,json_taxi,json_train]})
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 55, in route_between_points
+    json_bus = self.best_bus(string_connect, origin, destination)
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 111, in best_bus
+    return json.dumps({"No disponible"})
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\json.py", line 123, in dumps
     rv = _json.dumps(obj, **kwargs)
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\__init__.py", line 238, in dumps
@@ -82,6 +86,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "C:/Users/Tatiana/Documents/GitHub/Bot-Viajero/Bot-Viajero-Back/Flask-Main.py", line 75, in best_routes
     return instance_method_routes.route_between_points(base_de_datos)
-  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 58, in route_between_points
-    data= json.dumps({"Rutas":[{json_plane},{json_bus},{json_taxi},{json_train}]})
-TypeError: unhashable type: 'dict'
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 57, in route_between_points
+    json_train = self.best_train(string_connect, origin, destination)
+  File "C:\Users\Tatiana\Documents\GitHub\Bot-Viajero\Modulos_propios\Method_Routes.py", line 124, in best_train
+    return json.dumps({"No disponible"})
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\json.py", line 123, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\json.py", line 80, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'set' is not JSON serializable

@@ -164,7 +164,7 @@ def registrar_train():
 @app.route('/api/registrar/ruta/bus', methods=['Post'])
 @registro_auth.login_required
 def registrar_bus():
-    rquest = request['REMOTE_ADDR']
+    rquest = request.environ['REMOTE_ADDR']
     logger("Registro una ruta de bus", rquest)
     app.logger.info(str(datetime.now()) + 'Registro una ruta de bus')
     return instance_method_transport.register_bus(base_de_datos)
@@ -179,5 +179,5 @@ if __name__ == '__main__':
     handler = RotatingFileHandler('tati-bot.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
-    app.run(host= '192.168.1.138', port=5016)
+    app.run(host= '192.168.43.26', port=5016)
 

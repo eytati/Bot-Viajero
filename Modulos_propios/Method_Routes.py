@@ -30,7 +30,8 @@ class Use_graph:
         return "Correcto"
 #---------------------------------------------Lista de lugares---------------------------------------------------------#
     def list_places(self):
-        return jsonify({"Ciudades": self.graph_information.show_cities()})
+        data = json.dumps({"Ciudades": self.graph_information.show_cities()})
+        return jsonify(data)
 
 #---------------------------------------------------Ruta mas corta-----------------------------------------------------#
     def short_path(self):
@@ -55,8 +56,10 @@ class Use_graph:
         best_transports.append(json_bus)
         json_train = self.best_train(string_connect, origin, destination)
         best_transports.append(json_train)
-        #data= json.dumps({"Rutas":[{json_plane},{json_bus},{json_taxi},{json_train}]})
-        return jsonify({"Valores": str(best_transports)})
+        data= {"Valores": best_transports}
+        return jsonify(data)
+
+
     def best_plane(self, string_connect, point_a, point_b):
 #---------------------------------------------------Mejor ruta de avion-------------------------------------------------#
         best_path = self.graph_information.show_routes(point_a, point_b)
@@ -72,8 +75,8 @@ class Use_graph:
 
 #-----------------------Calculo de tiempo que utiliza la formula v=(d/t) que se despeja t=(d/v)------------------------#
                  time_plane = data['time']
-                 return  {"Transport": "plane","Precio": price, "Distancia": km_plane, "Duracion": time_plane}
-        return  {"No disponible"}
+                 return  json.dumps({"Transport": "plane","Precio": price, "Distancia": km_plane, "Duracion": time_plane},)
+        #return  json.dump({"No disponible"})
 
     def best_taxi(self, string_connect, point_a, point_b):
 #--------------------------------------------------Mejor ruta de avion-------------------------------------------------#
@@ -89,9 +92,9 @@ class Use_graph:
                 price_num = data['total_km']
                 price = km_taxi * float(int(price_num))
                 time = data['time']
-                return {"Transport": "taxi","Precio": price, "Distancia": km_taxi, "Duracion": time}
+                return json.dumps({"Transport": "taxi","Precio": price, "Distancia": km_taxi, "Duracion": time})
 
-        return {"No disponible"}
+        #return json.dumps({"No disponible"})
 
     def best_bus(self, string_connect, point_a, point_b):
         best_path = self.graph_information.show_routes(point_a, point_b)
@@ -103,9 +106,9 @@ class Use_graph:
                 km = self.distance(point_a, point_b,path)
                 price = data['total']
                 time_bus = data['time']
-                return {"Transport": "bus","Precio": price, "Distancia": km, "Duracion": time_bus}
+                return json.dumps({"Transport": "bus","Precio": price, "Distancia": km, "Duracion": time_bus})
 
-        return {"No disponible"}
+        #return json.dumps({"No disponible"})
 
     def best_train(self, string_connect, point_a, point_b):
 
@@ -117,8 +120,8 @@ class Use_graph:
                 path = int(price['path'])
                 km_train = self.distance(point_a, point_b, path)
                 time_train = price['time']
-                return {"Transport": "train", "Precio": price, "Distancia": km_train, "Duracion": time_train, "Camino": str(path)}
-        return {"No disponible"}
+                return json.dumps({"Transport": "train", "Precio": price, "Distancia": km_train, "Duracion": time_train, "Camino": str(path)})
+       # return json.dumps({"No disponible"})
 
 
     def best_cost(self, string_connection):

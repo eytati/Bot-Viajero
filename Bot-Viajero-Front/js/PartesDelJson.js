@@ -5,6 +5,9 @@ function read()
     alert(DATA);
     var json = JSON.parse(DATA);
     alert(json.Valores);
+    var json_2 = json.Valores[1].Distancia;
+    alert(json_2);
+
     //var  juan = JSON.parse(json);
     //alert(juan.Transport[0]);
     //for (var i = 0; i < DATA.length; i++) {
