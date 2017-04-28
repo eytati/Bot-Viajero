@@ -1,5 +1,8 @@
+from flask import Response
+from flask import json
 from flask import jsonify
 from flask import request
+
 
 from Modulos_propios import Method_Transport, Sort_Json
 
@@ -43,7 +46,7 @@ class Use_graph:
         destination = request.json.get('destination')
         if origin is None or destination is None:
             return jsonify({"Error": "Faltan datos"})
-        best_transports = []
+        best_transports =[]
         json_plane = self.best_plane(string_connect, origin, destination)
         best_transports.append(json_plane)
         json_taxi = self.best_taxi(string_connect, origin, destination)
@@ -52,9 +55,8 @@ class Use_graph:
         best_transports.append(json_bus)
         json_train = self.best_train(string_connect, origin, destination)
         best_transports.append(json_train)
-
-        return jsonify({"Datos": str(best_transports)})
-
+        data = json.dumps({"Data": str(best_transports)})
+        return jsonify(data)
     def best_plane(self, string_connect, point_a, point_b):
 #---------------------------------------------------Mejor ruta de avion-------------------------------------------------#
         best_path = self.graph_information.show_routes(point_a, point_b)
@@ -70,7 +72,7 @@ class Use_graph:
 
 #-----------------------Calculo de tiempo que utiliza la formula v=(d/t) que se despeja t=(d/v)------------------------#
                  time_plane = data['time']
-                 return  {"Precio": price, "Distancia": km_plane, "Duracion": time_plane}
+                 return  {"Transport": "plane","Precio": price, "Distancia": km_plane, "Duracion": time_plane}
         return  {"No disponible"}
 
     def best_taxi(self, string_connect, point_a, point_b):
@@ -87,7 +89,7 @@ class Use_graph:
                 price_num = data['total_km']
                 price = km_taxi * float(int(price_num))
                 time = data['time']
-                return {"Precio": price, "Distancia": km_taxi, "Duracion": time}
+                return {"Transport": "taxi","Precio": price, "Distancia": km_taxi, "Duracion": time}
 
         return {"No disponible"}
 
@@ -101,7 +103,7 @@ class Use_graph:
                 km = self.distance(point_a, point_b,path)
                 price = data['total']
                 time_bus = data['time']
-                return {"Precio": price, "Distancia": km, "Duracion": time_bus}
+                return {"Transport": "bus","Precio": price, "Distancia": km, "Duracion": time_bus}
 
         return {"No disponible"}
 
@@ -115,8 +117,7 @@ class Use_graph:
                 path = int(price['path'])
                 km_train = self.distance(point_a, point_b, path)
                 time_train = price['time']
-                return {"Precio": price, "Distancia": km_train, "Duracion": time_train, "Camino": str(path)}
-
+                return {"Transport": "train", "Precio": price, "Distancia": km_train, "Duracion": time_train, "Camino": str(path)}
         return {"No disponible"}
 
 
@@ -156,7 +157,7 @@ class Use_graph:
 
         array_time = self.method_transport.transport_data(string_connection, arrival, departure)
         sort_array = self.sort_data.sort_list(array_time, 'time')
-        best = []
+        best = {}
 
         for counter in range(0, 5):
             if counter <= len(sort_array):
@@ -170,9 +171,9 @@ class Use_graph:
                     "distance": distance,
                     "costo": sort_array[counter].get('total'),
                     "time": sort_array[counter].get('time')}
-                best.append(json)
+                best=(json)
             else:
-                best.append({"No disponible"})
+                best=({"No disponible"})
         return jsonify(str(best))
 
     def better_distance(self, string_connection):

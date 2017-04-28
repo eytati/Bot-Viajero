@@ -2,12 +2,14 @@ function readRouteDistance() {
 
     var origin = localStorage.origin;
     var destination = localStorage.destination;
+    var jsondata = localStorage.json_transport;
 
     var jsonP =
         {
             "origin": origin,
             "destination": destination,
-        }
+            "json": jsondata
+        };
 
     var data = JSON.stringify(jsonP);
     alert(data);
@@ -20,7 +22,7 @@ function readRouteDistance() {
              dataType: 'json',
 
              success: function (datos) {
-               var routes = JSON.stringify(datos);
+               var routes = JSON.parse(datos);
                  alert(routes);
                  window.location.href = "rutasPorDistancia.html"
 
