@@ -27,12 +27,11 @@ class create_graph:
                 longitude = graph_data['longitude']
                 json_data = json.dumps({"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude})
                 cities.append(json_data)
-        print(cities)
         return cities
 
     def show_short_path(self, source, target):
             path = nx.shortest_path(self.grafo, source, target)
-            new_path = ''
+            new_path = []
             for node in range(len(path)):
                 data = self.grafo.node[path[node]]
                 if not data == {}:
@@ -44,7 +43,8 @@ class create_graph:
                     json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
                     large_path.append(json_data)
                     '''
-                    new_path = new_path + city +','
+                    datos = json.dumps({"ciudad": city})
+                    new_path.append(datos)
             print(new_path)
             return new_path
 

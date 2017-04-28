@@ -30,8 +30,7 @@ class Use_graph:
         return "Correcto"
 #---------------------------------------------Lista de lugares---------------------------------------------------------#
     def list_places(self):
-        data = json.dumps({"Ciudades": self.graph_information.show_cities()})
-        return jsonify(data)
+        return jsonify(self.graph_information.show_cities())
 
 #---------------------------------------------------Ruta mas corta-----------------------------------------------------#
     def short_path(self):
