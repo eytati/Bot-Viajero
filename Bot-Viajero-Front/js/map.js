@@ -164,10 +164,63 @@ function initMap() {
 }
 
 function calculateAndDisplay(directionsService, directionsDisplay) {
+   //ejemplo
+   var origin2= document.getElementById('origin').value;
+   var destination2= document.getElementById('destination').value;
+      var jsonP =
+        {
+            "origin": origin2,
+            "destination": destination2,
+        }
+
+    var data = JSON.stringify(jsonP);
+//    var route= null;
+var roy;
+var getJson= function () {
+    var json3;
+
+
+         $.ajax({
+             url: "http://192.168.1.138:5016/api/ruta/corta",
+             type: "POST",
+             contentType: "application/json",
+             data: data,
+             dataType: 'json',
+
+             success: function (datos) {
+               // roy2= datos;
+                 json3=datos;
+                 var routes = JSON.stringify(datos);
+                // alert(routes);
+                 window.location.href = "calculoRutas.html";
+              // var route=routes;
+                //return route;
+
+             }, error: function (error) {
+                 alert('Datos incorrectos');
+             }
+
+         });
+         return json3;
+}
+        //roy=roy2;
+        alert("Hola" + getJson());
+         var waypts = [];
+        var checkboxArray = document.getElementById('waypoints');
+        for (var i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray.options[i].selected) {
+            waypts.push({
+              location: checkboxArray[i].value,
+              stopover: true
+            });
+          }
+        }//ejemplo
+
+
     directionsService.route({
         origin: document.getElementById('origin').value,
         destination: document.getElementById('destination').value,
-
+        //waypoint: wayp;
         travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
