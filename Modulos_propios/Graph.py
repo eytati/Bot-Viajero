@@ -29,19 +29,22 @@ class create_graph:
         return cities
 
     def show_short_path(self, source, target):
-            large_path= []
             path = nx.shortest_path(self.grafo, source, target)
+            new_path = ''
             for node in range(len(path)):
                 data = self.grafo.node[path[node]]
                 if not data == {}:
-                    id = data['id']
-                    city = data['ciudad']
+                    #id = data['id']
+                    city = str(data['ciudad'])
+                    '''
                     latitude =data['latitude']
                     longitude = data['longitude']
                     json_data = {"Id": id, "Ciudad": city, "Latitud": latitude, "Longitud": longitude}
                     large_path.append(json_data)
-            print(large_path)
-            return large_path
+                    '''
+                    new_path = new_path + city +','
+            print(new_path)
+            return new_path
 
     def show_routes(self, source, target):
         exists = nx.has_path(self.grafo,  source, target)

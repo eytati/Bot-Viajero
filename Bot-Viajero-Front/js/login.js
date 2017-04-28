@@ -20,18 +20,14 @@ function login() {
              contentType: "application/json",
              data: jsonP,
              dataType: 'json',
-            // header:
-              // {
-	           //'authorization': "Basic " + btoa(username + ":" +password),
-	           //contentType: "application/json"
-	        //},
+
          beforeSend: function (xhr) {
          xhr.setRequestHeader("Authorization", "Basic "
               + btoa(username + ":" + password));
          },
              success: function (datos) {
-                 alert(datos)
-                 sessionStorage.setItem('user_token', datos);
+                 alert(datos);
+                 localStorage["user_token"] = datos;
                  sessionStorage.setItem('user_name', username);
                  sessionStorage.setItem('password', password);
                  window.location.href = "Index.html"

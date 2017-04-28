@@ -1,4 +1,4 @@
-var tokenTest = sessionStorage.getItem("tokenTest");
+
 function registro_Taxi() {
 
 
@@ -12,7 +12,8 @@ function registro_Taxi() {
     var total = document.getElementById("total").value;
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("arrive_time").value;
-
+    var User_token = localStorage.user_token;
+    var User_name = sessionStorage.getItem('user_name');
 
        var jsonP=
            {"company": company,
@@ -26,8 +27,7 @@ function registro_Taxi() {
             "departure_time": departure_time,
             "arrival_time": arrival_time
 
-           }      //alert(jsonP)
-
+           } ;
       var data = JSON.stringify(jsonP);
             $.ajax({
                 type: 'POST',
@@ -35,17 +35,17 @@ function registro_Taxi() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-                //beforeSend: function (xhr,) {
-                   // xhr.setRequestHeader("Authorization", "Basic "
-                 //       + btoa(tokenTest + ":" + password));
-               // },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(User_token + ":" + User_name));
+                },
                 success : function(result) {
 
-                   alert("Regisrado con éxito")
+                   alert("Regisrado con éxito");
                  window.location.href="Index.html"
-
-    },           error: function(error){
-                 alert(error);
+                },
+                error: function(error){
+                alert(error);
 }
             })
         }

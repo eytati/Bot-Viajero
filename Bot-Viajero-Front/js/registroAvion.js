@@ -7,7 +7,7 @@ function registro_Avion() {
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("arrive_time").value;
     var total = document.getElementById("total").value;
-    var User_token = sessionStorage.getItem('user_token');
+    var User_token = localStorage.user_token;
     var User_name = sessionStorage.getItem('user_name');
     var Password = sessionStorage.getItem("password");
 
@@ -22,31 +22,29 @@ function registro_Avion() {
             "arrival_time": arrival_time,
             "total": total
 
-           }
+           };
 
      var data = JSON.stringify(jsonP);
+             alert(User_token);
             $.ajax({
-               async: true,
-       crossDomain: true,
+               //async: true,
+                crossDomain: true,
                 type: 'POST',
                 url: 'http://192.168.1.138:5016/api/registrar/ruta/avion',
                 contentType:"application/json",
                 data: data,
-
                 dataType: 'json',
-
                 beforeSend: function (xhr) {
-                 xhr.setRequestHeader("Authorization", "Basic "
-                   + btoa(User_token + ":" + User_name));
-             },
-
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(User_token + ":" + User_name));
+                },
 
               //beforeSend: function (xhr) {
               //   xhr.setRequestHeader("Authorization", "Basic "
                     // + btoa(User_token + ":" + ""));
             // },
 
-                success : function(datos, e) {
+                success: function(datos, e) {
 
                     alert("Registrado con éxito");
 

@@ -1,4 +1,3 @@
-var tokenTest = sessionStorage.getItem("tokenTest");
 
 function registro_Tren() {
 
@@ -9,6 +8,8 @@ function registro_Tren() {
     var departure_time = document.getElementById("departure_time").value;
     var arrival_time = document.getElementById("arrival_time").value;
     var total = document.getElementById("total").value;
+    var  User_token = localStorage.user_token;
+    var User_name = sessionStorage.getItem('user_name');
 
        var jsonP=
            {"company": company,
@@ -29,13 +30,11 @@ function registro_Tren() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-
-                //beforeSend: function (xhr,) {
-                   // xhr.setRequestHeader("Authorization", "Basic "
-                 //       + btoa(tokenTest + ":" + password));
-               // },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(User_token + ":" + User_name));
+                },
                 success : function(result) {
-                  //  sessionStorage.setItem("token", datos['token']);
                    alert("Regisrado con éxito");
                  window.location.href="Index.html"
 

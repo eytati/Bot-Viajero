@@ -1,8 +1,11 @@
+from datetime import datetime
+
 from flask import Response
 from flask import abort, jsonify
 from flask import json
 from flask import request
-
+import logging
+from logging.handlers import RotatingFileHandler
 from Modulos_propios import Method_Person, Method_Transport, Method_Routes
 from flask import Flask
 from flask.ext.pymongo import PyMongo
@@ -38,44 +41,51 @@ with app.app_context():
 def verifiqueRutas():
     uri = request.url_rule
     if uri == None:
+        app.logger.info(str(datetime.now()) + "Intento acceder a ruta desconocida")
         return jsonify("Ruta desconocida")
 
 #--------------------------------------------Prueba de requerimiento de usuario----------------------------------------#
 @app.route('/api/ciudades', methods=["GET"])
 def index():
+    app.logger.info(str(datetime.now()) + "Se regitro nuevo usuario")
     return instance_method_routes.list_places()
 
 #-------------------------------------------------Rutas mas corta------------------------------------------------------#
 @app.route('/api/ruta/corta', methods=["POST"])
 def short_route():
+    app.logger.info(str(datetime.now()) + "Solicito ruta mas corta")
     return instance_method_routes.short_path()
 
 #-----------------------------------------------------Rutas del grafo--------------------------------------------------#
 @app.route('/api/rutas/mejores/transporte', methods=['POST'])
 def best_routes():
     print('hola')
-
+    app.logger.info(str(datetime.now()) + "Mejor ruta segun el transporte")
     return instance_method_routes.route_between_points(base_de_datos)
 
 @app.route('/api/rutas/mejores/costo', methods=['POST'])
 def better_cost():
     print('hola')
+    app.logger.info(str(datetime.now()) + "Solicito las rutas mas corta en terminos de costo")
     return instance_method_routes.best_cost(base_de_datos)
 
 @app.route('/api/rutas/mejores/tiempo', methods=['POST'])
 def better_time():
     print('hola')
+    app.logger.info(str(datetime.now()) + "Solicito las rutas mas corta en terminos de tiempo")
     return instance_method_routes.better_time(base_de_datos)
 
 @app.route('/api/rutas/mejores/distancia', methods=['POST'])
 def better_distance():
     print('hola')
+    app.logger.info(str(datetime.now()) + "Solicito las rutas mas corta en terminos de distancia")
     return instance_method_routes.better_distance(base_de_datos)
 
 
 #---------------------------------------------Registro en la base de datos---------------------------------------------#
 @app.route('/api/registrar/persona', methods = ['POST'])
 def create_user():
+    app.logger.info(str(datetime.now()) + "Se registro nuevo usuario")
     return instance_method_person.create_user(base_de_datos)
 
 #------------------------------------------------Inicio de sesion------------------------------------------------------#
@@ -94,28 +104,42 @@ def verify_password(user_token, password):
     if not respuesta is True:
         valor = instance_method_person.verify_token(base_de_datos, user_token)
         if valor is True:
+            app.logger.info(str(datetime.now()) + "Se autentico como" + user_token)
             return user_token
+        app.logger.info(str(datetime.now()) + "Se denego acceso" + user_token)
         return abort(400)
+    app.logger.info(str(datetime.now()) + "Se autentico como" + user_token)
     return user_token
 
 #------------------------------------------------Registro de rutas-----------------------------------------------------#
 
 @app.route('/api/registrar/ruta/avion', methods=['Post'])
+@registro_auth.login_required
 def registrar_plane():
+    app.logger.info(str(datetime.now()) + 'Registro una ruta de avion')
     return instance_method_transport.register_plane(base_de_datos)
 
 @app.route('/api/registrar/ruta/taxi', methods=['Post'])
+@registro_auth.login_required
 def registrar_taxi():
+    app.logger.info(str(datetime.now()) + 'Registro una ruta de taxi')
     return instance_method_transport.register_taxi(base_de_datos)
 
 @app.route('/api/registrar/ruta/tren', methods=['Post'])
+@registro_auth.login_required
 def registrar_train():
+    app.logger.info(str(datetime.now()) + 'Registro una ruta de tren')
     return instance_method_transport.register_train(base_de_datos)
 
 @app.route('/api/registrar/ruta/bus', methods=['Post'])
+@registro_auth.login_required
 def registrar_bus():
+    app.logger.info(str(datetime.now()) + 'Registro una ruta de bus')
     return instance_method_transport.register_bus(base_de_datos)
 
 if __name__ == '__main__':
+    handler = RotatingFileHandler('tati-bot.log', maxBytes=10000, backupCount=1)
+    handler.setLevel(logging.INFO)
+    app.logger.addHandler(handler)
     app.run(host= '192.168.1.138', port=5016)
 

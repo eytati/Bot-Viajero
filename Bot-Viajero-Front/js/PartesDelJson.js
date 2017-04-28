@@ -1,12 +1,25 @@
 function read()
 {
 
-    DATA = JSON.parse(localStorage.json_transport) ;
+    var DATA = localStorage.json_transport;
     alert(DATA);
-    $.getJSON('jsondata', function(data){
-        alert(data.result);
-        $.each(data.Ciudades, function(key, val){
-            alert(val.result)
-        });
-      });
+    var json = JSON.parse(DATA);
+    alert(json.Valores);
+    //var  juan = JSON.parse(json);
+    //alert(juan.Transport[0]);
+    //for (var i = 0; i < DATA.length; i++) {
+
+    //alert(DATA.Valores[0].Transport);
+    //}
+    //alert(DATA);
+    // $.each(DATA,function(key, val){
+      //  alert(val.Transport);
+//      });
+
+
+    //alert(DATA);
+    //alert(DATA[1].Valores);
+
+
+  // alert(obj.Data);
 }

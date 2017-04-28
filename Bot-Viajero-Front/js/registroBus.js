@@ -1,5 +1,3 @@
-var tokenTest = sessionStorage.getItem("tokenTest");
-
 
 function registro_Bus() {
     var company = document.getElementById("company").value;
@@ -11,6 +9,8 @@ function registro_Bus() {
     var departure_time= document.getElementById("departure_time").value;
     var arrival_time= document.getElementById("arrival_time").value;
     var total = document.getElementById("total").value;
+    var User_token = localStorage.user_token;
+    var User_name = sessionStorage.getItem('user_name');
 
 
        var jsonP=
@@ -25,7 +25,7 @@ function registro_Bus() {
            "arrival_time":arrival_time,
            "total": total
 
-           }
+           };
 
      var data = JSON.stringify(jsonP);
       //alert(data)
@@ -35,16 +35,16 @@ function registro_Bus() {
                 contentType:"application/json",
                 data: data,
                 dataType: 'json',
-                 //beforeSend: function (header,) {
-                   // xhr.setRequestHeader("Authorization", "Basic "
-                     //   + btoa(tokenTest + ":" + password));
-                //},
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Basic "
+                        + btoa(User_token + ":" + User_name));
+                },
                 success : function(result) {
-                    alert("Regisrado con éxito")
+                    alert("Regisrado con éxito");
                  window.location.href="Index.html"
 
     },           error: function(error){
-                 alert(error);
+                 alert("Error");
 }
             })
         }
