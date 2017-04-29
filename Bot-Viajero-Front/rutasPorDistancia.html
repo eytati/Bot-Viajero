@@ -8,10 +8,44 @@
     <title>Clasificacion por Distacia</title>
         <script src="js/rutaPorDistancia.js"></script>
         <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+  function data_distance() {
+      var DATA = localStorage.rutasDeDistancia;
+      var json = JSON.parse(DATA);
+      alert(DATA);
+      var counter = 2;
+      var json3 = (json.Valores[0]);
+      alert("3"+json3);
+      var json1_data = json3.parse(json3);
+      alert(json1_data.costo);
 
+      document.getElementById("origin2").innerHTML = json_data.origin;
+
+
+      for (var i = 0; i < json.Valores.length; i++)
+
+        //if(json_data!= null) {
+            document.getElementById("origin2").innerHTML = json_data.origin;
+        //}
+
+
+        alert(json_data);
+
+
+
+              //company
+              //costo
+              //destination
+              //distance
+              //
+              //time
+       document.getElementById("avion").innerHTML = data;
+  }
+
+</script>
 
 </head>
-<body>
+<body onload="data_distance();">
 <h2><img src="image/location-icon.png" width="100" height="100"/>Bot-Viajero
 <div align="right">
 

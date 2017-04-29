@@ -159,24 +159,24 @@ class Use_graph:
 
         array_time = self.method_transport.transport_data(string_connection, arrival, departure)
         sort_array = self.sort_data.sort_list(array_time, 'time')
-        best = {}
+        best = []
 
         for counter in range(0, 5):
             if counter <= len(sort_array):
                 path = sort_array[counter].get('path')
                 distance = self.distance(arrival, departure, path)
-
-                json = {
+                json_fill = json.dumps({
                     "origin": sort_array[counter].get('origin'),
                     "destination": sort_array[counter].get('destination'),
                     "company": sort_array[counter].get('company'),
                     "distance": distance,
                     "costo": sort_array[counter].get('total'),
-                    "time": sort_array[counter].get('time')}
-                best=(json)
+                    "time": sort_array[counter].get('time')})
+                best.append(json_fill)
             else:
                 best=({"No disponible"})
-        return jsonify(str(best))
+            data = {"Valores": best}
+            return jsonify(data)
 
     def better_distance(self, string_connection):
         arrival = request.json.get('origin')
@@ -190,8 +190,8 @@ class Use_graph:
             sort_array = self.sort_data.sort_list(array_all_routes, 'Distancia')
             transport_array = self.method_transport.transport_data(string_connection, arrival, departure)
             datos =self.sort_distance_data(sort_array, transport_array)
-
-            return  jsonify({"Rutas": str(datos)})
+            data = {"Valores": datos}
+            return  jsonify(data)
         return jsonify({"Estado": "No hay rutas"})
 
 
@@ -203,15 +203,15 @@ class Use_graph:
                 for counter_transport in range(len(transport_array)):
                     valor =  transport_array[counter_transport].get('path')
                     if number == valor:
-                        json = {
+                        json_fil = json.dumps({
                             "origin": transport_array[counter_transport].get('origin'),
                             "destination":transport_array[counter_transport].get('destination'),
                             "company": transport_array[counter_transport].get('company'),
                             "distance": sort_array[counter].get('Distancia'),
                             "costo": transport_array[counter_transport].get('total'),
                             "time": transport_array[counter_transport].get('time')
-                        }
-                        best.append(json)
+                        })
+                        best.append(json_fil)
             if len(best) <=4 :
                 best.append({"No disponible"})
         return best
