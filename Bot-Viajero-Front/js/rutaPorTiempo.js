@@ -1,7 +1,7 @@
 function readRouteTime() {
 
-    var origin = sessionStorage.getItem('origin');
-    var destination = sessionStorage.getItem('destination');
+    var origin = localStorage.getItem('origin');
+    var destination = localStorage.getItem('destination');
 
     var jsonP =
         {
@@ -22,7 +22,7 @@ function readRouteTime() {
              success: function (datos) {
                var routes = JSON.stringify(datos);
                  alert(routes);
-                 window.location.href = "rutasPorDistancia.html"
+                 window.location.href = "rutasPorTiempo.html"
 
              }, error: function (error) {
                  alert('Datos incorrectos');

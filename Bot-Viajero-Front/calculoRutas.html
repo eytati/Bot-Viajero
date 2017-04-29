@@ -7,13 +7,15 @@
     <title>Calculo de Rutas</title>
       <script src="js/rutaPorDistancia.js"></script>
       <script src="js/rutaPorCosto.js"></script>
+    <script src="js/rutaPorTiempo.js"></script>
       <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/parseJsonRutasTransporte.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript">
 
       function datos() {
-      var DATA = localStorage.json_transport;
+
+    var DATA = localStorage.json_transport;
     alert(DATA);
     var json = JSON.parse(DATA);
     alert(json.Valores);
@@ -25,8 +27,6 @@
 
     //alert(json3.Transport);
     //alert("3" + route3.ciudad);
-
-
 
      document.getElementById("DistanciaTaxi").innerHTML = distancia;
      document.getElementById("PrecioTaxi").innerHTML = precio;
@@ -186,7 +186,7 @@
 <div align="center">
 <button id="minibutton3" onclick="readRouteDistance()">Distancia</button>
 <button id="minibutton4" onclick="readRouteCost()">Costo</button>
-<button id="minibutton5" onclick="window.location.assign('rutasPorTiempo.html')">Tiempo</button>
+<button id="minibutton5" onclick="readRouteTime()">Tiempo</button>
 </div>
 
 <div class="news-story"></div>

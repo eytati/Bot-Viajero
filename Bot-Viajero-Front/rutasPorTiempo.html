@@ -5,14 +5,57 @@
     <meta charset="UTF-8">
       <link rel="stylesheet" href="css/bootstrap.css"/>
         <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-
+    <script src="js/rutaPorTiempo.js"></script>
 
     <title>Clasificacion por Tiempo</title>
+      <script type="text/javascript">
+
+      function datosT() {
+      var DATA = localStorage.json_transport;
+      var destination=localStorage.destination;
+      var origin= localStorage.origin;
+
+   // alert(DATA);
+    var json = JSON.parse(DATA);
+    alert(json.Valores);
+    var json3 = JSON.parse(json.Valores[0]);
+    var distancia = json3.Distancia;
+    var precio = json3.Precio;
+    var duracion = json3.Duracion;
+    var transporte= json3.Transport;
+
+
+    // document.getElementById("nada").innerHTML = JSON.stringify(json.Valores[0]);
+     document.getElementById("origin2").innerHTML = origin;
+     document.getElementById("destination2").innerHTML = destination;
+     document.getElementById("distance2").innerHTML = distancia;
+     document.getElementById("cost2").innerHTML = precio;
+     document.getElementById("time2").innerHTML = duracion;
+
+   /* else if (transporte == "plane"){
+
+     document.getElementById("DistanciaPlane").innerHTML = distancia;
+     document.getElementById("PrecioPlane").innerHTML = precio;
+     document.getElementById("DuracionPlane").innerHTML = duracion;
+    }
+    else if (transporte== "train"){
+     document.getElementById("DistanciaTrain").innerHTML = distancia;
+     document.getElementById("PrecioTrain").innerHTML = precio;
+     document.getElementById("DuracionTrain").innerHTML = duracion;
+    }
+    else{
+     document.getElementById("DistanciaBus).innerHTML = distancia;
+     document.getElementById("PrecioBus").innerHTML = precio;
+     document.getElementById("DuracionBus").innerHTML = duracion;
+    }*/
+
+  }
+
+</script>
 </head>
-<body>
+<body onload="datosT();">
 <h2><img src="image/location-icon.png" width="100" height="100"/>Bot-Viajero
 <div align="right">
-
   <input id="botonCerrarSesion" type="button" onclick='window.location.assign("Index.html")' value="Regresar" />
   <script src="js/map.js"></script>
       <hr class="style2">
@@ -25,6 +68,7 @@
     <table BORDER="2">
 
 <tr>
+    <p id="nada"></p>
        <th class="th2">Ruta</th>
    <th class="th2" id="origin">Origen</th>
    <th class="th2" id="destination">Destino</th>
@@ -38,8 +82,8 @@
    <th class="th2">1</th>
    <td id="origin2"></td>
    <td id="destination2"></td>
-   <td id="distance2"></td>
-   <td id="company2"></td>
+    <td id="company2"></td>
+    <td id="distance2"></td>
    <td id="cost2"></td>
    <td id="time2"></td>
 </tr>
